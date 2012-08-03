@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>A guide to the Happy theme</title>
+
+<style type="text/css">body{width:750px;margin:36px auto 60px auto;font:16px/25px Georgia,Times,'Times New Roman',serif}a:link,a:visited{color:#2f6eb9;text-decoration:none}a:hover,a:active{text-decoration:underline}h1,h2,h3,h4,h5,h6{margin:40px 0 30px 0;color:#000;font-weight:bold;font-family:Arial,sans-serif}h1{margin-top:80px;font-size:2.2em}code{padding:0 3px;background:#eee}pre code{padding:0}pre{padding:9px;background:#eee;border:1px solid #ccc}ul{list-style:square}p.first{font-size:21px}p.second{font-size:15px}ul.space li{margin-bottom:10px}.section{overflow:hidden}.columns-2{float:left;width:350px;margin:0 0 21px 25px}.columns-3{float:left;width:230px;margin:0 0 21px 20px}</style>
+
+</head>
+<body>
+
+<h1>Happy WordPress theme</h1>
+
+<p class="first"><em>Happy</em> is a parent theme developed as a starting point for business websites.  Its primary goal is to get an Infomedia dev site up and running without a lot of hassle and allow you to make quick customizations.</p>
+
+<p class="second">This theme is a parent theme.  What this means is that to customize it, you should be creating a child theme.  <em>Is it a theme framework?</em>  Some people might call it that.  All you need to know is that it's a solid, yet flexible, starting point for any website.</p>
+
+<h2>Features</h2>
+
+<p><em>Happy</em> is built from the rock-solid <a href="http://themehybrid.com/hybrid-core" title="Hybrid Core theme framework">Hybrid Core</a> theme framework, so it provides a great starting point with many useful features.</p>
+
+<ul>
+	<li>Per-post layouts that allow you to quickly change the layout of your site.</li>
+	<li>Post setting that allows you to add a custom stylesheet for individual posts.</li>
+	<li>A smart breadcrumb menu that handles tons of permalink setups.</li>
+	<li>Built-in pagination for your home, archive, and search pages.</li>
+	<li>Post thumbnails that work with WordPress' featured image functionality and provide extra features.</li>
+	<li>Multiple sidebars that you can customize however you like.</li>
+	<li>Dynamic global, post, and comment <acronym title="Cascading Style Sheets">CSS</acronym> classes.</li>
+	<li>Fully localized, so you can run the theme in any language.</li>
+	<li>Uses the built-in WordPress menu system. No need to hack your navigation into place.</li>
+	<li>Context-aware action and filter hooks, so you don't have to learn WordPress conditional tags.</li>
+	<li>Some of the most-used filter hooks are shortcode-ready and have accompanying shortcodes.</li>
+	<li>Theme settings page that allows you to add custom meta boxes and settings.</li>
+	<li>A redefined template hierarchy that makes larger sites easier to design for.</li>
+	<li>Ability to create custom templates for any post type in multiple ways.</li>
+	<li>Easily add post-specific settings and not make users learn how to use custom fields.</li>
+	<li>Highly-configurable widgets that give you full control over their display.</li>
+	<li>Widget areas are content-aware, meaning that they only appear if they contain active widgets.</li>
+	<li>And much, much more!</li>
+</ul>
+
+<h2>Child themes</h2>
+
+<p>Since <em>Happy</em> is a parent theme, you'll want to create a child theme if you plan on making any customizations.  <em>Don't know how to make a child theme?</em>  It's relatively simple.  Just follow the below steps.</p>
+
+<ul>
+	<li>Create a theme folder in your <code>/wp-content/themes</code> directory called <code>happy-child</code>.</li>
+	<li>Then, create a <code>style.css</code> file within your theme folder.</li>
+	<li>At the top of your <code>style.css</code> file, add the below information.</li>
+</ul>
+
+<pre><code>/**
+ * Theme Name: Happy Child
+ * Theme URI: http://link-to-your-site.com
+ * Description: Describe what your theme should be like.
+ * Version: 0.1
+ * Author: Your Name
+ * Author URI: http://link-to-your-site.com
+ * Tags: Add, Whatever, Tags, You, Want
+ * Template: happy
+ */</code></pre>
+
+<p>This will give you a blank design.  If you want to import the <em>Happy</em> parent theme style, simply append this code after the above information:</p>
+
+<pre><code>@import url( '../happy/style.css' );
+
+/* Custom code goes below here. */</code></pre>
+
+<p>Note that child themes are now the officially-supported way of modifying themes in WordPress.</p>
+
+<h2>Theme support</h2>
+
+<p>Support for the <em>Happy</em> theme is not offered on the WordPress support forums.  There is a community called <a href="http://themehybrid.com" title="Theme Hybrid">Theme Hybrid</a> where support is offered for this theme.  You are encouraged to sign up to the site to use its support forums and become a part of the community.</p>
+<p>Alternatively, you can contact Infomedia support for any site specific requests.</p>
+
+<h2>Copyright &amp; license</h2>
+
+<p><em>Happy</em> is licensed under the <a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html" title="GNU GPL">GNU General Public License</a>, version 2 (<acronym title="GNU General Public License">GPL</acronym>).</p>
+
+<p>This theme is copyrighted to <a href="http://krogsgard.com" title="Brian Krogsgard">Brian Krogsgard</a> and <a href="http://justintadlock.com" title="Justin Tadlock">Justin Tadlock,</a> as many of the base templates and goals of this theme are based off of his work.</p>
+
+<p>2010&thinsp;&ndash;&thinsp;2011 &copy; Brian Krogsgard.  All rights reserved.</p>
+
+</body>
+</html>

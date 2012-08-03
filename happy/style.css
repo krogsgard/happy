@@ -1,0 +1,18 @@
+/**
+ * Theme Name: Happy
+ * Theme URI: http://infomedia.com
+ * Description: A responsive base theme by Infomedia.  This is a parent theme.
+ * Version: 1.0 
+ * Author: Brian Krogsgard
+ * Styling 2.0: Brad Davis
+ * Author URI: http://infomedia.com
+ * Tags: theme-options, threaded-comments, microformats, translation-ready, rtl-language-support, one-column, two-columns, three-columns, fixed-width
+ * License: GNU General Public License v2.0
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Copyright (c) 2011 Brian Krogsgard.  All rights reserved.
+ * http://krogsgard.com
+ */
+
+/* Importing the dev stylesheet for now. */
+@import url( 'style.dev.css' );

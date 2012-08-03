@@ -1,0 +1,1366 @@
+/**
+ * Development stylesheet.  Use this file for development purposes by adding this to your 'wp-config.php' file:
+ * define( 'SCRIPT_DEBUG', true );
+ * This allows you to build large-sized stylesheets with plenty notes and comments. Before releasing, compress
+ * this file and replace the compressed CSS in the 'style.css' file.
+ * @link http://www.cssdrive.com/index.php/main/csscompressor
+ */
+
+
+Resetting and rebuilding styles have been helped along thanks to the fine work of
+Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
+along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+and Blueprint http://www.blueprintcss.org/
+*/
+
+
+/* =Reset
+-------------------------------------------------------------- */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	border: 0;
+	font-family: inherit;
+	font-size: 100%;
+	font-style: inherit;
+	font-weight: inherit;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+html {
+	font-size: 100%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
+	overflow-y: scroll; /* Keeps page centred in all browsers regardless of content height */
+	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
+	-ms-text-size-adjust: 100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+}
+
+/* box sizing FTW */
+/* src: http://paulirish.com/2012/box-sizing-border-box-ftw/ */
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+
+/* assistive */
+
+.skip-link, .screen-reader-text, .assistive-text {
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+}
+
+
+/* Drop-downs. */
+div.menu ul{margin:0;padding:0;list-style:none;line-height:1.0}
+div.menu ul ul{position:absolute;top:-999em;width:10em}
+div.menu ul ul li{width:100%}
+div.menu li:hover{visibility:inherit}
+div.menu a{display:block;position:relative}
+div.menu li:hover ul,li.sfHover ul{left:0;top:0;z-index:99}
+div.menu li:hover li ul,li.sfHover li ul{top:-999em}
+div.menu li li:hover ul,li li.sfHover ul{left:10em;top:0}
+div.menu li li:hover li ul,li li.sfHover li ul{top:-999em}
+div.menu li li li:hover ul,li li li.sfHover ul{left:10em;top:0}
+
+
+body,
+button,
+input,
+select,
+textarea {
+	font-size: 16px;
+	font-size: 1rem;
+	font-family: sans-serif;
+	line-height: 1.5;
+}
+
+body {
+	padding: 0;
+	background: #ffffff;
+	font-family: sans-serif;
+	color:#000;
+}
+
+
+.wrap{
+	overflow: hidden;
+	clear: both;
+	width: 71.25em;
+	margin: 0 auto;
+	padding: 0px;
+	background: none; 
+
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+	display: block;
+}
+ol, ul {
+	list-style: none;
+}
+table { /* tables still need 'cellspacing="0"' in the markup */
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	font-weight: normal;
+	text-align: left;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+
+/* PROBABLY NEED TO NOT DECLARE a SITEWIDE. */
+a {
+	color: #222;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+	color: #333;
+}
+	
+p {
+	margin:0 0 1.25em 0
+}
+
+.clear {
+	clear:both
+}
+
+h1, h2 {
+}
+	
+h3, h4, h5, h6 {
+}
+	
+h1 {	
+	font-size:	27px;
+	font-size:	1.688rem;
+	font-weight: normal;	
+}
+
+h2 {	
+	font-size:	24px;
+	font-size:	1.5rem;
+	font-weight: normal;	
+} /* 24px */
+
+h3 {	
+	font-size:	20px;
+	font-size:	1.25rem;
+	font-weight: normal;	
+} /* 20px */
+
+h4 {	
+	font-size:	18px;
+	font-size:	1.125rem;
+	font-weight: normal;	
+} /* 18px */
+
+h5 {	
+	font-size:	16px;
+	font-size:	1rem;	
+	font-weight: normal;
+} /* 16px */
+
+h6 {	
+	font-size:	14px;
+	font-size:	0.875rem;
+	font-weight: normal;	
+} /* 14px */
+
+
+.entry-content h1 {
+	line-height: 27px;	
+	line-height: 1.688rem;		
+}
+.entry-content h2 {	
+	line-height: 24px;
+	line-height: 1.5rem;		
+}
+.entry-content h3 {	
+	line-height: 20px;
+	line-height: 1.25rem;		
+}
+.entry-content h4 {	
+	line-height: 18px;
+	line-height: 1.125rem;		
+}
+.entry-content h5 {
+	line-height: 16px;	
+	line-height: 1rem;		
+}
+.entry-content h6 {	
+	line-height: 14px;
+	line-height: 0.875rem;		
+}
+
+/* Tables */
+table {
+	margin: 0 0 1.5em 0;
+	width: 100%;
+	border-left: 1px solid #e0e0e0;
+	border-right: 1px solid #e0e0e0;
+}
+table caption {
+	color: #999;
+}
+table th {
+	font-weight: bold;
+	padding: 0.25em 2%;
+	border-top:1px solid #e0e0e0;
+	border-bottom: 1px solid #e0e0e0;
+	border-right: 1px solid #e0e0e0;
+	text-align: left;
+}
+td {
+	padding: 0.25em 2%;
+	color: #444;
+	border-bottom: 1px solid #e0e0e0;
+	border-right: 1px solid #e0e0e0;
+}
+
+acronym {
+	text-transform: uppercase;
+	color: #555;
+	background: #fcfcfc;
+	border-bottom: 1px solid #ccc;
+}
+acronym:hover {
+	background: #f9f9f9;
+	border-bottom: 1px solid #999;
+}
+
+/* Lists. */
+ul {
+	list-style: square inside;
+}
+ul ul {
+	margin:0.25em 0 0.25em .5em;
+}
+ol {
+	list-style: decimal inside;
+}
+ol ol {
+	margin: 0.25em 0 0.25em .5em;
+}
+dl {
+	margin: 0 0 1.5em 1.5em;
+}
+dl dt {
+	margin: 0;
+}
+dl dd {
+	margin: 0 0 0.25em 0.625em;
+	padding: 0;
+	font-size: 0.875em;
+	color: #888;
+}
+
+/* Blockquotes. */
+blockquote {
+	overflow: hidden;
+	margin: 0 0 1.5em 0;
+	padding: 1.5em 1.5em 0 1.5em;
+	font-size: 0.938em;
+	background: #eee;
+	font-style: italic;
+
+}
+blockquote blockquote {
+	background: #eee;
+	font-style: italic;
+
+}
+
+/* Code */
+code {
+	padding: 0 0.25em;
+	color: #555;
+	background: #e6e6e6;
+}
+pre {
+	padding: 1.5em;
+	color: #555;
+	background: #efefef;
+	border: 1px solid #dfdfdf;
+}
+pre code {
+	padding: 0;
+	background: transparent;
+}
+
+/* Forms */
+input[type="text"] {
+	display: block;
+}
+textarea {
+	display: block;
+}
+
+/* Alignment */
+.left, .alignleft {
+	float: left;
+	margin: 0 1.5em 0 0;
+}
+.right, .alignright {
+	float: right;
+	margin: 0 0 0 1.5em;
+}
+.center, .aligncenter {
+	display: block;
+	margin: 0 auto 1.5em auto !important;
+}
+.block, .alignnone {
+	display: block;
+	margin: 0 0 1.5em 0;
+}
+.clear {
+	clear: both;
+}
+
+/* Images */
+
+.entry-content img {
+	max-width: 98%;
+	padding: 0.25em;
+	border: none;
+}
+.layout-1c .entry-content img {
+	max-width: 98%;
+}
+.layout-3c-l .entry-content img, .layout-3c-r .entry-content img, .layout-3c-c .entry-content img {
+	max-width: 98%;
+}
+
+.gallery {
+	overflow: hidden;
+	margin: 0 0 -1.5em 0;
+}
+.gallery a {
+	border: none;
+}
+.gallery-item {
+	overflow: hidden;
+	margin: 0 0 1.5em 0;
+}
+.gallery-icon {
+	margin: 0;
+}
+.gallery img {
+	margin: 0;
+	padding: 0.125em;
+	border: none;
+}
+.gallery-caption {
+
+}
+.gallery{display:block;clear:both;overflow:hidden;margin:0 auto}.gallery .gallery-row{display:block;clear:both;overflow:hidden;margin:0}.gallery .gallery-item{overflow:hidden;float:left;margin:0;text-align:center;list-style:none;padding:0}.gallery .gallery-item .gallery-icon img{max-width:89%;height:auto;padding:1%;margin:0 auto}.gallery-caption{margin-left:0}.col-0{width:100%}.col-1{width:100%}.col-2{width:50%}.col-3{width:33.33%}.col-4{width:25%}.col-5{width:20%}.col-6{width:16.66%}.col-7{width:14.28%}.col-8{width:12.5%}.col-9{width:11.11%}.col-10{width:10%}.col-11{width:9.09%}.col-12{width:8.33%}.col-13{width:7.69%}.col-14{width:7.14%}.col-15{width:6.66%}.col-16{width:6.25%}.col-17{width:5.88%}.col-18{width:5.55%}.col-19{width:5.26%}.col-20{width:5%}.col-21{width:4.76%}.col-22{width:4.54%}.col-23{width:4.34%}.col-24{width:4.16%}.col-25{width:4%}.col-26{width:3.84%}.col-27{width:3.7%}.col-28{width:3.57%}.col-29{width:3.44%}.col-30{width:3.33%}
+
+/* Captions [caption] */
+.wp-caption {
+	overflow: hidden;
+	padding: 0.75em 0.5em;
+	background: #f9f9f9;
+	border: 1px solid #ccc;
+}
+.wp-caption img {
+	display: block;
+	max-width: 98%;
+	margin: 0 auto 0.625em auto;
+	padding: 1%;
+	border: none;
+}
+.wp-caption .wp-caption-text {
+	margin: 0 0.25em;
+	text-align: right;
+}
+
+/* Style. */
+
+
+
+#main {
+	overflow: hidden;
+	width: 100%; 
+}
+
+
+/* THE MAIN WRAP IS WHERE YOU ADJUST THE CSS FOR A "BOXED" DESIGN */
+#main .wrap{
+	overflow: hidden;
+	clear: both;
+	margin: 0 auto 2.5em;
+	/* open styles 
+	padding: 1.5em 0px;
+	background: none; */
+	
+	/* BOXED */
+	padding: 1.5em 1.5em;
+	background: #eee; /* replace me : ) I'm just grey for reference */ 
+
+}	
+	
+	
+	
+	
+	
+	
+/* header */	
+	
+	
+	
+#header {
+	width: 100%; 
+	height: 12.5em; /* 200px for overflow reasons */
+} 
+
+#header .wrap{
+	overflow: visible;
+	clear: both;
+	margin: 0 auto;
+	padding: 1.5em 0px;
+	background: none; 
+}
+
+#branding {
+	clear: left;
+	overflow: hidden;
+	float:left;
+	background: none;
+	display: block;
+	margin: 0;	
+}
+
+#site-title { 
+	float: left;
+}
+
+#site-title a {
+	display: block;
+	width: 20em;
+	height: 5em;
+	background: url(images/logo.gif) 0 0 no-repeat;
+        
+}
+
+#site-title a span {
+	display: none;
+}
+
+#site-description {
+	text-indent: -9999px;
+} 
+	
+
+#sidebar-header {
+	overflow: hidden; 
+	float: right;
+	background: none;
+	width: 40%;
+	margin: 0;
+	padding: 0;
+}
+#sidebar-header .widget-title {
+	margin: 0.5em 0px;
+}
+		
+#sidebar-header .entry-title {
+	font-size: 1.5em;
+}
+		
+		
+/* Primary menu */
+
+/*
+
+.primary-navigation li a:hover {
+
+}
+.primary-navigation li ul {
+}
+.primary-navigation li.current-menu-item a {
+
+}
+.primary-navigation li li.current-menu-item a {
+
+}
+.primary-navigation li:hover ul li a, .primary-navigation li.sfHover ul li a, .primary-navigation li.sfHover a {
+
+}
+.primary-navigation li li a, .primary-navigation li li.current-menu-item li a {
+	
+}
+.primary-navigation ul li a:hover, .primary-navigation li ul li a:hover {
+
+}
+*/
+
+/* =Menu
+----------------------------------------------- */
+
+.primary-navigation {
+	clear: both;
+	display: block;
+	width: 62.5%; 
+	float: right;   
+}
+.primary-navigation ul {
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+.primary-navigation li {
+	float: right;
+	position: relative;
+}
+.primary-navigation a {
+	display: block;
+	text-decoration: none;
+	padding: 0.375em 1em;	
+}
+.primary-navigation ul ul {
+	background: #fff;
+	display: none;
+	float: left;
+	position: absolute;
+	top: 1.5em;
+	left: 0;
+	z-index: 99999;
+}
+.primary-navigation ul ul ul {
+	left: 100%;
+	top: 0;
+}
+.primary-navigation ul ul a {
+	width: 200px;
+}
+.primary-navigation ul ul li {
+}
+.primary-navigation li:hover > a {
+}
+.primary-navigation ul ul :hover > a {
+}
+.primary-navigation ul ul a:hover {
+}
+.primary-navigation ul li:hover > ul {
+	display: block;
+}
+.primary-navigation li.current_page_item a,
+.primary-navigation li.current-menu-item a {
+}
+
+/* Small menu */
+.menu-toggle {
+	cursor: pointer;
+}
+.main-small-navigation .menu {
+	display: none;
+}
+.main-small-secondary-navigation .menu {
+	display: none;
+}
+
+
+/* Drop-down styles */
+#menu-primary li ul {
+}
+#menu-primary li:hover ul, #menu-primary li.sfHover ul {
+	top: 28px;
+}
+#menu-primary li:hover li ul, #menu-primary li.sfHover li ul {
+	top: -999em;
+}
+#menu-primary li li:hover ul, #menu-primary li li.sfHover ul {
+	top: -1px;
+	margin: 0;
+}		
+		
+		
+		
+/* Search form in the feature area */
+ div.search {
+	float: left;
+	width: 10em;
+	margin:0 1.5em 0 0;
+}
+.search-form input[type="text"] {
+	width: 99%;
+	margin:0.25em 0 0;
+	padding: 0.25em  0;
+	text-indent: 1em;
+	font-style: italic;
+	font-size: 0.75em;
+	color: #aaa;
+	border: 1px solid #dfdfdf;
+}
+.search-form input[type="text"]:focus {
+	color: #999;
+	background: #fefefe;
+	border-color: #cfcfcf;
+}
+.search-form input[type="submit"] {
+	display: none;
+}
+	
+	
+		
+		
+/* end-header */
+		
+
+
+/* splash page */
+
+#home-feature {
+	width: 100%;
+	height: 12.5em;
+	background: none;
+}
+
+#home-feature .wrap{
+	overflow: hidden;
+	clear: both;
+	margin: 0 auto;
+	padding: 1.5em 0;
+	background: none; 
+}
+
+
+
+#sidebar-feature {
+	overflow: hidden;
+	margin: 0 auto;
+	background: none;
+	padding: 0.5em 0;
+	width: inherit;
+	text-align: center;
+}
+#sidebar-feature .widget-title {
+	margin:0 0 0.5em;
+}
+
+
+
+
+/* end-splash */
+
+
+
+
+
+
+
+
+/* main-menu */
+
+
+/*
+.secondary-navigation li a:hover {
+
+}
+.secondary-navigation li ul {
+}
+.secondary-navigation li.current-menu-item a {
+
+}
+.secondary-navigation li li.current-menu-item a {
+
+}
+.secondary-navigation li:hover ul li a, .secondary-navigation li.sfHover ul li a, .secondary-navigation li.sfHover a {
+
+}
+.secondary-navigation li li a, .secondary-navigation li li.current-menu-item li a {
+	
+}
+.secondary-navigation ul li a:hover, .secondary-navigation li ul li a:hover {
+
+}
+*/
+.secondary-navigation {
+	clear: both;
+	display: block;
+	width: 100%; 
+	float: left;   
+	height: 2.5em;
+	text-align: center;
+	overflow: hidden;
+	clear:both;
+}
+.secondary-navigation .wrap {
+	margin: 0 auto 1.5em;
+	background: #ccc;
+}
+.secondary-navigation ul {
+	list-style: none;
+	padding-left: 0;
+}
+.secondary-navigation li {
+	float: left;
+	position: relative;
+}
+.secondary-navigation a {
+	display: block;
+	text-decoration: none;
+	padding: 0.375em 1em;	
+}
+.secondary-navigation ul ul {
+	background: #fff;
+	display: none;
+	float: left;
+	position: absolute;
+	top: 1.5em;
+	left: 0;
+	z-index: 99999;
+}
+.secondary-navigation ul ul ul {
+	left: 100%;
+	top: 0;
+}
+.secondary-navigation ul ul a {
+	width: 200px;
+}
+.secondary-navigation ul ul li {
+}
+.secondary-navigation li:hover > a {
+}
+.secondary-navigation ul ul :hover > a {
+}
+.secondary-navigation ul ul a:hover {
+}
+.secondary-navigation ul li:hover > ul {
+	display: block;
+}
+.secondary-navigation li.current_page_item a,
+.secondary-navigation li.current-menu-item a {
+}
+
+
+/* Drop-down styles */
+#menu-secondary li ul {
+}
+#menu-secondary li:hover ul, #menu-secondary li.sfHover ul {
+	top: 37px;
+	padding: 0;
+	margin: 0px;
+}
+#menu-secondary li.sfHover ul {
+	margin: 0 0 0 1em;
+}
+#menu-secondary li.sfHover ul li.current-menu-item {
+	margin: 0
+}
+#menu-secondary li.sfHover ul li:hover {
+	margin:0;
+}
+#menu-secondary li:hover li ul, #menu-secondary li.sfHover li ul {
+	top: -999em;
+}
+#menu-secondary li li:hover ul, #menu-secondary li li.sfHover ul {
+	margin: 0;
+}
+
+
+/* main-menu */
+
+
+
+
+
+/* content-area */
+
+#content {
+	width: 75%; /* standard 720px width */ 
+	margin: 0;
+	padding: 0; 
+	background: none;
+	line-height: 1.25em;
+}
+
+.page-template-front-page #content {
+	padding: 0;
+}
+
+.hentry {
+	margin: 0 0 1.5em 0;
+}
+.singular .hentry {
+	margin: 0;
+}
+.sticky {
+	margin: 0;
+	padding:0;
+}
+
+.hentry .thumbnail {
+	float: right;
+	/* image sizes are better defined with add_theme_support - this is just a css fallback, like when the src image is too large. don't always need
+	width: 150px;
+	height: 150px;
+	*/
+	margin: 0 0 0.5em 1em;
+	padding: 0.25em;
+}
+.sticky .thumbnail {
+}
+
+.entry-title {
+	margin: 0 0 0.5em 0;
+}
+.singular .entry-title {
+	margin: 0 0 1.5em 0;
+}
+.singular-page .entry-title, .singular-attachment .entry-title {
+	margin:0 0 0.5em;
+}
+	
+.entry-title a {
+	border-bottom: none;
+}
+.entry-title a:hover {
+
+}
+
+.byline {
+	margin: 0 0 0.5em 0;
+	font-size: 14px;
+	font-size: 0.875rem;
+}
+.byline a {
+}
+.byline a:hover {
+	text-decoration: underline;
+}
+.singular .byline {
+	margin: 0 0 0.5em 0;
+}
+
+.entry-content {
+}
+
+.entry-meta {
+	clear: both;
+	margin: 0 0 1.5em 0;
+	font-size: 14px;
+	font-size: 0.875rem;
+}
+.entry-meta a {
+}
+.entry-meta a:hover {
+	text-decoration: underline;
+}
+
+.loop-meta {
+	margin: 0 0 1.5em 0;
+	font-size: 16px;
+	font-size: 1rem;
+}
+.loop-description {
+	overflow: hidden;
+	font-style: italic;
+}
+.loop-description em {
+	font-style: normal;
+}
+.loop-title {	
+	margin: 0 0 1.5em 0;
+}
+.loop-meta .avatar {
+	float: left;
+	width: 3.1875em;
+	height: 3.1875em;
+	margin: 0 1.5em 0.5em 0;
+	padding: 0;
+}
+
+.singular .loop-nav {
+	font-size: 16px
+	font-size: 1rem;
+}
+.singular .loop-nav a {
+	font-style: italic;
+}
+
+.page-links {
+	clear: both;	
+}
+.page-links a {
+	display: inline-block;
+	padding: 0.5em 0.75em;
+	margin: 0 0.25em 0 0.25em;
+}
+.page-links a:hover {
+
+}
+
+.pagination .page-numbers {
+	display: inline-block;
+	padding: 0.5em 0.75em;
+	margin: 0 0.75em 0 0;	
+}
+.pagination a.page-numbers {
+}
+.pagination a:hover {
+
+}
+.pagination .current {
+
+}
+	
+	
+	
+.breadcrumbs {
+	font-size: 12px
+	font-size: 0.75rem;
+	margin:0 0 1.5em;
+}
+.breadcrumbs a {
+	text-decoratin: none;
+}
+.breadcrumbs a:hover {
+}
+.breadcrumbs .trail-before {
+	display: inline-block;
+	margin: 0 0.375em 0 0;
+}
+.breadcrumbs .trail-end {
+	font-style: italic;
+}
+.breadcrumbs .sep {
+	display: inline-block;
+	margin: 0 .375em;
+}
+
+
+	
+/* Layouts. These are default setups that allow for choose column setup on a per page basis. they need to be adjusted for width if we change outside of the ~960 layout. be sure to change all areas of 2C, 3C, 1C if you're changing one, for site wide consistency */
+
+.layout-1c #content {
+	width: 100%;
+}
+
+#content, .layout-2c-l #content, .layout-default #content {
+	float: left;
+	width: 75%;
+}
+
+.layout-3c-l #content, .layout-3c-r #content, .layout-3c-c #content {
+	width: 50%;
+}
+
+#sidebar-primary, #sidebar-secondary {
+	width: 22%;
+}
+
+.layout-2c-l #sidebar-primary, .layout-default #sidebar-primary {
+	float: right;
+}
+.layout-2c-l #sidebar-secondary, .layout-default #sidebar-secondary {
+	clear: right;
+	float: right;
+	padding: 0;
+	margin: 1.5em 0;
+}
+
+.layout-2c-r #content {
+	float: right;
+	width: 75%;
+}
+.layout-2c-r #sidebar-primary {
+	float: left;
+}
+.layout-2c-r #sidebar-secondary {
+	float: left;
+	clear: left;
+	padding: 1.5em;
+}
+
+.layout-3c-l #content {
+	float: left;
+}
+.layout-3c-l #sidebar-primary, .layout-3c-l #sidebar-secondary {
+	clear: none;
+	float: left;
+	margin:0 0 0 1.5em;
+}
+.layout-3c-l #sidebar-secondary {
+	padding: 0;
+	border: none;
+}
+
+.layout-3c-r #content {
+	float: right;
+}
+.layout-3c-r #sidebar-primary, .layout-3c-r #sidebar-secondary {
+	clear: none;
+	float: left;
+	margin:0 1.5em 0 0;
+}
+.layout-3c-r #sidebar-secondary {
+	padding: 0;
+	border: none;
+}
+
+.layout-3c-c #content {
+	float: left;
+	margin:0 0 0 25%;
+}
+.layout-3c-c #sidebar-primary {
+	float: left;
+	margin:0 0 0 -75%;
+}
+.layout-3c-c #sidebar-secondary {
+	clear: none;
+	float: right;
+	padding: 0;
+	border: none;
+}
+
+	
+	
+/* -to display on singular pages- */	
+	
+#sidebar-after-singular {
+	overflow: hidden;
+	margin: 1.5em 0;
+	padding: 0;
+}
+#sidebar-after-singular .widget-title {
+}
+#sidebar-after-singular .widget ul {
+	list-style: square inside;
+}
+#sidebar-after-singular .widget ul li a {
+	border-bottom: 1px solid #ccc;
+}
+#sidebar-after-singular .widget ul li a:hover {
+	border-bottom: 1px solid #222;
+	text-decoration: none;
+}
+	
+	
+	
+/* end-content-area */	
+	
+
+
+/* sidebar */
+	
+
+#sidebar-primary {
+}
+#sidebar-secondary {
+}
+#sidebar-primary .widget-title, #sidebar-secondary .widget-title {
+
+}
+
+#sidebar-primary .widget ul {
+	list-style: square inside;
+}
+#sidebar-primary .widget ul li a {
+}
+#sidebar-primary .widget ul li a:hover {
+	text-decoration: underline;
+}
+#sidebar-secondary .widget ul {
+	list-style: square inside;
+}
+#sidebar-secondary .widget ul li a {
+}
+#sidebar-secondary .widget ul li a:hover {
+	text-decoration: none;
+}
+
+
+/* end-sidebar */
+	
+	
+/* footer */
+
+
+#footer {
+}
+#footer .wrap {
+	background: #ccc;
+}
+#footer a {
+}
+#footer a:hover {
+}
+#footer .wrap {
+	margin: 0 auto; 
+}
+#menu-subsidiary {
+	width: 100%; 
+}
+#menu-subsidiary div.menu {
+	float: left; 
+	margin: 0; 
+}
+
+#menu-subsidiary li a {
+	margin: 0.5em 0;
+	padding: 0.125em 0.5em;	
+}
+#menu-subsidiary li.current-menu-item a {0;
+}
+#menu-subsidiary li a:hover {
+	text-decoration: underline;
+}
+
+#footer .copyright {
+	float: left;
+	text-align: left;
+	width: 49%;
+	margin: 0;
+	padding: 0;
+}
+#footer .credit {
+	float: right;
+	width: 49%;
+	margin: 0;
+	text-align: right;
+	padding: 0;
+}
+#footer .copyright a, #footer .credit a {
+}
+    
+    
+
+#sidebar-subsidiary {
+	overflow: hidden;
+	width: 100%;
+	padding: 1em 0;
+}
+#sidebar-subsidiary .widget {
+	float: left;
+	margin: 0 1%;
+	padding: 0;
+}
+#sidebar-subsidiary .widget a {
+}
+#sidebar-subsidiary .widget-title {
+	margin: 0 0 0.5em 0;
+	padding: 0;
+}
+
+#sidebar-subsidiary .widget ul {
+	list-style: square inside;
+}
+#sidebar-subsidiary .widget ul li a {
+
+}
+#sidebar-subsidiary .widget ul li a:hover {
+
+} 
+    
+    
+   
+    
+/* end-footer */
+    
+    
+
+
+
+
+
+
+
+
+/* Comments */
+.comment-list, .comment-list ol {
+	list-style: none;
+	margin: 0 0 1.5em 0;
+	border-top: 1px solid #dfdfdf;
+}
+.comment-list li {
+	padding: 1.5em 1.5em 0 1.5em;
+	border: 1px solid #dfdfdf;
+	border-top: none;
+}
+
+.comment-list .avatar {
+	float: left;
+	width: 2.5em;
+	height: 2.5em;
+	margin: 0 1em 0.5em 0;
+	padding: 0.125em;
+	border: 1px solid #eee;
+}
+
+.comment-meta {
+	margin: 0 0 1.5em 0;
+	font-size: 0.75em;
+}
+.comment-meta .comment-author cite, .comment-meta .comment-author cite a {
+
+}
+.comment-meta a {
+
+}
+.comment-meta a:hover {
+
+}
+.comment-text {
+
+}
+
+#respond {
+	overflow: hidden;
+}
+.comment-list #respond {
+	margin: 1.5em 0 0;
+}
+#respond .log-in-out {
+
+}
+#respond .log-in-out a {
+	font-style: italic;
+}
+#reply-title small a {
+	font-style: italic;
+}
+
+#respond label {
+
+}
+#respond p.req label {
+
+}
+#respond span.required {
+
+}
+#respond #submit {
+	float: left;
+	margin:0 0 1.5em;
+}
+	
+	
+	
+/* end-Comments */	
+
+
+
+
+
+
+
+/* gravity forms */
+
+.gform_body {
+	width:100%;
+	margin:0.5em 0 0 0;
+}
+.gform_body ul {
+	list-style:none !important;
+}
+.gform_body input {
+	width:100%;
+}
+.gfield {
+	margin:0 0 0.25em;
+}
+.gfield input {
+	font-size:0.875em;
+	padding:0.25em;
+	border:1px solid #999;
+}
+.ginput_left {
+	width:48%;
+	float:left;
+	margin:0 0 0.25em;
+}
+.ginput_right { 
+	width:48%;
+	float:right;
+	margin:0 0 0.25em;
+
+}
+.ginput_left label, .ginput_right label {
+	font-size:0.875em;
+}
+.ginput_left input, .ginput_right input {
+	margin:0 0 0.125em;
+}
+.gform_body textarea {
+	width:100%;
+	padding:0.125em 0 0 0.125em;
+	font-size:0.875em;
+	border:1px solid #999;
+}    
+
+
+@media (min-width: 45.5em) and (max-width: 71.24999999em) {
+
+	.wrap { width: 98%; }
+
+}
+
+@media (min-width: 30em) and (max-width: 45.49999em) {
+
+	.wrap { width: 98%; }
+	
+	.layout-1c #content, #content, .layout-2c-l #content, .layout-default #content, .layout-3c-l #content, .layout-3c-r #content, .layout-3c-c #content {
+		width: 98%;
+		float: left;
+	}
+	
+	
+	.layout-2c-r #sidebar-primary, .layout-2c-l #sidebar-primary, .layout-default #sidebar-primary, .layout-2c-r #sidebar-secondary, .layout-2c-l #sidebar-secondary, .layout-default #sidebar-secondary {
+		width: 49%;
+		float: left;
+	}
+
+}
+
+@media (min-width: 1em) and (max-width: 29.9999em) { 
+
+	.wrap { width: 98%; }
+	
+	.layout-1c #content, #content, .layout-2c-l #content, .layout-default #content, .layout-3c-l #content, .layout-3c-r #content, .layout-3c-c #content {
+		width: 98%;
+		float: left;
+	}
+	
+	
+	.layout-2c-r #sidebar-primary, .layout-2c-l #sidebar-primary, .layout-default #sidebar-primary, .layout-2c-r #sidebar-secondary, .layout-2c-l #sidebar-secondary, .layout-default #sidebar-secondary {
+		width: 98%;
+		float: left;
+		clear: both;
+	}
+	
+	copyright, .credit, #branding {
+		width:98%;
+		margin: 0 auto;
+		clear: both;
+		float: left;
+	}
+	
+	.entry-title {
+		clear:both;
+	}
+
+}
