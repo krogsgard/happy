@@ -1,0 +1,1 @@
+This is the happy theme. It's the working copy of my series to create a WordPress theme from scratch, sharing the process as I go along.
