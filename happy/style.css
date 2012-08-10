@@ -16,3 +16,10 @@
 
 /* Importing the dev stylesheet for now. */
 @import url( 'style.dev.css' );
+
+.wpengine-promo {
+	font-size: 10px;
+	position: relative;
+	bottom: 0;
+	left: 45%;	
+}

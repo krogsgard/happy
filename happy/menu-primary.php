@@ -13,7 +13,7 @@ if ( has_nav_menu( 'primary' ) ) : ?>
 	<?php do_atomic( 'before_menu_primary' ); // Before primary menu hook ?>
 
 	<nav id="menu-primary" role="navigation" class="primary-navigation site-navigation">
-		<h1 class="assistive-text"><?php _e( 'Menu Primary', hybrid_get_textdomain() ); ?></h1>
+		<h1 class="assistive-text"><?php _e( 'Navigation', hybrid_get_textdomain() ); ?></h1>
 		<div class="assistive-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', hybrid_get_textdomain() ); ?>"><?php _e( 'Skip to content', hybrid_get_textdomain() ); ?></a></div>
 
 			<?php do_atomic( 'open_menu_primary' ); // Open primary menu hook ?>

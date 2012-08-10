@@ -13,7 +13,7 @@ if ( has_nav_menu( 'secondary' ) ) : ?>
 	<?php do_atomic( 'before_menu_secondary' ); // Before secondary menu hook ?>
 
 	<nav id="menu-secondary" role="navigation" class="secondary-navigation site-navigation">
-		<h1 class="assistive-text"><?php _e( 'Menu Primary', hybrid_get_textdomain() ); ?></h1>
+		<h1 class="assistive-text"><?php _e( 'Navigation', hybrid_get_textdomain() ); ?></h1>
 		<div class="assistive-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', hybrid_get_textdomain() ); ?>"><?php _e( 'Skip to content', hybrid_get_textdomain() ); ?></a></div>
 
 		<div class="wrap">

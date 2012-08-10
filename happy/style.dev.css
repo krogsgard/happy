@@ -89,14 +89,19 @@ body {
 }
 
 
-.wrap{
+.wrap {
 	overflow: hidden;
+	-moz-hyphens: auto;
+	-ms-word-break: break-all;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+	word-break: break-all;
+	word-break: break-word;
 	clear: both;
 	width: 71.25em;
 	margin: 0 auto;
 	padding: 0px;
 	background: none; 
-
 }
 
 article,
@@ -221,7 +226,6 @@ table {
 	margin: 0 0 1.5em 0;
 	width: 100%;
 	border-left: 1px solid #e0e0e0;
-	border-right: 1px solid #e0e0e0;
 }
 table caption {
 	color: #999;
@@ -250,6 +254,16 @@ acronym {
 acronym:hover {
 	background: #f9f9f9;
 	border-bottom: 1px solid #999;
+}
+
+/* horizontal line */
+
+hr {
+	border: 0;
+	width: 98%;
+	color: #ccc;
+	background-color: #ccc;
+	height: 1px;
 }
 
 /* Lists. */
@@ -342,6 +356,27 @@ textarea {
 
 /* Images */
 
+/* Responsive images */
+
+.entry-content img,
+.comment-content img,
+.widget img {
+	max-width: 100%; /* Fluid images for posts, comments, and widgets */
+}
+img[class*="align"],
+img[class*="wp-image-"],
+img[class*="attachment-"] {
+	height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly */
+}
+img.size-full,
+img.size-large,
+img.header-image,
+img.wp-post-image {
+	max-width: 100%;
+	width: auto; /* Prevent stretching of full-size and large-size images with height and width attributes in IE8 */
+	height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly */
+}
+
 .entry-content img {
 	max-width: 98%;
 	padding: 0.25em;
@@ -415,11 +450,8 @@ textarea {
 	/* open styles 
 	padding: 1.5em 0px;
 	background: none; */
-	
 	/* BOXED */
 	padding: 1.5em 1.5em;
-	background: #eee; /* replace me : ) I'm just grey for reference */ 
-
 }	
 	
 	
@@ -433,14 +465,14 @@ textarea {
 	
 #header {
 	width: 100%; 
-	height: 12.5em; /* 200px for overflow reasons */
+
 } 
 
 #header .wrap{
-	overflow: visible;
+	height: 10em; /* 160px for overflow reasons */
 	clear: both;
 	margin: 0 auto;
-	padding: 1.5em 0px;
+	padding: 1.5em;
 	background: none; 
 }
 
@@ -451,6 +483,7 @@ textarea {
 	background: none;
 	display: block;
 	margin: 0;	
+	width: auto;
 }
 
 #site-title { 
@@ -459,18 +492,24 @@ textarea {
 
 #site-title a {
 	display: block;
-	width: 20em;
+/*	width: 20em;
 	height: 5em;
 	background: url(images/logo.gif) 0 0 no-repeat;
-        
+*/
 }
 
 #site-title a span {
-	display: none;
+	/*	display: none; */
 }
 
 #site-description {
-	text-indent: -9999px;
+	/*	text-indent: -9999px; */
+	clear: left;
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 16px;
+	line-height: 1rem;
+	padding: 0;
 } 
 	
 
@@ -703,13 +742,12 @@ textarea {
 	display: block;
 	width: 100%; 
 	float: left;   
-	height: 2.5em;
 	text-align: center;
 	overflow: hidden;
 	clear:both;
 }
 .secondary-navigation .wrap {
-	margin: 0 auto 1.5em;
+	margin: 0 auto;
 	background: #ccc;
 }
 .secondary-navigation ul {
@@ -723,7 +761,8 @@ textarea {
 .secondary-navigation a {
 	display: block;
 	text-decoration: none;
-	padding: 0.375em 1em;	
+	padding: 16px;	
+	padding: 1rem;
 }
 .secondary-navigation ul ul {
 	background: #fff;
@@ -831,7 +870,8 @@ textarea {
 .singular .entry-title {
 	margin: 0 0 1.5em 0;
 }
-.singular-page .entry-title, .singular-attachment .entry-title {
+.singular-page .entry-title, 
+.singular-attachment .entry-title {
 	margin:0 0 0.5em;
 }
 	
@@ -960,23 +1000,30 @@ textarea {
 	width: 100%;
 }
 
-#content, .layout-2c-l #content, .layout-default #content {
+#content, 
+.layout-2c-l #content, 
+.layout-default #content {
 	float: left;
 	width: 75%;
 }
 
-.layout-3c-l #content, .layout-3c-r #content, .layout-3c-c #content {
+.layout-3c-l #content, 
+.layout-3c-r #content, 
+.layout-3c-c #content {
 	width: 50%;
 }
 
-#sidebar-primary, #sidebar-secondary {
+#sidebar-primary, 
+#sidebar-secondary {
 	width: 22%;
 }
 
-.layout-2c-l #sidebar-primary, .layout-default #sidebar-primary {
+.layout-2c-l #sidebar-primary, 
+.layout-default #sidebar-primary {
 	float: right;
 }
-.layout-2c-l #sidebar-secondary, .layout-default #sidebar-secondary {
+.layout-2c-l #sidebar-secondary, 
+.layout-default #sidebar-secondary {
 	clear: right;
 	float: right;
 	padding: 0;
@@ -999,7 +1046,8 @@ textarea {
 .layout-3c-l #content {
 	float: left;
 }
-.layout-3c-l #sidebar-primary, .layout-3c-l #sidebar-secondary {
+.layout-3c-l #sidebar-primary, 
+.layout-3c-l #sidebar-secondary {
 	clear: none;
 	float: left;
 	margin:0 0 0 1.5em;
@@ -1012,7 +1060,8 @@ textarea {
 .layout-3c-r #content {
 	float: right;
 }
-.layout-3c-r #sidebar-primary, .layout-3c-r #sidebar-secondary {
+.layout-3c-r #sidebar-primary, 
+.layout-3c-r #sidebar-secondary {
 	clear: none;
 	float: left;
 	margin:0 1.5em 0 0;
@@ -1067,31 +1116,34 @@ textarea {
 
 /* sidebar */
 	
+.sidebar .widget-title {
+
+}
+
+.sidebar .widget ul {
+	list-style: square inside;
+	padding: 0 16px;
+	padding: 0 1rem;
+}
+.sidebar .widget ul li a {
+}
+.sidebar .widget ul li a:hover {
+	text-decoration: underline;
+}
+.sidebar .widget ul {
+	list-style: square inside;
+}
+.sidebar .widget ul li a {
+}
+.sidebar .widget ul li a:hover {
+	text-decoration: none;
+}
 
 #sidebar-primary {
 }
 #sidebar-secondary {
 }
-#sidebar-primary .widget-title, #sidebar-secondary .widget-title {
 
-}
-
-#sidebar-primary .widget ul {
-	list-style: square inside;
-}
-#sidebar-primary .widget ul li a {
-}
-#sidebar-primary .widget ul li a:hover {
-	text-decoration: underline;
-}
-#sidebar-secondary .widget ul {
-	list-style: square inside;
-}
-#sidebar-secondary .widget ul li a {
-}
-#sidebar-secondary .widget ul li a:hover {
-	text-decoration: none;
-}
 
 
 /* end-sidebar */
@@ -1112,22 +1164,65 @@ textarea {
 #footer .wrap {
 	margin: 0 auto; 
 }
-#menu-subsidiary {
-	width: 100%; 
-}
-#menu-subsidiary div.menu {
-	float: left; 
-	margin: 0; 
-}
 
-#menu-subsidiary li a {
-	margin: 0.5em 0;
-	padding: 0.125em 0.5em;	
+/* subsidiary nav */
+
+.subsidiary-navigation {
+	clear: both;
+	display: block;
+	width: 100%; 
+	float: left;   
+	height: 2.5em;
+	text-align: center;
+	overflow: hidden;
+	clear:both;
 }
-#menu-subsidiary li.current-menu-item a {0;
+.subsidiary-navigation .wrap {
+	margin: 0 auto 1.5em;
+	background: #ccc;
 }
-#menu-subsidiary li a:hover {
-	text-decoration: underline;
+.subsidiary-navigation ul {
+	list-style: none;
+	padding-left: 0;
+}
+.subsidiary-navigation li {
+	float: left;
+	position: relative;
+}
+.subsidiary-navigation a {
+	display: block;
+	text-decoration: none;
+	padding: 0.375em 1em;	
+}
+.subsidiary-navigation ul ul {
+	background: #fff;
+	display: none;
+	float: left;
+	position: absolute;
+	top: 1.5em;
+	left: 0;
+	z-index: 99999;
+}
+.subsidiary-navigation ul ul ul {
+	left: 100%;
+	top: 0;
+}
+.subsidiary-navigation ul ul a {
+	width: 200px;
+}
+.subsidiary-navigation ul ul li {
+}
+.subsidiary-navigation li:hover > a {
+}
+.subsidiary-navigation ul ul :hover > a {
+}
+.subsidiary-navigation ul ul a:hover {
+}
+.subsidiary-navigation ul li:hover > ul {
+	display: block;
+}
+.subsidiary-navigation li.current_page_item a,
+.subsidiary-navigation li.current-menu-item a {
 }
 
 #footer .copyright {
