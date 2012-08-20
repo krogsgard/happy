@@ -57,19 +57,6 @@ html {
 }
 
 
-/* Drop-downs. */
-div.menu ul{margin:0;padding:0;list-style:none;line-height:1.0}
-div.menu ul ul{position:absolute;top:-999em;width:10em}
-div.menu ul ul li{width:100%}
-div.menu li:hover{visibility:inherit}
-div.menu a{display:block;position:relative}
-div.menu li:hover ul,li.sfHover ul{left:0;top:0;z-index:99}
-div.menu li:hover li ul,li.sfHover li ul{top:-999em}
-div.menu li li:hover ul,li li.sfHover ul{left:10em;top:0}
-div.menu li li:hover li ul,li li.sfHover li ul{top:-999em}
-div.menu li li li:hover ul,li li li.sfHover ul{left:10em;top:0}
-
-
 body,
 button,
 input,
@@ -79,6 +66,10 @@ textarea {
 	font-size: 1rem;
 	font-family: sans-serif;
 	line-height: 1.5;
+}
+
+input, textarea {
+	max-width: 98%;
 }
 
 body {
@@ -153,40 +144,40 @@ p {
 	clear:both
 }
 
-h1, h2 {
-}
-	
-h3, h4, h5, h6 {
-}
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+} /* margin and padding and font-weight set to override browser defaults */
 	
 h1 {	
 	font-size:	27px;
-	font-size:	1.688rem;
-	font-weight: normal;	
+	font-size:	1.688rem;	
 }
 
 h2 {	
 	font-size:	24px;
-	font-size:	1.5rem;
-	font-weight: normal;	
+	font-size:	1.5rem;	
 } /* 24px */
 
 h3 {	
 	font-size:	20px;
-	font-size:	1.25rem;
-	font-weight: normal;	
+	font-size:	1.25rem;	
 } /* 20px */
 
 h4 {	
 	font-size:	18px;
-	font-size:	1.125rem;
-	font-weight: normal;	
+	font-size:	1.125rem;	
 } /* 18px */
 
 h5 {	
 	font-size:	16px;
 	font-size:	1rem;	
-	font-weight: normal;
 } /* 16px */
 
 h6 {	
@@ -469,7 +460,7 @@ img.wp-post-image {
 } 
 
 #header .wrap{
-	height: 10em; /* 160px for overflow reasons */
+/*	height: 10em; 160px for overflow reasons */
 	clear: both;
 	margin: 0 auto;
 	padding: 1.5em;
@@ -507,8 +498,6 @@ img.wp-post-image {
 	clear: left;
 	font-size: 16px;
 	font-size: 1rem;
-	line-height: 16px;
-	line-height: 1rem;
 	padding: 0;
 } 
 	
@@ -736,7 +725,7 @@ img.wp-post-image {
 .secondary-navigation ul li a:hover, .secondary-navigation li ul li a:hover {
 
 }
-*/
+*/ /*
 .secondary-navigation {
 	clear: both;
 	display: block;
@@ -763,6 +752,9 @@ img.wp-post-image {
 	text-decoration: none;
 	padding: 16px;	
 	padding: 1rem;
+}
+.secondary-navigation a:hover {
+	background: #bbb;
 }
 .secondary-navigation ul ul {
 	background: #fff;
@@ -795,8 +787,8 @@ img.wp-post-image {
 .secondary-navigation li.current-menu-item a {
 }
 
-
-/* Drop-down styles */
+*/
+/* Drop-down styles 
 #menu-secondary li ul {
 }
 #menu-secondary li:hover ul, #menu-secondary li.sfHover ul {
@@ -819,18 +811,147 @@ img.wp-post-image {
 #menu-secondary li li:hover ul, #menu-secondary li li.sfHover ul {
 	margin: 0;
 }
+*/
 
 
 /* main-menu */
 
 
 
+/*
+Author: Craig Erskine
+Description: Dynamic Menu System - Horizontal/Vertical
+*/
+.secondary-navigation {
+	clear: both;
+	display: block;
+	width: 100%; 
+	float: left;   
+	text-align: center;
+	clear:both;
+}
+.secondary-navigation .wrap {
+	margin: 0 auto;
+	position: relative;
+	overflow: visible;
+	background: #ccc;
+}
+.secondary-navigation .wrap:after {  content:"."; clear:both; display:block; height:0; visibility:hidden; } /* forces layout */
 
+.secondary-navigation ul { 
+	margin: 0; 
+	padding: 0; 
+	list-style: none; 
+	position: relative; 
+}
+
+.secondary-navigation ul ul {
+	width: 160px; /* Sub Menu Width */
+	margin: 0;
+	list-style: none;
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 9999;
+}
+
+.secondary-navigation ul ul ul,
+.secondary-navigation ul ul ul ul { 
+	top: 0; 
+	left: 100%; 
+}
+
+.secondary-navigation ul li { 
+	float: left; 
+	display: inline; 
+	position: relative; 
+}
+.secondary-navigation ul ul li { 
+	width: 100%; 
+	display: block; 
+}
+
+/* Root Menu */
+.secondary-navigation ul a {
+	float: left;
+	display: block;
+	background: #DDD;
+	text-decoration: none;
+	padding: 16px;	
+	padding: 1rem;
+	height: 1%;
+}
+
+/* Root Menu Hover Persistence */
+.secondary-navigation ul a:hover,
+.secondary-navigation ul li:hover a,
+.secondary-navigation ul li.iehover a {
+	background: #BBB;
+	color: #FFF;
+}
+
+/* 2nd Menu */
+.secondary-navigation ul li:hover li a, 
+.secondary-navigation ul li.iehover li a {
+	float: none;
+	background: #BBB;
+}
+
+/* 2nd Menu Hover Persistence */
+.secondary-navigation ul li:hover li a:hover,
+.secondary-navigation ul li:hover li:hover a,
+.secondary-navigation ul li.iehover li a:hover,
+.secondary-navigation ul li.iehover li.iehover a {
+ background: #999;
+}
+
+/* 3rd Menu */
+.secondary-navigation ul li:hover li:hover li a,
+.secondary-navigation ul li.iehover li.iehover li a {
+ background: #999;
+}
+
+/* 3rd Menu Hover Persistence */
+.secondary-navigation ul li:hover li:hover li a:hover,
+.secondary-navigation ul li:hover li:hover li:hover a,
+.secondary-navigation ul li.iehover li.iehover li a:hover,
+.secondary-navigation ul li.iehover li.iehover li.iehover a {
+ background: #666;
+}
+
+/* 4th Menu */
+.secondary-navigation ul li:hover li:hover li:hover li a,
+.secondary-navigation ul li.iehover li.iehover li.iehover li a {
+ background: #666;
+}
+
+/* 4th Menu Hover */
+.secondary-navigation ul li:hover li:hover li:hover li a:hover,
+.secondary-navigation ul li.iehover li.iehover li.iehover li a:hover {
+ background: #333;
+}
+
+/* Hover Function - Do Not Move */
+.secondary-navigation ul li:hover ul ul,
+.secondary-navigation ul li:hover ul ul ul,
+.secondary-navigation ul li.iehover ul ul,
+.secondary-navigation ul li.iehover ul ul ul { 
+	display: none; 
+}
+.secondary-navigation ul li:hover ul,
+.secondary-navigation ul ul li:hover ul,
+.secondary-navigation ul ul ul li:hover ul,
+.secondary-navigation ul li.iehover ul,
+.secondary-navigation ul ul li.iehover ul,
+.secondary-navigation ul ul ul li.iehover ul { 
+	display: block; 
+}
 
 /* content-area */
 
 #content {
-	width: 75%; /* standard 720px width */ 
+	width: 70%; /* standard 720px width */ 
 	margin: 0;
 	padding: 0; 
 	background: none;
@@ -1004,18 +1125,18 @@ img.wp-post-image {
 .layout-2c-l #content, 
 .layout-default #content {
 	float: left;
-	width: 75%;
+	width: 70%;
 }
 
 .layout-3c-l #content, 
 .layout-3c-r #content, 
 .layout-3c-c #content {
-	width: 50%;
+	width: 40%;
 }
 
 #sidebar-primary, 
 #sidebar-secondary {
-	width: 22%;
+	width: 25%;
 }
 
 .layout-2c-l #sidebar-primary, 
@@ -1026,13 +1147,12 @@ img.wp-post-image {
 .layout-default #sidebar-secondary {
 	clear: right;
 	float: right;
-	padding: 0;
 	margin: 1.5em 0;
 }
 
 .layout-2c-r #content {
 	float: right;
-	width: 75%;
+	width: 70%;
 }
 .layout-2c-r #sidebar-primary {
 	float: left;
@@ -1040,7 +1160,6 @@ img.wp-post-image {
 .layout-2c-r #sidebar-secondary {
 	float: left;
 	clear: left;
-	padding: 1.5em;
 }
 
 .layout-3c-l #content {
@@ -1067,22 +1186,20 @@ img.wp-post-image {
 	margin:0 1.5em 0 0;
 }
 .layout-3c-r #sidebar-secondary {
-	padding: 0;
 	border: none;
 }
 
 .layout-3c-c #content {
 	float: left;
-	margin:0 0 0 25%;
+	margin:0 0 0 30%;
 }
 .layout-3c-c #sidebar-primary {
 	float: left;
-	margin:0 0 0 -75%;
+	margin:0 0 0 -70%;
 }
 .layout-3c-c #sidebar-secondary {
 	clear: none;
 	float: right;
-	padding: 0;
 	border: none;
 }
 
@@ -1093,7 +1210,6 @@ img.wp-post-image {
 #sidebar-after-singular {
 	overflow: hidden;
 	margin: 1.5em 0;
-	padding: 0;
 }
 #sidebar-after-singular .widget-title {
 }
@@ -1101,11 +1217,10 @@ img.wp-post-image {
 	list-style: square inside;
 }
 #sidebar-after-singular .widget ul li a {
-	border-bottom: 1px solid #ccc;
+
 }
 #sidebar-after-singular .widget ul li a:hover {
-	border-bottom: 1px solid #222;
-	text-decoration: none;
+
 }
 	
 	
@@ -1140,8 +1255,12 @@ img.wp-post-image {
 }
 
 #sidebar-primary {
+padding: 3%;
+background: #ddd;
 }
 #sidebar-secondary {
+padding: 3%;
+background: #ddd;
 }
 
 
@@ -1290,9 +1409,11 @@ img.wp-post-image {
 	list-style: none;
 	margin: 0 0 1.5em 0;
 	border-top: 1px solid #dfdfdf;
+	padding: 0;
 }
 .comment-list li {
-	padding: 1.5em 1.5em 0 1.5em;
+	padding: 24px 24px 0 24px;
+	padding: 1.5rem 1.5rem 0 1.5rem;
 	border: 1px solid #dfdfdf;
 	border-top: none;
 }
@@ -1319,6 +1440,34 @@ img.wp-post-image {
 .comment-meta a:hover {
 
 }
+
+.comment-content {
+	margin-left: 60px;
+	margin-left: 3.75rem;
+	margin-left: 0;
+	clear: both;
+}
+
+.comment-content ol {
+	list-style: decimal inside;
+	margin: 0 0 1.5em 0;
+	border-top: none;
+	margin: 0 0 1.5em 1.5em;
+	padding: 0;
+}
+.comment-content ul {
+	list-style: square inside;
+	margin: 0 0 1.5em 0;
+	border-top: none;
+	margin: 0 0 1.5em 1.5em;
+	padding: 0;
+}
+.comment-content li {
+	border: none;
+	padding: 0;
+}
+
+
 .comment-text {
 
 }
@@ -1428,12 +1577,20 @@ img.wp-post-image {
 		width: 49%;
 		float: left;
 	}
+	.comment-list li {
+		padding: 8px 8px 0 8px;
+		padding: .5rem .5rem 0 .5rem;
+	}
 
 }
 
 @media (min-width: 1em) and (max-width: 29.9999em) { 
 
 	.wrap { width: 98%; }
+	
+	#main .wrap {
+		padding: 1em .5em;
+	}
 	
 	.layout-1c #content, #content, .layout-2c-l #content, .layout-default #content, .layout-3c-l #content, .layout-3c-r #content, .layout-3c-c #content {
 		width: 98%;
@@ -1456,6 +1613,19 @@ img.wp-post-image {
 	
 	.entry-title {
 		clear:both;
+	}
+	
+	.comment-list li {
+		padding: 4px 2px 0 4px;
+		padding: 0.25rem 0.125rem 0 0.25rem;
+	}
+
+	.comment-list .avatar {
+		float: left;
+		width: 2.5em;
+		height: 2.5em;
+		margin: 0 4px 4px 0; 
+		margin: 0 0.25rem 0.25rem 0;
 	}
 
 }
