@@ -20,7 +20,7 @@ if ( has_nav_menu( 'subsidiary' ) ) : ?>
 
 			<?php do_atomic( 'open_menu_subsidiary' ); // Open subsidiary menu hook ?>
 
-			<?php wp_nav_menu( array( 'theme_location' => 'subsidiary', 'container_class' => 'menu', 'menu_class' => '', 'menu_id' => 'menu-subsidiary-items', 'fallback_cb' => '' ) ); ?>
+			<?php wp_nav_menu( array( 'theme_location' => 'subsidiary', 'container_class' => 'menu', 'menu_class' => '', 'menu_id' => 'menu-subsidiary-items', 'depth' => 1, 'fallback_cb' => '' ) ); ?>
 
 			<?php do_atomic( 'close_menu_subsidiary' ); // Close subsidiary menu hook ?>
 			

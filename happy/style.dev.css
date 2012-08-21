@@ -76,7 +76,7 @@ body {
 	padding: 0;
 	background: #ffffff;
 	font-family: sans-serif;
-	color:#000;
+	color:#333;
 }
 
 
@@ -437,12 +437,12 @@ img.wp-post-image {
 #main .wrap{
 	overflow: hidden;
 	clear: both;
-	margin: 0 auto 2.5em;
+	margin: 0 auto;
 	/* open styles 
 	padding: 1.5em 0px;
 	background: none; */
 	/* BOXED */
-	padding: 1.5em 1.5em;
+	padding: 1.5em;
 }	
 	
 	
@@ -696,131 +696,15 @@ img.wp-post-image {
 
 
 
-
-
-
-
-
-/* main-menu */
-
-
-/*
-.secondary-navigation li a:hover {
-
-}
-.secondary-navigation li ul {
-}
-.secondary-navigation li.current-menu-item a {
-
-}
-.secondary-navigation li li.current-menu-item a {
-
-}
-.secondary-navigation li:hover ul li a, .secondary-navigation li.sfHover ul li a, .secondary-navigation li.sfHover a {
-
-}
-.secondary-navigation li li a, .secondary-navigation li li.current-menu-item li a {
-	
-}
-.secondary-navigation ul li a:hover, .secondary-navigation li ul li a:hover {
-
-}
-*/ /*
-.secondary-navigation {
-	clear: both;
-	display: block;
-	width: 100%; 
-	float: left;   
-	text-align: center;
-	overflow: hidden;
-	clear:both;
-}
-.secondary-navigation .wrap {
-	margin: 0 auto;
-	background: #ccc;
-}
-.secondary-navigation ul {
-	list-style: none;
-	padding-left: 0;
-}
-.secondary-navigation li {
-	float: left;
-	position: relative;
-}
-.secondary-navigation a {
-	display: block;
-	text-decoration: none;
-	padding: 16px;	
-	padding: 1rem;
-}
-.secondary-navigation a:hover {
-	background: #bbb;
-}
-.secondary-navigation ul ul {
-	background: #fff;
-	display: none;
-	float: left;
-	position: absolute;
-	top: 1.5em;
-	left: 0;
-	z-index: 99999;
-}
-.secondary-navigation ul ul ul {
-	left: 100%;
-	top: 0;
-}
-.secondary-navigation ul ul a {
-	width: 200px;
-}
-.secondary-navigation ul ul li {
-}
-.secondary-navigation li:hover > a {
-}
-.secondary-navigation ul ul :hover > a {
-}
-.secondary-navigation ul ul a:hover {
-}
-.secondary-navigation ul li:hover > ul {
-	display: block;
-}
-.secondary-navigation li.current_page_item a,
-.secondary-navigation li.current-menu-item a {
-}
-
-*/
-/* Drop-down styles 
-#menu-secondary li ul {
-}
-#menu-secondary li:hover ul, #menu-secondary li.sfHover ul {
-	top: 37px;
-	padding: 0;
-	margin: 0px;
-}
-#menu-secondary li.sfHover ul {
-	margin: 0 0 0 1em;
-}
-#menu-secondary li.sfHover ul li.current-menu-item {
-	margin: 0
-}
-#menu-secondary li.sfHover ul li:hover {
-	margin:0;
-}
-#menu-secondary li:hover li ul, #menu-secondary li.sfHover li ul {
-	top: -999em;
-}
-#menu-secondary li li:hover ul, #menu-secondary li li.sfHover ul {
-	margin: 0;
-}
-*/
-
-
 /* main-menu */
 
 
 
 /*
-Author: Craig Erskine
+Original Author: Craig Erskine
 Description: Dynamic Menu System - Horizontal/Vertical
+Adapted to Happy theme in various ways
+http://qrayg.com/experiment/cssmenus/
 */
 .secondary-navigation {
 	clear: both;
@@ -989,11 +873,11 @@ Description: Dynamic Menu System - Horizontal/Vertical
 	margin: 0 0 0.5em 0;
 }
 .singular .entry-title {
-	margin: 0 0 1.5em 0;
+	margin: 0 0 0.5em 0;
 }
 .singular-page .entry-title, 
 .singular-attachment .entry-title {
-	margin:0 0 0.5em;
+	margin:0 0 1em;
 }
 	
 .entry-title a {
@@ -1286,23 +1170,27 @@ background: #ddd;
 
 /* subsidiary nav */
 
+
 .subsidiary-navigation {
 	clear: both;
 	display: block;
 	width: 100%; 
 	float: left;   
-	height: 2.5em;
-	text-align: center;
+	text-align: left;
 	overflow: hidden;
 	clear:both;
 }
-.subsidiary-navigation .wrap {
+#footer .subsidiary-navigation .wrap {
 	margin: 0 auto 1.5em;
-	background: #ccc;
+	background: #999;
 }
+.subsidiary-navigation .wrap:after {  content:"."; clear:both; display:block; height:0; visibility:hidden; } /* forces layout */
+
 .subsidiary-navigation ul {
 	list-style: none;
 	padding-left: 0;
+	margin: 0;
+	padding: 0;
 }
 .subsidiary-navigation li {
 	float: left;
@@ -1348,15 +1236,19 @@ background: #ddd;
 	float: left;
 	text-align: left;
 	width: 49%;
+	padding: 16px;
+	padding: 1rem;
 	margin: 0;
-	padding: 0;
 }
 #footer .credit {
 	float: right;
-	width: 49%;
-	margin: 0;
 	text-align: right;
-	padding: 0;
+	width: 49%;
+	padding: 16px;
+	padding: 1rem;
+	margin: 0;
+	
+	
 }
 #footer .copyright a, #footer .credit a {
 }
