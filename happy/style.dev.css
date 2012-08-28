@@ -40,12 +40,21 @@ html {
 	overflow-y: scroll; /* Keeps page centred in all browsers regardless of content height */
 	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
 	-ms-text-size-adjust: 100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+	-moz-hyphens:auto;
+	-ms-hyphens:auto;
+	-webkit-hyphens:auto;
+	hyphens:auto;
+	word-wrap:break-word;
 }
 
 /* box sizing FTW */
 /* src: http://paulirish.com/2012/box-sizing-border-box-ftw/ */
 
-* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+* { 
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box;
+}
 
 
 /* assistive */
@@ -76,18 +85,12 @@ body {
 	padding: 0;
 	background: #ffffff;
 	font-family: sans-serif;
-	color:#333;
+	color:#222;
 }
 
 
 .wrap {
 	overflow: hidden;
-	-moz-hyphens: auto;
-	-ms-word-break: break-all;
-	-webkit-hyphens: auto;
-	hyphens: auto;
-	word-break: break-all;
-	word-break: break-word;
 	clear: both;
 	width: 71.25em;
 	margin: 0 auto;
@@ -128,12 +131,19 @@ blockquote, q {
 
 /* PROBABLY NEED TO NOT DECLARE a SITEWIDE. */
 a {
-	color: #222;
+	color: #666;
 	text-decoration: none;
 }
 a:hover {
+	color: #444;
+}
+
+.entry-content a, .sidebar a {
+	color: #004466;
+}
+.entry-content a:hover, .sidebar a:hover {
+	color: #3388bb;
 	text-decoration: underline;
-	color: #333;
 }
 	
 p {
@@ -240,11 +250,9 @@ acronym {
 	text-transform: uppercase;
 	color: #555;
 	background: #fcfcfc;
-	border-bottom: 1px solid #ccc;
 }
 acronym:hover {
 	background: #f9f9f9;
-	border-bottom: 1px solid #999;
 }
 
 /* horizontal line */
@@ -369,15 +377,15 @@ img.wp-post-image {
 }
 
 .entry-content img {
-	max-width: 98%;
-	padding: 0.25em;
+	max-width: 100%;
+	padding: 0;
 	border: none;
 }
 .layout-1c .entry-content img {
-	max-width: 98%;
+
 }
 .layout-3c-l .entry-content img, .layout-3c-r .entry-content img, .layout-3c-c .entry-content img {
-	max-width: 98%;
+
 }
 
 .gallery {
@@ -421,6 +429,15 @@ img.wp-post-image {
 .wp-caption .wp-caption-text {
 	margin: 0 0.25em;
 	text-align: right;
+}
+
+/* 
+ * tweet oEmbed force max width 
+ * kudos: http://kovshenin.com/2012/quick-tip-how-to-make-tweet-embeds-responsive/
+*/
+
+.entry-content .twitter-tweet-rendered {
+    max-width: 100% !important;
 }
 
 /* buttons */
@@ -521,7 +538,7 @@ input[type="submit"].toggled-on {
 /*	height: 10em; 160px for overflow reasons */
 	clear: both;
 	margin: 0 auto;
-	padding: 1.5em;
+	padding: 0 1.5em 1.5em 1.5em;
 	background: none; 
 }
 
@@ -564,9 +581,15 @@ input[type="submit"].toggled-on {
 	overflow: hidden; 
 	float: right;
 	background: none;
-	width: 40%;
+	max-width: 60%;
+	width: auto;
 	margin: 0;
 	padding: 0;
+}
+#sidebar-header .widget {
+	float: right;
+	width: 45%;
+	margin: 2.5% 0 0 2.5%;
 }
 #sidebar-header .widget-title {
 	margin: 0.5em 0px;
@@ -609,8 +632,11 @@ input[type="submit"].toggled-on {
 .primary-navigation {
 	clear: both;
 	display: block;
-	width: 62.5%; 
-	float: right;   
+	width: 100%; 
+ 
+}
+#header .primary-navigation .wrap {
+	padding: 0 1.5em;
 }
 .primary-navigation ul {
 	list-style: none;
@@ -776,8 +802,7 @@ http://qrayg.com/experiment/cssmenus/
 .secondary-navigation {
 	clear: both;
 	display: block;
-	width: 100%; 
-	float: left;   
+	width: 100%;    
 	text-align: center;
 	clear:both;
 }
@@ -940,7 +965,6 @@ http://qrayg.com/experiment/cssmenus/
 	height: 150px;
 	*/
 	margin: 0 0 0.5em 1em;
-	padding: 0.25em;
 }
 .sticky .thumbnail {
 }
@@ -1206,23 +1230,15 @@ http://qrayg.com/experiment/cssmenus/
 .sidebar .widget ul li a {
 }
 .sidebar .widget ul li a:hover {
-	text-decoration: underline;
-}
-.sidebar .widget ul {
-	list-style: square inside;
-}
-.sidebar .widget ul li a {
-}
-.sidebar .widget ul li a:hover {
-	text-decoration: none;
+
 }
 
 #sidebar-primary {
-padding: 3%;
+padding: 2%;
 background: #ddd;
 }
 #sidebar-secondary {
-padding: 3%;
+padding: 2%;
 background: #ddd;
 }
 
@@ -1253,8 +1269,7 @@ background: #ddd;
 .subsidiary-navigation {
 	clear: both;
 	display: block;
-	width: 100%; 
-	float: left;   
+	width: 100%;   
 	text-align: left;
 	overflow: hidden;
 	clear:both;
@@ -1344,9 +1359,10 @@ background: #ddd;
 	padding: 1rem;
 }
 #sidebar-subsidiary .widget {
+	width: 23%;
 	float: left;
 	margin: 0 1%;
-	padding: 0;
+	padding: 0 1%;
 }
 #sidebar-subsidiary .widget a {
 }
@@ -1546,10 +1562,24 @@ background: #ddd;
 		width: 98%;
 		float: left;
 	}
+
+	#sidebar-header {
+		clear:both;
+		max-width: 100%;
+		float: left;
+	}
 	
-	.layout-2c-r #sidebar-primary, .layout-2c-l #sidebar-primary, .layout-default #sidebar-primary, .layout-2c-r #sidebar-secondary, .layout-2c-l #sidebar-secondary, .layout-default #sidebar-secondary {
+	.layout-2c-r #sidebar-primary, .layout-2c-l #sidebar-primary, .layout-default #sidebar-primary {
 		width: 49%;
 		float: left;
+	}
+	.layout-2c-r #sidebar-secondary, .layout-2c-l #sidebar-secondary, .layout-default #sidebar-secondary {
+		width: 49%;
+		float: left;
+		margin: 0 0 0 2%;
+	}
+	#sidebar-subsidiary .widget {
+		width: 48%;
 	}
 	.comment-list li {
 		padding: 8px 8px 0 8px;
@@ -1571,8 +1601,18 @@ background: #ddd;
 		float: left;
 	}
 	
+	#sidebar-header {
+		clear:both;
+		max-width: 100%;
+		float: left;
+	}	
+	#sidebar-header .widget {
+		clear: both;
+		width: 100%;
+	}
 	
-	.layout-2c-r #sidebar-primary, .layout-2c-l #sidebar-primary, .layout-default #sidebar-primary, .layout-2c-r #sidebar-secondary, .layout-2c-l #sidebar-secondary, .layout-default #sidebar-secondary {
+	
+	.layout-2c-r #sidebar-primary, .layout-2c-l #sidebar-primary, .layout-default #sidebar-primary, .layout-2c-r #sidebar-secondary, .layout-2c-l #sidebar-secondary, .layout-default #sidebar-secondary, #sidebar-subsidiary .widget {
 		width: 98%;
 		float: left;
 		clear: both;
@@ -1587,6 +1627,11 @@ background: #ddd;
 	
 	.entry-title {
 		clear:both;
+	}
+
+	.hentry .thumbnail {
+		float: left;
+		margin: 0;
 	}
 	
 	.comment-list li {

@@ -15,12 +15,16 @@ if ( has_nav_menu( 'primary' ) ) : ?>
 	<nav id="menu-primary" role="navigation" class="primary-navigation site-navigation">
 		<h1 class="assistive-text"><?php _e( 'Menu', 'happy' ); ?></h1>
 		<div class="assistive-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'happy' ); ?>"><?php _e( 'Skip to content', 'happy' ); ?></a></div>
+		
+		<div class="wrap">
 
 			<?php do_atomic( 'open_menu_primary' ); // Open primary menu hook ?>
 
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container_class' => 'menu', 'menu_class' => 'nav-menu', 'menu_id' => 'menu-primary-items', 'fallback_cb' => '' ) ); ?>
 
 			<?php do_atomic( 'close_menu_primary' ); // Close primary menu hook ?>
+			
+		</div>
 
 	</nav><!-- #menu-primary .menu-container -->
 
