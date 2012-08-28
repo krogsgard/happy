@@ -94,7 +94,7 @@ function happy_scripts() {
  */
 function happy_register_sidebars() {
 
-	register_sidebar( array( 'name' => __( 'Feature', hybrid_get_textdomain() ), 'id' => 'feature', 'description' => __( 'Displayed in the feature area.', hybrid_get_textdomain() ), 'before_widget' => '<div id="%1$s" class="widget %2$s widget-%2$s"><div class="widget-inside">', 'after_widget' => '</div></div>', 'before_title' => '<h3 class="widget-title">', 'after_title' => '</h3>' ) );
+	register_sidebar( array( 'name' => __( 'Feature', 'happy' ), 'id' => 'feature', 'description' => __( 'Displayed in the feature area.', 'happy' ), 'before_widget' => '<div id="%1$s" class="widget %2$s widget-%2$s"><div class="widget-inside">', 'after_widget' => '</div></div>', 'before_title' => '<h3 class="widget-title">', 'after_title' => '</h3>' ) );
 
 }
 

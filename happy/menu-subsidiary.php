@@ -13,8 +13,8 @@ if ( has_nav_menu( 'subsidiary' ) ) : ?>
 	<?php do_atomic( 'before_menu_subsidiary' ); // Before subsidiary menu hook ?>
 
 	<nav id="menu-subsidiary" role="navigation" class="subsidiary-navigation site-navigation">
-		<h1 class="assistive-text"><?php _e( 'Navigation', hybrid_get_textdomain() ); ?></h1>
-		<div class="assistive-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', hybrid_get_textdomain() ); ?>"><?php _e( 'Skip to content', hybrid_get_textdomain() ); ?></a></div>
+		<h1 class="assistive-text"><?php _e( 'Navigation', 'happy' ); ?></h1>
+		<div class="assistive-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'happy' ); ?>"><?php _e( 'Skip to content', 'happy' ); ?></a></div>
 
 		<div class="wrap">
 
