@@ -137,7 +137,7 @@ a:hover {
 }
 	
 p {
-	margin:0 0 1.25em 0
+	margin:0 0 1.5em 0
 }
 
 .clear {
@@ -423,6 +423,64 @@ img.wp-post-image {
 	text-align: right;
 }
 
+/* buttons */
+
+/* Buttons */
+.button,
+.menu-toggle,
+input[type="submit"] {
+	padding: 6px 10px;
+	padding: 0.428571429rem 0.714285714rem;
+	font-size: 11px;
+	font-size: 0.785714286rem;
+	line-height: 1.428571429;
+	font-weight: normal;
+	color: #7c7c7c;
+	background-color: #e6e6e6;
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: -ms-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: -webkit-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: -o-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: linear-gradient(top, #f4f4f4, #e6e6e6);
+	border: 1px solid #d2d2d2;
+	border-radius: 3px;
+	box-shadow: 0 1px 2px rgba(64, 64, 64, 0.1);
+}
+.button,
+.menu-toggle,
+input[type="submit"] {
+	cursor: pointer;
+}
+.button:hover
+.menu-toggle:hover,
+input[type="submit"]:hover {
+	color: #5e5e5e;
+	background-color: #ebebeb;
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(top, #f9f9f9, #ebebeb);
+	background-image: -ms-linear-gradient(top, #f9f9f9, #ebebeb);
+	background-image: -webkit-linear-gradient(top, #f9f9f9, #ebebeb);
+	background-image: -o-linear-gradient(top, #f9f9f9, #ebebeb);
+	background-image: linear-gradient(top, #f9f9f9, #ebebeb);
+}
+.button:active
+.menu-toggle:active,
+.menu-toggle.toggled-on,
+input[type="submit"]:active,
+input[type="submit"].toggled-on {
+	color: #777;
+	background-color: #e1e1e1;
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(top, #ebebeb, #e1e1e1);
+	background-image: -ms-linear-gradient(top, #ebebeb, #e1e1e1);
+	background-image: -webkit-linear-gradient(top, #ebebeb, #e1e1e1);
+	background-image: -o-linear-gradient(top, #ebebeb, #e1e1e1);
+	background-image: linear-gradient(top, #ebebeb, #e1e1e1);
+	box-shadow: inset 0 0 8px 2px #c6c6c6, 0 1px 0 0 #f4f4f4;
+	border: none;
+}
+
 /* Style. */
 
 
@@ -602,14 +660,23 @@ img.wp-post-image {
 /* Small menu */
 .menu-toggle {
 	cursor: pointer;
+	display: inline-block;
+	margin: 0 1.5em;
 }
-.main-small-navigation .menu {
-	display: none;
+.main-small-navigation,
+.main-small-secondary-navigation {
+	text-align: center;
 }
+.main-small-navigation .menu,
 .main-small-secondary-navigation .menu {
 	display: none;
+	text-align: left;
 }
-
+.main-small-navigation .menu > ul,
+.main-small-secondary-navigation .menu > ul {
+	margin: 0 auto;
+	padding: 0;
+}
 
 /* Drop-down styles */
 #menu-primary li ul {
@@ -720,6 +787,7 @@ http://qrayg.com/experiment/cssmenus/
 	overflow: visible;
 	background: #ccc;
 }
+
 .secondary-navigation .wrap:after {  content:"."; clear:both; display:block; height:0; visibility:hidden; } /* forces layout */
 
 .secondary-navigation ul { 
@@ -839,7 +907,6 @@ http://qrayg.com/experiment/cssmenus/
 	margin: 0;
 	padding: 0; 
 	background: none;
-	line-height: 1.25em;
 }
 
 .page-template-front-page #content {
@@ -847,10 +914,19 @@ http://qrayg.com/experiment/cssmenus/
 }
 
 .hentry {
-	margin: 0 0 1.5em 0;
+	margin: 0 0 28px 0;
+	margin: 0 0 1.75rem 0;
+	padding: 0 0 28px 0;
+	padding: 0 0 1.75rem 0;
 }
 .singular .hentry {
 	margin: 0;
+	padding: 0;
+}
+
+.home .hfeed .hentry, 
+.archive .hfeed .hentry {
+	border-bottom: 1px solid #ccc;
 }
 .sticky {
 	margin: 0;
@@ -906,7 +982,7 @@ http://qrayg.com/experiment/cssmenus/
 
 .entry-meta {
 	clear: both;
-	margin: 0 0 1.5em 0;
+	margin: 0;
 	font-size: 14px;
 	font-size: 0.875rem;
 }
@@ -925,11 +1001,14 @@ http://qrayg.com/experiment/cssmenus/
 	overflow: hidden;
 	font-style: italic;
 }
+.loop-description p {
+	margin: 0;
+}
 .loop-description em {
 	font-style: normal;
 }
 .loop-title {	
-	margin: 0 0 1.5em 0;
+	margin: 0;
 }
 .loop-meta .avatar {
 	float: left;
@@ -1006,7 +1085,8 @@ http://qrayg.com/experiment/cssmenus/
 }
 
 #content, 
-.layout-2c-l #content, 
+.layout-2c-l #content,
+.layout-2c-r #content,  
 .layout-default #content {
 	float: left;
 	width: 70%;
@@ -1036,7 +1116,6 @@ http://qrayg.com/experiment/cssmenus/
 
 .layout-2c-r #content {
 	float: right;
-	width: 70%;
 }
 .layout-2c-r #sidebar-primary {
 	float: left;
@@ -1180,8 +1259,8 @@ background: #ddd;
 	overflow: hidden;
 	clear:both;
 }
-#footer .subsidiary-navigation .wrap {
-	margin: 0 auto 1.5em;
+.subsidiary-navigation .wrap {
+	margin: 0 auto;
 	background: #999;
 }
 .subsidiary-navigation .wrap:after {  content:"."; clear:both; display:block; height:0; visibility:hidden; } /* forces layout */
@@ -1258,7 +1337,11 @@ background: #ddd;
 #sidebar-subsidiary {
 	overflow: hidden;
 	width: 100%;
-	padding: 1em 0;
+}
+#sidebar-subsidiary .wrap {
+	background: #aaa;
+	padding: 16px;
+	padding: 1rem;
 }
 #sidebar-subsidiary .widget {
 	float: left;
@@ -1463,7 +1546,6 @@ background: #ddd;
 		width: 98%;
 		float: left;
 	}
-	
 	
 	.layout-2c-r #sidebar-primary, .layout-2c-l #sidebar-primary, .layout-default #sidebar-primary, .layout-2c-r #sidebar-secondary, .layout-2c-l #sidebar-secondary, .layout-default #sidebar-secondary {
 		width: 49%;

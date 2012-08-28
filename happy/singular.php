@@ -25,7 +25,7 @@ get_header(); ?>
 
 					<?php do_atomic( 'before_entry' ); // Before entry hook ?>
 
-					<div id="post-<?php the_ID(); ?>" class="<?php hybrid_entry_class(); ?>">
+					<article id="post-<?php the_ID(); ?>" class="<?php hybrid_entry_class(); ?>">
 
 						<?php do_atomic( 'open_entry' ); // Open entry hook ?>
 
@@ -48,7 +48,7 @@ get_header(); ?>
 
 						<?php do_atomic( 'close_entry' ); // Close entry hook ?>
 
-					</div><!-- .hentry -->
+					</article><!-- .hentry -->
 
 					<?php do_atomic( 'after_entry' ); // After entry hook ?>
 

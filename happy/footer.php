@@ -27,17 +27,17 @@
 
 		<?php do_atomic( 'after_main' ); // After main hook ?>
 		
+		<?php get_sidebar( 'subsidiary' ); // Load the sidebar-subsidiary.php template. ?>
+
+		<?php get_template_part( 'menu', 'subsidiary' ); // Load the menu-subsidiary.php template. ?>
+		
+		<?php do_atomic( 'before_footer' ); // Before footer hook ?>
+		
 		<footer id="footer">
 
 			<?php do_atomic( 'open_footer' ); // Open footer hook ?>
 
 			<div class="wrap">
-
-				<?php get_sidebar( 'subsidiary' ); // Load the sidebar-subsidiary.php template. ?>
-
-				<?php get_template_part( 'menu', 'subsidiary' ); // Load the menu-subsidiary.php template. ?>
-				
-				<?php do_atomic( 'before_footer' ); // Before footer hook ?>
 
 				<?php echo apply_atomic_shortcode( 'footer_content', hybrid_get_setting( 'footer_insert' ) ); ?>
 

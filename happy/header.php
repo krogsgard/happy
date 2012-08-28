@@ -44,10 +44,10 @@
 		<header id="header" role="banner">
 
 			<?php do_atomic( 'open_header' ); // Open header hook ?>
-
-			<div class="wrap">
 			
 			<?php get_template_part( 'menu', 'primary' ); ?>
+
+			<div class="wrap">
                             
 				<hgroup id="branding">
 					
@@ -79,5 +79,4 @@
 
 			<div class="wrap">
 			
-			<?php do_atomic( 'open_main' ); // Open main hook ?>
-			
+			<?php do_atomic( 'open_main' ); // Open main hook ?>			

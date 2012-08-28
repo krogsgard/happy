@@ -14,12 +14,16 @@ if ( is_active_sidebar( 'subsidiary' ) ) : ?>
 	<?php do_atomic( 'before_sidebar_subsidiary' ); // Before subsidiary sidebar hook ?>
 
 	<div id="sidebar-subsidiary" class="sidebar aside">
+	
+		<div class="wrap">
 
 		<?php do_atomic( 'open_sidebar_subsidiary' ); // Open subsidiary sidebar hook ?>
 
 		<?php dynamic_sidebar( 'subsidiary' ); ?>
 
 		<?php do_atomic( 'close_sidebar_subsidiary' ); // Close subsidiary sidebar hook ?>
+		
+		</div>
 
 	</div><!-- #sidebar-subsidiary .aside -->
 
