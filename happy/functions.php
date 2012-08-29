@@ -46,7 +46,7 @@ function happy_theme_setup() {
 
 	/* Add theme support for extensions. */
 
-	add_theme_support( 'theme-layouts', array( '1c', '2c-l', '2c-r', '3c-l', '3c-r', '3c-c' ) );
+	add_theme_support( 'theme-layouts', array( '1c', '2c-l', '2c-r' ) );
 	add_theme_support( 'dev-stylesheet' );
 	add_theme_support( 'loop-pagination' );
 	add_theme_support( 'get-the-image' );
@@ -75,6 +75,19 @@ function happy_theme_setup() {
 	// change defaults for sidebar parameters
 	
 	add_filter( "{$prefix}_sidebar_defaults", 'happy_change_sidebar_defaults' );
+	
+
+	/* enable this filter to remove the home page entry title "Home". Don't forget to remove the function as well */
+
+	add_filter ( 'happy_entry_title', 'happy_remove_entry_title' );
+
+	/* uncomment to add the feature-home-feature template below the logo - also note the function below infobase_home_feature
+	 * by default the home feature template grabs the feature sidebar on the page set as the front page in the reading settings.
+	 * to override this, copy the feature-home-feature.php template from the parent theme and put it in the child theme
+	 * here you can change whatever you like.
+	 */
+ 
+	add_action( 'happy_after_header', 'happy_home_feature');
 
 }
 
@@ -201,6 +214,25 @@ function happy_embed_defaults( $args ) {
 	return $args;
 }
 		
+/* enable this function w/ the corresponding filter above to remove the home page entry title "Home" */
 
+function happy_remove_entry_title( $title ) {
+
+	if( is_front_page() )
+	{
+		$title = '';
+	}
+
+	return $title;
+} 
+
+/* this will enable the home feature widget area */ 
+
+
+function happy_home_feature() {
+
+	get_template_part('feature', 'home-feature');			
+		
+}
 
 ?>

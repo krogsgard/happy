@@ -26,7 +26,7 @@ get_header(); ?>
 
 		<div class="hfeed">
 
-			<div id="post-0" class="<?php hybrid_entry_class(); ?>">
+			<article id="post-0" class="<?php hybrid_entry_class(); ?>">
 
 				<h1 class="error-404-title entry-title"><?php _e( 'Not Found', 'happy' ); ?></h1>
 
@@ -40,7 +40,7 @@ get_header(); ?>
 
 				</div><!-- .entry-content -->
 
-			</div><!-- .hentry -->
+			</article><!-- .hentry -->
 
 		</div><!-- .hfeed -->
 

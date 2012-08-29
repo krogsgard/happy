@@ -45,8 +45,9 @@ html {
 	-webkit-hyphens:auto;
 	hyphens:auto;
 	word-wrap:break-word;
+	word-break: break-word;
 }
-
+.wpengine-promo { display: none; }
 /* box sizing FTW */
 /* src: http://paulirish.com/2012/box-sizing-border-box-ftw/ */
 
@@ -82,8 +83,9 @@ input, textarea {
 }
 
 body {
+	margin: 0;
 	padding: 0;
-	background: #ffffff;
+	background: #eee;
 	font-family: sans-serif;
 	color:#222;
 }
@@ -95,7 +97,7 @@ body {
 	width: 71.25em;
 	margin: 0 auto;
 	padding: 0px;
-	background: none; 
+	background: #fff; 
 }
 
 article,
@@ -196,7 +198,8 @@ h6 {
 	font-weight: normal;	
 } /* 14px */
 
-
+/* entry-content line-heights. Define in child */
+/*
 .entry-content h1 {
 	line-height: 27px;	
 	line-height: 1.688rem;		
@@ -205,23 +208,25 @@ h6 {
 	line-height: 24px;
 	line-height: 1.5rem;		
 }
+*/
 .entry-content h3 {	
-	line-height: 20px;
-	line-height: 1.25rem;		
-}
-.entry-content h4 {	
-	line-height: 18px;
-	line-height: 1.125rem;		
-}
-.entry-content h5 {
-	line-height: 16px;	
-	line-height: 1rem;		
-}
-.entry-content h6 {	
-	line-height: 14px;
-	line-height: 0.875rem;		
+	line-height: 24px;
+	line-height: 1.5rem;		
 }
 
+.entry-content h4 {	
+	line-height: 24px;
+	line-height: 1.5rem;		
+}
+.entry-content h5 {
+	line-height: 24px;
+	line-height: 1.5rem;		
+}
+.entry-content h6 {	
+	line-height: 24px;
+	line-height: 1.5rem;	
+}
+*/
 /* Tables */
 table {
 	margin: 0 0 1.5em 0;
@@ -238,6 +243,9 @@ table th {
 	border-bottom: 1px solid #e0e0e0;
 	border-right: 1px solid #e0e0e0;
 	text-align: left;
+}
+table {
+	border-left: 1px solid #e0e0e0;
 }
 td {
 	padding: 0.25em 2%;
@@ -539,7 +547,6 @@ input[type="submit"].toggled-on {
 	clear: both;
 	margin: 0 auto;
 	padding: 0 1.5em 1.5em 1.5em;
-	background: none; 
 }
 
 #branding {
@@ -729,9 +736,7 @@ input[type="submit"].toggled-on {
 .search-form input[type="text"] {
 	width: 99%;
 	margin:0.25em 0 0;
-	padding: 0.25em  0;
-	text-indent: 1em;
-	font-style: italic;
+	padding: 0.25em 0 0.25em 1em;
 	font-size: 0.75em;
 	color: #aaa;
 	border: 1px solid #dfdfdf;
@@ -740,9 +745,9 @@ input[type="submit"].toggled-on {
 	color: #999;
 	background: #fefefe;
 	border-color: #cfcfcf;
+	padding: 0.25em 0 0.25 1em;
 }
 .search-form input[type="submit"] {
-	display: none;
 }
 	
 	
@@ -756,7 +761,6 @@ input[type="submit"].toggled-on {
 
 #home-feature {
 	width: 100%;
-	height: 12.5em;
 	background: none;
 }
 
@@ -764,8 +768,7 @@ input[type="submit"].toggled-on {
 	overflow: hidden;
 	clear: both;
 	margin: 0 auto;
-	padding: 1.5em 0;
-	background: none; 
+	background: #BABABA;
 }
 
 
@@ -949,10 +952,12 @@ http://qrayg.com/experiment/cssmenus/
 	padding: 0;
 }
 
-.home .hfeed .hentry, 
-.archive .hfeed .hentry {
+.blog .hfeed .hentry, 
+.archive .hfeed .hentry,
+.search .hfeed .hentry {
 	border-bottom: 1px solid #ccc;
 }
+
 .sticky {
 	margin: 0;
 	padding:0;
@@ -1223,9 +1228,12 @@ http://qrayg.com/experiment/cssmenus/
 }
 
 .sidebar .widget ul {
-	list-style: square inside;
+	list-style: none;
 	padding: 0 16px;
 	padding: 0 1rem;
+}
+.sidebar .widget > ul {
+	padding: 0;
 }
 .sidebar .widget ul li a {
 }

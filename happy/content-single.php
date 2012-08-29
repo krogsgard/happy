@@ -14,13 +14,17 @@
 
 	<?php do_atomic( 'open_entry' ); // Open entry hook ?>
 
-	<?php echo apply_atomic( 'entry_title', the_title( '<h1 class="entry-title"><a href="' . get_permalink() . '" title="' . the_title_attribute( 'echo=0' ) . '" rel="bookmark">', '</a></h1>', false ) ); ?>
-	
-	<?php do_atomic( 'after_title' ); // after title hook ?>
+	<header class="entry-header">
 
-	<?php echo apply_atomic_shortcode( 'byline', '<div class="byline">' . __( 'By [entry-author] on [entry-published] [entry-edit-link before=" | "]', 'happy' ) . '</div>' ); ?>
+		<?php echo apply_atomic( 'entry_title', the_title( '<h1 class="entry-title">', '</h1>', false ) ); ?>
+		
+		<?php do_atomic( 'after_title' ); // after title hook ?>
 	
-	<?php do_atomic( 'after_byline' ); // after title hook ?>
+		<?php echo apply_atomic_shortcode( 'byline', '<div class="byline">' . __( 'By [entry-author] on [entry-published] [entry-edit-link before=" | "]', 'happy' ) . '</div>' ); ?>
+		
+		<?php do_atomic( 'after_byline' ); // after title hook ?>
+	
+	</header><!-- .entry-header -->
 
 	<div class="entry-content">
 		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'happy' ) ); ?>
@@ -29,7 +33,7 @@
 	
 	<?php do_atomic( 'after_the_content' ); // after title hook ?>
 
-	<?php echo apply_atomic_shortcode( 'entry_meta', '<div class="entry-meta">' . __( '[entry-terms taxonomy="category" before="Posted in "] [entry-terms taxonomy="post_tag" before="| Tagged "]', 'happy' ) . '</div>' ); ?>
+	<?php echo apply_atomic_shortcode( 'entry_meta', '<footer class="entry-meta entry-footer">' . __( '[entry-terms taxonomy="category" before="Posted in "] [entry-terms before="| Tagged "] [entry-comments-link before=" | "]', 'happy' ) . '</footer>' ); ?>
 
 	<?php do_atomic( 'close_entry' ); // Close entry hook ?>
 
