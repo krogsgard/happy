@@ -542,11 +542,14 @@ input[type="submit"].toggled-on {
 
 } 
 
+#header:after {  content:"."; clear:both; display:block; height:0; visibility:hidden; } /* forces layout */
+
 #header .wrap{
 /*	height: 10em; 160px for overflow reasons */
 	clear: both;
 	margin: 0 auto;
 	padding: 0 1.5em 1.5em 1.5em;
+	overflow: visible;
 }
 
 #branding {
@@ -609,85 +612,142 @@ input[type="submit"].toggled-on {
 		
 /* Primary menu */
 
-/*
-
-.primary-navigation li a:hover {
-
-}
-.primary-navigation li ul {
-}
-.primary-navigation li.current-menu-item a {
-
-}
-.primary-navigation li li.current-menu-item a {
-
-}
-.primary-navigation li:hover ul li a, .primary-navigation li.sfHover ul li a, .primary-navigation li.sfHover a {
-
-}
-.primary-navigation li li a, .primary-navigation li li.current-menu-item li a {
-	
-}
-.primary-navigation ul li a:hover, .primary-navigation li ul li a:hover {
-
-}
-*/
 
 /* =Menu
 ----------------------------------------------- */
 
+
+/*
+Original Author: Craig Erskine
+Description: Dynamic Menu System - Horizontal/Vertical
+Adapted to Happy theme in various ways
+http://qrayg.com/experiment/cssmenus/
+*/
 .primary-navigation {
 	clear: both;
 	display: block;
-	width: 100%; 
- 
+	width: 100%;    
+	text-align: center;
+	clear:both;
 }
-#header .primary-navigation .wrap {
-	padding: 0 1.5em;
-}
-.primary-navigation ul {
-	list-style: none;
-	margin: 0;
-	padding-left: 0;
-}
-.primary-navigation li {
-	float: right;
+.primary-navigation .wrap {
+	margin: 0 auto;
 	position: relative;
+	overflow: visible;
+	background: #ccc;
 }
-.primary-navigation a {
-	display: block;
-	text-decoration: none;
-	padding: 0.375em 1em;	
+
+.primary-navigation .wrap:after {  content:"."; clear:both; display:block; height:0; visibility:hidden; } /* forces layout */
+
+.primary-navigation ul { 
+	margin: 0; 
+	padding: 0; 
+	list-style: none; 
+	position: relative; 
 }
+
 .primary-navigation ul ul {
-	background: #fff;
+	width: 160px; /* Sub Menu Width */
+	width: 12.5rem;
+	margin: 0;
+	list-style: none;
 	display: none;
-	float: left;
 	position: absolute;
-	top: 1.5em;
+	top: 100%;
 	left: 0;
 	z-index: 99999;
 }
-.primary-navigation ul ul ul {
-	left: 100%;
-	top: 0;
+
+.primary-navigation ul ul ul,
+.primary-navigation ul ul ul ul { 
+	top: 0; 
+	left: 100%; 
 }
-.primary-navigation ul ul a {
-	width: 200px;
+
+.primary-navigation ul li { 
+	float: left; 
+	display: inline; 
+	position: relative; 
 }
-.primary-navigation ul ul li {
+.primary-navigation ul ul li { 
+	width: 100%; 
+	display: block; 
 }
-.primary-navigation li:hover > a {
-}
-.primary-navigation ul ul :hover > a {
-}
-.primary-navigation ul ul a:hover {
-}
-.primary-navigation ul li:hover > ul {
+
+/* Root Menu */
+.primary-navigation ul a {
+	float: left;
 	display: block;
+	background: #DDD;
+	text-decoration: none;
+	padding: 16px;	
+	padding: 1rem;
+	height: 1%;
 }
-.primary-navigation li.current_page_item a,
-.primary-navigation li.current-menu-item a {
+
+/* Root Menu Hover Persistence */
+.primary-navigation ul a:hover,
+.primary-navigation ul li:hover a,
+.primary-navigation ul li.iehover a {
+	background: #BBB;
+	color: #FFF;
+}
+
+/* 2nd Menu */
+.primary-navigation ul li:hover li a, 
+.primary-navigation ul li.iehover li a {
+	float: none;
+	background: #BBB;
+}
+
+/* 2nd Menu Hover Persistence */
+.primary-navigation ul li:hover li a:hover,
+.primary-navigation ul li:hover li:hover a,
+.primary-navigation ul li.iehover li a:hover,
+.primary-navigation ul li.iehover li.iehover a {
+ background: #999;
+}
+
+/* 3rd Menu */
+.primary-navigation ul li:hover li:hover li a,
+.primary-navigation ul li.iehover li.iehover li a {
+ background: #999;
+}
+
+/* 3rd Menu Hover Persistence */
+.primary-navigation ul li:hover li:hover li a:hover,
+.primary-navigation ul li:hover li:hover li:hover a,
+.primary-navigation ul li.iehover li.iehover li a:hover,
+.primary-navigation ul li.iehover li.iehover li.iehover a {
+ background: #666;
+}
+
+/* 4th Menu */
+.primary-navigation ul li:hover li:hover li:hover li a,
+.primary-navigation ul li.iehover li.iehover li.iehover li a {
+ background: #666;
+}
+
+/* 4th Menu Hover */
+.primary-navigation ul li:hover li:hover li:hover li a:hover,
+.primary-navigation ul li.iehover li.iehover li.iehover li a:hover {
+ background: #333;
+}
+
+/* Hover Function - Do Not Move */
+.primary-navigation ul li:hover ul ul,
+.primary-navigation ul li:hover ul ul ul,
+.primary-navigation ul li.iehover ul ul,
+.primary-navigation ul li.iehover ul ul ul { 
+	display: none; 
+}
+.primary-navigation ul li:hover ul,
+.primary-navigation ul ul li:hover ul,
+.primary-navigation ul ul ul li:hover ul,
+.primary-navigation ul li.iehover ul,
+.primary-navigation ul ul li.iehover ul,
+.primary-navigation ul ul ul li.iehover ul { 
+	display: block; 
 }
 
 /* Small menu */
@@ -711,20 +771,6 @@ input[type="submit"].toggled-on {
 	padding: 0;
 }
 
-/* Drop-down styles */
-#menu-primary li ul {
-}
-#menu-primary li:hover ul, #menu-primary li.sfHover ul {
-	top: 28px;
-}
-#menu-primary li:hover li ul, #menu-primary li.sfHover li ul {
-	top: -999em;
-}
-#menu-primary li li:hover ul, #menu-primary li li.sfHover ul {
-	top: -1px;
-	margin: 0;
-}		
-		
 		
 		
 /* Search form in the feature area */
@@ -1519,6 +1565,7 @@ background: #ddd;
 }
 .gform_body ul {
 	list-style:none !important;
+	padding: 0 !important; /* set to important to override widget ul styles, etc when forms are in sidebars */
 }
 .gform_body input {
 	width:100%;
