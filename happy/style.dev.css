@@ -829,7 +829,7 @@ http://qrayg.com/experiment/cssmenus/
 	overflow: hidden;
 	clear: both;
 	margin: 0 auto;
-	background: #BABABA;
+	background: #ccc;
 }
 
 
@@ -1647,6 +1647,12 @@ background: #ddd;
 		float: left;
 	}
 	
+	#sidebar-header .widget {
+		clear: both;
+		width: 100%;
+		margin: 0;
+	}
+	
 	.main-small-navigation, 
 	.main-small-secondary-navigation {
 		background: #fff;
@@ -1703,17 +1709,18 @@ background: #ddd;
 		float: left;
 	}
 	
+	#sidebar-header .widget {
+		clear: both;
+		width: 100%;
+		margin: 0;
+	}
+	
 	.main-small-navigation, 
 	.main-small-secondary-navigation {
 		background: #fff;
 		padding: 1rem;
 	}
-		
-	#sidebar-header .widget {
-		clear: both;
-		width: 100%;.
-		margin: 0;
-	}
+	
 	
 	.layout-2c-r #sidebar-primary, 
 	.layout-2c-l #sidebar-primary, 
