@@ -1,7 +1,7 @@
 /**
  * Development stylesheet.  Use this file for development purposes by adding this to your 'wp-config.php' file:
  * define( 'SCRIPT_DEBUG', true );
- * This allows you to build large-sized stylesheets with plenty notes and comments. Before releasing, compress
+ * This allows you to build large-sized stylesheets with plenty of notes and comments. Before releasing, compress
  * this file and replace the compressed CSS in the 'style.css' file.
  * @link http://www.cssdrive.com/index.php/main/csscompressor
  */
@@ -48,7 +48,7 @@ html {
 	word-wrap:break-word;
 	word-break: break-word;
 }
-.wpengine-promo { display: none; }
+
 /* box sizing FTW */
 /* src: http://paulirish.com/2012/box-sizing-border-box-ftw/ */
 
@@ -61,7 +61,9 @@ html {
 
 /* assistive */
 
-.skip-link, .screen-reader-text, .assistive-text {
+.skip-link, 
+.screen-reader-text, 
+.assistive-text {
 	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
 	clip: rect(1px, 1px, 1px, 1px);
 	position: absolute !important;
@@ -79,7 +81,8 @@ textarea {
 	line-height: 1.5;
 }
 
-input, textarea {
+input, 
+textarea {
 	max-width: 98%;
 }
 
@@ -113,22 +116,28 @@ nav,
 section {
 	display: block;
 }
-ol, ul {
+ol, 
+ul {
 	list-style: none;
 }
 table { /* tables still need 'cellspacing="0"' in the markup */
 	border-collapse: separate;
 	border-spacing: 0;
 }
-caption, th, td {
+caption, 
+th, 
+td {
 	font-weight: normal;
 	text-align: left;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+blockquote:before, 
+blockquote:after,
+q:before, 
+q:after {
 	content: "";
 }
-blockquote, q {
+blockquote, 
+q {
 	quotes: "" "";
 }
 
@@ -141,10 +150,12 @@ a:hover {
 	color: #444;
 }
 
-.entry-content a, .sidebar a {
+.entry-content a, 
+.sidebar a {
 	color: #004466;
 }
-.entry-content a:hover, .sidebar a:hover {
+.entry-content a:hover, 
+.sidebar a:hover {
 	color: #3388bb;
 	text-decoration: underline;
 }
@@ -342,19 +353,23 @@ textarea {
 }
 
 /* Alignment */
-.left, .alignleft {
+.left, 
+.alignleft {
 	float: left;
 	margin: 0 1.5em 0 0;
 }
-.right, .alignright {
+.right, 
+.alignright {
 	float: right;
 	margin: 0 0 0 1.5em;
 }
-.center, .aligncenter {
+.center, 
+.aligncenter {
 	display: block;
 	margin: 0 auto 1.5em auto !important;
 }
-.block, .alignnone {
+.block, 
+.alignnone {
 	display: block;
 	margin: 0 0 1.5em 0;
 }
@@ -390,10 +405,14 @@ img.wp-post-image {
 	padding: 0;
 	border: none;
 }
-.layout-1c .entry-content img {
 
-}
-.layout-3c-l .entry-content img, .layout-3c-r .entry-content img, .layout-3c-c .entry-content img {
+.layout-default .entry-content img,
+.layout-1c .entry-content img,
+.layout-2c-r .entry-content img,
+.layout-2c-l .entry-content img,
+.layout-3c-l .entry-content img, 
+.layout-3c-r .entry-content img, 
+.layout-3c-c .entry-content img {
 
 }
 
@@ -528,15 +547,10 @@ input[type="submit"].toggled-on {
 	/* BOXED */
 	padding: 1.5em;
 }	
-	
-	
-	
-	
-	
+
 	
 /* header */	
-	
-	
+
 	
 #header {
 	width: 100%; 
@@ -569,7 +583,7 @@ input[type="submit"].toggled-on {
 #site-title a {
 	display: block;
 /*	width: 20em;
-	height: 5em;
+	height: auto;
 	background: url(images/logo.gif) 0 0 no-repeat;
 */
 }
@@ -596,7 +610,7 @@ input[type="submit"].toggled-on {
 	padding: 0;
 }
 #sidebar-header .widget {
-	float: right;
+	float: left;
 	width: 47.5%;
 	margin: 0 0 0 2.5%;
 }
@@ -1400,7 +1414,8 @@ background: #ddd;
 	
 	
 }
-#footer .copyright a, #footer .credit a {
+#footer .copyright a, 
+#footer .credit a {
 }
     
     
@@ -1442,17 +1457,11 @@ background: #ddd;
     
 /* end-footer */
     
-    
-
-
-
-
-
-
 
 
 /* Comments */
-.comment-list, .comment-list ol {
+.comment-list, 
+.comment-list ol {
 	list-style: none;
 	margin: 0 0 1.5em 0;
 	border-top: 1px solid #dfdfdf;
@@ -1478,7 +1487,8 @@ background: #ddd;
 	margin: 0 0 1.5em 0;
 	font-size: 0.75em;
 }
-.comment-meta .comment-author cite, .comment-meta .comment-author cite a {
+.comment-meta .comment-author cite, 
+.comment-meta .comment-author cite a {
 
 }
 .comment-meta a {
@@ -1555,10 +1565,6 @@ background: #ddd;
 
 
 
-
-
-
-
 /* gravity forms */
 
 .gform_body {
@@ -1591,10 +1597,12 @@ background: #ddd;
 	margin:0 0 0.25em;
 
 }
-.ginput_left label, .ginput_right label {
+.ginput_left label, 
+.ginput_right label {
 	font-size:0.875em;
 }
-.ginput_left input, .ginput_right input {
+.ginput_left input, 
+.ginput_right input {
 	margin:0 0 0.125em;
 }
 .gform_body textarea {
@@ -1615,7 +1623,14 @@ background: #ddd;
 
 	.wrap { width: 98%; }
 	
-	.layout-1c #content, #content, .layout-2c-l #content, .layout-default #content, .layout-3c-l #content, .layout-3c-r #content, .layout-3c-c #content {
+	#content, 
+	.layout-1c #content, 
+	.layout-2c-l #content, 
+	.layout-2c-r #content,
+	.layout-default #content, 
+	.layout-3c-l #content, 
+	.layout-3c-r #content, 
+	.layout-3c-c #content {
 		width: 98%;
 		float: left;
 	}
@@ -1627,16 +1642,21 @@ background: #ddd;
 		float: left;
 	}
 	
-	.main-small-navigation, .main-small-secondary-navigation {
+	.main-small-navigation, 
+	.main-small-secondary-navigation {
 		background: #fff;
 		padding: 1rem;
 	}
 	
-	.layout-2c-r #sidebar-primary, .layout-2c-l #sidebar-primary, .layout-default #sidebar-primary {
+	.layout-2c-r #sidebar-primary, 
+	.layout-2c-l #sidebar-primary, 
+	.layout-default #sidebar-primary {
 		width: 49%;
 		float: left;
 	}
-	.layout-2c-r #sidebar-secondary, .layout-2c-l #sidebar-secondary, .layout-default #sidebar-secondary {
+	.layout-2c-r #sidebar-secondary, 
+	.layout-2c-l #sidebar-secondary, 
+	.layout-default #sidebar-secondary {
 		width: 49%;
 		float: left;
 		margin: 0 0 0 2%;
@@ -1659,7 +1679,14 @@ background: #ddd;
 		padding: 1em .5em;
 	}
 	
-	.layout-1c #content, #content, .layout-2c-l #content, .layout-default #content, .layout-3c-l #content, .layout-3c-r #content, .layout-3c-c #content {
+	#content, 	
+	.layout-1c #content, 
+	.layout-2c-l #content, 
+	.layout-2c-r #content, 
+	.layout-default #content, 
+	.layout-3c-l #content, 
+	.layout-3c-r #content, 
+	.layout-3c-c #content {
 		width: 98%;
 		float: left;
 	}
@@ -1671,18 +1698,25 @@ background: #ddd;
 		float: left;
 	}
 	
-	.main-small-navigation, .main-small-secondary-navigation {
+	.main-small-navigation, 
+	.main-small-secondary-navigation {
 		background: #fff;
 		padding: 1rem;
 	}
 		
 	#sidebar-header .widget {
 		clear: both;
-		width: 100%;
+		width: 100%;.
+		margin: 0;
 	}
 	
-	
-	.layout-2c-r #sidebar-primary, .layout-2c-l #sidebar-primary, .layout-default #sidebar-primary, .layout-2c-r #sidebar-secondary, .layout-2c-l #sidebar-secondary, .layout-default #sidebar-secondary, #sidebar-subsidiary .widget {
+	.layout-2c-r #sidebar-primary, 
+	.layout-2c-l #sidebar-primary, 
+	.layout-default #sidebar-primary, 
+	.layout-2c-r #sidebar-secondary, 
+	.layout-2c-l #sidebar-secondary, 
+	.layout-default #sidebar-secondary, 
+	#sidebar-subsidiary .widget {
 		width: 98%;
 		float: left;
 		clear: both;
@@ -1715,6 +1749,13 @@ background: #ddd;
 		height: 2.5em;
 		margin: 0 4px 4px 0; 
 		margin: 0 0.25rem 0.25rem 0;
+	}
+	
+	#footer .copyright, 
+	#footer .credit {
+		float: left;
+		text-align: left;
+		width: 100%;
 	}
 
 }
