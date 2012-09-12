@@ -649,7 +649,7 @@ http://qrayg.com/experiment/cssmenus/
 	height: auto;
 	position: relative;
 	overflow: visible;
-	background: #ccc;
+	background: #ddd;
 }
 
 .primary-navigation:after, .primary-navigation .wrap:after {  content:"."; clear:both; display:block; height:0; visibility:hidden; } /* forces layout */
@@ -693,7 +693,7 @@ http://qrayg.com/experiment/cssmenus/
 .primary-navigation ul a {
 	float: left;
 	display: block;
-	background: #DDD;
+	background: #ddd;
 	text-decoration: none;
 	padding: 16px;	
 	padding: 1rem;
@@ -704,15 +704,14 @@ http://qrayg.com/experiment/cssmenus/
 .primary-navigation ul a:hover,
 .primary-navigation ul li:hover a,
 .primary-navigation ul li.iehover a {
-	background: #BBB;
-	color: #FFF;
+	background: #ddd;
 }
 
 /* 2nd Menu */
 .primary-navigation ul li:hover li a, 
 .primary-navigation ul li.iehover li a {
 	float: none;
-	background: #BBB;
+	background: #ddd;
 }
 
 /* 2nd Menu Hover Persistence */
@@ -720,13 +719,13 @@ http://qrayg.com/experiment/cssmenus/
 .primary-navigation ul li:hover li:hover a,
 .primary-navigation ul li.iehover li a:hover,
 .primary-navigation ul li.iehover li.iehover a {
- background: #999;
+ background: #ccc;
 }
 
 /* 3rd Menu */
 .primary-navigation ul li:hover li:hover li a,
 .primary-navigation ul li.iehover li.iehover li a {
- background: #999;
+ background: #ccc;
 }
 
 /* 3rd Menu Hover Persistence */
@@ -734,19 +733,19 @@ http://qrayg.com/experiment/cssmenus/
 .primary-navigation ul li:hover li:hover li:hover a,
 .primary-navigation ul li.iehover li.iehover li a:hover,
 .primary-navigation ul li.iehover li.iehover li.iehover a {
- background: #666;
+ background: #bbb;
 }
 
 /* 4th Menu */
 .primary-navigation ul li:hover li:hover li:hover li a,
 .primary-navigation ul li.iehover li.iehover li.iehover li a {
- background: #666;
+ background: #bbb;
 }
 
 /* 4th Menu Hover */
 .primary-navigation ul li:hover li:hover li:hover li a:hover,
 .primary-navigation ul li.iehover li.iehover li.iehover li a:hover {
- background: #333;
+ background: #aaa;
 }
 
 /* Hover Function - Do Not Move */
@@ -875,7 +874,7 @@ http://qrayg.com/experiment/cssmenus/
 	margin: 0 auto;
 	position: relative;
 	overflow: visible;
-	background: #ccc;
+	background: #ddd;
 }
 
 .secondary-navigation .wrap:after {  content:"."; clear:both; display:block; height:0; visibility:hidden; } /* forces layout */
@@ -918,7 +917,7 @@ http://qrayg.com/experiment/cssmenus/
 .secondary-navigation ul a {
 	float: left;
 	display: block;
-	background: #DDD;
+	background: #ddd;
 	text-decoration: none;
 	padding: 16px;	
 	padding: 1rem;
@@ -929,15 +928,14 @@ http://qrayg.com/experiment/cssmenus/
 .secondary-navigation ul a:hover,
 .secondary-navigation ul li:hover a,
 .secondary-navigation ul li.iehover a {
-	background: #BBB;
-	color: #FFF;
+	background: #ddd;
 }
 
 /* 2nd Menu */
 .secondary-navigation ul li:hover li a, 
 .secondary-navigation ul li.iehover li a {
 	float: none;
-	background: #BBB;
+	background: #ddd;
 }
 
 /* 2nd Menu Hover Persistence */
@@ -945,13 +943,13 @@ http://qrayg.com/experiment/cssmenus/
 .secondary-navigation ul li:hover li:hover a,
 .secondary-navigation ul li.iehover li a:hover,
 .secondary-navigation ul li.iehover li.iehover a {
- background: #999;
+ background: #ccc;
 }
 
 /* 3rd Menu */
 .secondary-navigation ul li:hover li:hover li a,
 .secondary-navigation ul li.iehover li.iehover li a {
- background: #999;
+ background: #ccc;
 }
 
 /* 3rd Menu Hover Persistence */
@@ -959,19 +957,19 @@ http://qrayg.com/experiment/cssmenus/
 .secondary-navigation ul li:hover li:hover li:hover a,
 .secondary-navigation ul li.iehover li.iehover li a:hover,
 .secondary-navigation ul li.iehover li.iehover li.iehover a {
- background: #666;
+ background: #bbb;
 }
 
 /* 4th Menu */
 .secondary-navigation ul li:hover li:hover li:hover li a,
 .secondary-navigation ul li.iehover li.iehover li.iehover li a {
- background: #666;
+ background: #bbb;
 }
 
 /* 4th Menu Hover */
 .secondary-navigation ul li:hover li:hover li:hover li a:hover,
 .secondary-navigation ul li.iehover li.iehover li.iehover li a:hover {
- background: #333;
+ background: #aaa;
 }
 
 /* Hover Function - Do Not Move */
@@ -1339,61 +1337,68 @@ background: #ddd;
 .subsidiary-navigation {
 	clear: both;
 	display: block;
-	width: 100%;   
-	text-align: left;
-	overflow: hidden;
+	width: 100%;    
+	text-align: center;
 	clear:both;
 }
 .subsidiary-navigation .wrap {
 	margin: 0 auto;
-	background: #999;
+	position: relative;
+	overflow: visible;
+	background: #ddd;
 }
+
 .subsidiary-navigation .wrap:after {  content:"."; clear:both; display:block; height:0; visibility:hidden; } /* forces layout */
 
-.subsidiary-navigation ul {
-	list-style: none;
-	padding-left: 0;
-	margin: 0;
-	padding: 0;
+.subsidiary-navigation ul { 
+	margin: 0; 
+	padding: 0; 
+	list-style: none; 
+	position: relative; 
 }
-.subsidiary-navigation li {
-	float: left;
-	position: relative;
-}
-.subsidiary-navigation a {
-	display: block;
-	text-decoration: none;
-	padding: 0.375em 1em;	
-}
+
 .subsidiary-navigation ul ul {
-	background: #fff;
+	width: 160px; /* Sub Menu Width */
+	margin: 0;
+	list-style: none;
 	display: none;
-	float: left;
 	position: absolute;
-	top: 1.5em;
+	top: 100%;
 	left: 0;
-	z-index: 99999;
+	z-index: 9999;
 }
-.subsidiary-navigation ul ul ul {
-	left: 100%;
-	top: 0;
+
+.subsidiary-navigation ul ul ul,
+.subsidiary-navigation ul ul ul ul { 
+	top: 0; 
+	left: 100%; 
 }
-.subsidiary-navigation ul ul a {
-	width: 200px;
+
+.subsidiary-navigation ul li { 
+	float: left; 
+	display: inline; 
+	position: relative; 
 }
-.subsidiary-navigation ul ul li {
+.subsidiary-navigation ul ul li { 
+	width: 100%; 
+	display: block; 
 }
-.subsidiary-navigation li:hover > a {
-}
-.subsidiary-navigation ul ul :hover > a {
-}
-.subsidiary-navigation ul ul a:hover {
-}
-.subsidiary-navigation ul li:hover > ul {
+
+/* Root Menu */
+.subsidiary-navigation ul a {
+	float: left;
 	display: block;
+	background: #ddd;
+	text-decoration: none;
+	padding: 16px;	
+	padding: 1rem;
+	height: 1%;
 }
-.subsidiary-navigation li.current_page_item a,
-.subsidiary-navigation li.current-menu-item a {
+/* Root Menu Hover Persistence */
+.subsidiary-navigation ul a:hover,
+.subsidiary-navigation ul li:hover a,
+.subsidiary-navigation ul li.iehover a {
+	background: #ddd;
 }
 
 #footer .copyright {
@@ -1425,7 +1430,7 @@ background: #ddd;
 	width: 100%;
 }
 #sidebar-subsidiary .wrap {
-	background: #aaa;
+	background: #ccc;
 	padding: 16px;
 	padding: 1rem;
 }
