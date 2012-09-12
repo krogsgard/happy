@@ -109,9 +109,11 @@ function happy_theme_setup() {
 
 function happy_scripts() {
 	
+	wp_register_script( 'happy-sub-nav', get_template_directory_uri() . '/js/happy-sub-nav.js', array( 'jquery' ), '20120206', true );
 	wp_register_script( 'small-menu', get_template_directory_uri() . '/js/small-menu.js', array( 'jquery' ), '20120206', true );
 	wp_register_script( 'small-menu-secondary', get_template_directory_uri() . '/js/small-menu-secondary.js', array( 'jquery' ), '20120206', true );
 	
+	wp_enqueue_script( 'happy-sub-nav' );
 	wp_enqueue_script( 'small-menu' );
 	wp_enqueue_script( 'small-menu-secondary' );
 
