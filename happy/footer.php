@@ -16,8 +16,7 @@
 
 				<?php get_sidebar( 'secondary' ); // Loads the sidebar-secondary.php template. ?>
 
-				<?php do_atomic( 'after_content' ); // After content hook ?>
-						
+				<?php do_atomic( 'after_content' ); // After content hook ?>			
 
 			</div><!-- .wrap -->
 
@@ -54,6 +53,7 @@
 	</div><!-- #container -->
 
 	<?php wp_footer(); // WordPress footer hook ?>
+	
 	<?php do_atomic( 'close_body' ); // After HTML hook ?>
 
 </body>

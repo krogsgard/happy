@@ -12,6 +12,8 @@
 if ( is_front_page() ) { ?>
 	
 	<div id="home-feature">
+	
+	<?php do_atomic( 'open_home_feature' ); // Open home feature hook ?>
 
 		<div class="wrap">		
 
@@ -20,6 +22,8 @@ if ( is_front_page() ) { ?>
 					
 		
 		</div><!-- .wrap -->
+		
+	<?php do_atomic( 'close_home_feature' ); // Close home feature hook ?>
 	
 	</div><!-- #home-feature -->
 	

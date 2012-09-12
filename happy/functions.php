@@ -18,10 +18,13 @@
  */
 
 /* Load the core theme framework. */
+
 require_once( trailingslashit( TEMPLATEPATH ) . 'library/hybrid.php' );
+
 $theme = new Hybrid();
 
 /* Do theme setup on the 'after_setup_theme' hook. */
+
 add_action( 'after_setup_theme', 'happy_theme_setup' );
 
 /**
@@ -30,12 +33,15 @@ add_action( 'after_setup_theme', 'happy_theme_setup' );
  *
  * @since 0.1.0
  */
+
 function happy_theme_setup() {
 
 	/* Get action/filter hook prefix. */
+	
 	$prefix = hybrid_get_prefix();
 
 	/* Add theme support for core framework features. */
+	
 	add_theme_support( 'hybrid-core-menus', array( 'primary', 'secondary', 'subsidiary' ) );
 	add_theme_support( 'hybrid-core-sidebars', array( 'primary', 'secondary', 'header', 'subsidiary', 'after-singular' ) );
 	add_theme_support( 'hybrid-core-widgets' );
@@ -54,32 +60,36 @@ function happy_theme_setup() {
 	add_theme_support( 'cleaner-gallery' );
 
 	/* Add theme support for WordPress features. */
+	
 	add_theme_support( 'automatic-feed-links' );
 	
 	/* Register sidebars. */
+	
 	add_action( 'widgets_init', 'happy_register_sidebars', 9 );
 	
 
 	/* Embed width/height defaults. */
+	
 	add_filter( 'embed_defaults', 'happy_embed_defaults' );
 
 	/* Filter the sidebar widgets. */
+	
 	add_filter( 'sidebars_widgets', 'happy_disable_sidebars' );
 	add_action( 'template_redirect', 'happy_one_column' );
 
 	/* Change default comment status for pages to false. */	
+	
 	add_action( 'load-page-new.php', 'happy_change_comment_status' );
 	
 	add_action( 'wp_enqueue_scripts', 'happy_scripts' );
 	
-	// change defaults for sidebar parameters
+	/* change defaults for sidebar parameters */
 	
-	add_filter( "{$prefix}_sidebar_defaults", 'happy_change_sidebar_defaults' );
-	
+	add_filter( "{$prefix}_sidebar_defaults", 'happy_change_sidebar_defaults' );	
 
 	/* enable this filter to remove the home page entry title "Home". Don't forget to remove the function as well */
 
-	add_filter ( 'happy_entry_title', 'happy_remove_entry_title' );
+	add_filter ( "{$prefix}_entry_title", 'happy_remove_entry_title' );
 
 	/* uncomment to add the feature-home-feature template below the logo - also note the function below infobase_home_feature
 	 * by default the home feature template grabs the feature sidebar on the page set as the front page in the reading settings.
@@ -87,14 +97,23 @@ function happy_theme_setup() {
 	 * here you can change whatever you like.
 	 */
  
-	add_action( 'happy_after_header', 'happy_home_feature');
+	add_action( "{$prefix}_before_main", 'happy_home_feature');
 
 }
 
+/**
+ * Registers scripts for the theme and enqueue those used sitewide.
+ *
+ * @since 0.1.0.
+ */
+
 function happy_scripts() {
 	
-	wp_enqueue_script( 'small-menu', get_template_directory_uri() . '/js/small-menu.js', array( 'jquery' ), '20120206', true );
-	wp_enqueue_script( 'small-menu-secondary', get_template_directory_uri() . '/js/small-menu-secondary.js', array( 'jquery' ), '20120206', true );
+	wp_register_script( 'small-menu', get_template_directory_uri() . '/js/small-menu.js', array( 'jquery' ), '20120206', true );
+	wp_register_script( 'small-menu-secondary', get_template_directory_uri() . '/js/small-menu-secondary.js', array( 'jquery' ), '20120206', true );
+	
+	wp_enqueue_script( 'small-menu' );
+	wp_enqueue_script( 'small-menu-secondary' );
 
 }
 
@@ -105,9 +124,22 @@ function happy_scripts() {
  *
  * @since 0.1.0.
  */
+
 function happy_register_sidebars() {
 
-	register_sidebar( array( 'name' => __( 'Feature', 'happy' ), 'id' => 'feature', 'description' => __( 'Displayed in the feature area.', 'happy' ), 'before_widget' => '<div id="%1$s" class="widget %2$s widget-%2$s"><div class="widget-inside">', 'after_widget' => '</div></div>', 'before_title' => '<h3 class="widget-title">', 'after_title' => '</h3>' ) );
+	register_sidebar( 
+	
+		array( 
+			'name'		=>	__( 'Feature', 'happy' ), 
+			'id'			=>	'feature', 
+			'description'	=>	__( 'Displayed in the feature area.', 'happy' ), 
+			'before_widget' 	=> 	'<aside id="%1$s" class="widget %2$s widget-%2$s">',
+			'after_widget' 	=> 	'</aside>',
+			'before_title'	=>	'<h3 class="widget-title">', 
+			'after_title'	=>	'</h3>' 
+		) 
+	
+	);
 
 }
 
@@ -116,7 +148,7 @@ function happy_register_sidebars() {
  *
  * @since 0.1.0.
  */
- 
+
 function happy_change_sidebar_defaults() {
 	
 	$defaults = array(
@@ -138,8 +170,10 @@ function happy_change_sidebar_defaults() {
  */
 
 function happy_change_comment_status() {
+	
 	add_filter( 'option_default_comment_status', '__return_false' );
 	add_filter( 'option_default_ping_status', '__return_false' );
+
 }
 
 
@@ -151,11 +185,12 @@ function happy_change_comment_status() {
  */
 function happy_one_column() {
 
-	if ( !is_active_sidebar( 'primary' ) && !is_active_sidebar( 'secondary' ) )
+	if ( ! is_active_sidebar( 'primary' ) && ! is_active_sidebar( 'secondary' ) )
 		add_filter( 'get_theme_layout', 'happy_post_layout_one_column' );
 
 	elseif ( is_attachment() )
 		add_filter( 'get_theme_layout', 'happy_post_layout_one_column' );
+
 }
 
 
@@ -164,8 +199,11 @@ function happy_one_column() {
  *
  * @since 0.1.0
  */
+
 function happy_post_layout_one_column( $layout ) {
+	
 	return 'layout-1c';
+
 }
 
 /**
@@ -173,7 +211,9 @@ function happy_post_layout_one_column( $layout ) {
  *
  * @since 0.1.0
  */
+
 function happy_disable_sidebars( $sidebars_widgets ) {
+	
 	global $wp_query;
 
 	if ( current_theme_supports( 'theme-layouts' ) ) {
@@ -195,6 +235,7 @@ function happy_disable_sidebars( $sidebars_widgets ) {
  *
  * @since 0.1.0
  */
+
 function happy_embed_defaults( $args ) {
 
 	if ( current_theme_supports( 'theme-layouts' ) ) {
@@ -207,32 +248,42 @@ function happy_embed_defaults( $args ) {
 			$args['width'] = 928;
 		else
 			$args['width'] = 650;
-	}
-	else
+	
+	} else {
+		
 		$args['width'] = 650;
+		
+	}
 
 	return $args;
+
 }
 		
-/* enable this function w/ the corresponding filter above to remove the home page entry title "Home" */
+/**
+ * Enable this function w/ the corresponding filter above to remove the home page entry title "Home"
+ *
+ * @since 0.1.0.
+ */
 
 function happy_remove_entry_title( $title ) {
 
-	if( is_front_page() )
-	{
+	if ( is_front_page() ) {
+		
 		$title = '';
+	
 	}
 
 	return $title;
 } 
 
-/* this will enable the home feature widget area */ 
-
+/**
+ * Enable the home feature widget area
+ *
+ * @since 0.1.0.
+ */
 
 function happy_home_feature() {
 
 	get_template_part('feature', 'home-feature');			
 		
 }
-
-?>

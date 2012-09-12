@@ -6,6 +6,7 @@
  * @link http://www.cssdrive.com/index.php/main/csscompressor
  */
 
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
 Resetting and rebuilding styles have been helped along thanks to the fine work of
 Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
@@ -86,7 +87,7 @@ body {
 	margin: 0;
 	padding: 0;
 	background: #eee;
-	font-family: sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color:#222;
 }
 
@@ -539,16 +540,15 @@ input[type="submit"].toggled-on {
 	
 #header {
 	width: 100%; 
-
 } 
 
-#header:after {  content:"."; clear:both; display:block; height:0; visibility:hidden; } /* forces layout */
+#header .wrap:after {  content:"."; clear:both; display:block; height:0; visibility:hidden; } /* forces layout */
 
 #header .wrap{
 /*	height: 10em; 160px for overflow reasons */
 	clear: both;
 	margin: 0 auto;
-	padding: 0 1.5em 1.5em 1.5em;
+	padding: 1.5em;
 	overflow: visible;
 }
 
@@ -591,18 +591,17 @@ input[type="submit"].toggled-on {
 	overflow: hidden; 
 	float: right;
 	background: none;
-	max-width: 60%;
-	width: auto;
+	width: 60%;
 	margin: 0;
 	padding: 0;
 }
 #sidebar-header .widget {
 	float: right;
-	width: 45%;
-	margin: 2.5% 0 0 2.5%;
+	width: 47.5%;
+	margin: 0 0 0 2.5%;
 }
 #sidebar-header .widget-title {
-	margin: 0.5em 0px;
+	margin: 0;
 }
 		
 #sidebar-header .entry-title {
@@ -632,12 +631,14 @@ http://qrayg.com/experiment/cssmenus/
 }
 .primary-navigation .wrap {
 	margin: 0 auto;
+	padding: 0;
+	height: auto;
 	position: relative;
 	overflow: visible;
 	background: #ccc;
 }
 
-.primary-navigation .wrap:after {  content:"."; clear:both; display:block; height:0; visibility:hidden; } /* forces layout */
+.primary-navigation:after, .primary-navigation .wrap:after {  content:"."; clear:both; display:block; height:0; visibility:hidden; } /* forces layout */
 
 .primary-navigation ul { 
 	margin: 0; 
@@ -808,6 +809,7 @@ http://qrayg.com/experiment/cssmenus/
 #home-feature {
 	width: 100%;
 	background: none;
+	clear: both;
 }
 
 #home-feature .wrap{
@@ -1620,8 +1622,14 @@ background: #ddd;
 
 	#sidebar-header {
 		clear:both;
-		max-width: 100%;
+		width: 100%;
+		margin-top: 1rem;
 		float: left;
+	}
+	
+	.main-small-navigation, .main-small-secondary-navigation {
+		background: #fff;
+		padding: 1rem;
 	}
 	
 	.layout-2c-r #sidebar-primary, .layout-2c-l #sidebar-primary, .layout-default #sidebar-primary {
@@ -1658,9 +1666,16 @@ background: #ddd;
 	
 	#sidebar-header {
 		clear:both;
-		max-width: 100%;
+		width: 100%;
+		margin-top: 1rem;
 		float: left;
-	}	
+	}
+	
+	.main-small-navigation, .main-small-secondary-navigation {
+		background: #fff;
+		padding: 1rem;
+	}
+		
 	#sidebar-header .widget {
 		clear: both;
 		width: 100%;
