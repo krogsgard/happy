@@ -6,8 +6,6 @@
  * @link http://www.cssdrive.com/index.php/main/csscompressor
  */
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
-
 Resetting and rebuilding styles have been helped along thanks to the fine work of
 Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
 along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
@@ -640,7 +638,7 @@ http://qrayg.com/experiment/cssmenus/
 	clear: both;
 	display: block;
 	width: 100%;    
-	text-align: center;
+	text-align: left;
 	clear:both;
 }
 .primary-navigation .wrap {
@@ -662,7 +660,7 @@ http://qrayg.com/experiment/cssmenus/
 }
 
 .primary-navigation ul ul {
-	width: 160px; /* Sub Menu Width */
+	width: 180px; /* Sub Menu Width */
 	width: 12.5rem;
 	margin: 0;
 	list-style: none;
@@ -867,7 +865,7 @@ http://qrayg.com/experiment/cssmenus/
 	clear: both;
 	display: block;
 	width: 100%;    
-	text-align: center;
+	text-align: left;
 	clear:both;
 }
 .secondary-navigation .wrap {
@@ -887,7 +885,7 @@ http://qrayg.com/experiment/cssmenus/
 }
 
 .secondary-navigation ul ul {
-	width: 160px; /* Sub Menu Width */
+	width: 180px; /* Sub Menu Width */
 	margin: 0;
 	list-style: none;
 	display: none;
@@ -901,6 +899,7 @@ http://qrayg.com/experiment/cssmenus/
 .secondary-navigation ul ul ul ul { 
 	top: 0; 
 	left: 100%; 
+	width: 100%; /* Sub Menu Width */
 }
 
 .secondary-navigation ul li { 
@@ -922,6 +921,7 @@ http://qrayg.com/experiment/cssmenus/
 	padding: 16px;	
 	padding: 1rem;
 	height: 1%;
+
 }
 
 /* Root Menu Hover Persistence */

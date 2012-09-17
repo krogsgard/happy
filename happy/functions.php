@@ -61,6 +61,13 @@ function happy_theme_setup() {
 
 	/* Add theme support for WordPress features. */
 	
+	/* Register support for some post formats */
+	
+	add_theme_support( 'post-formats', array( 'aside', 'image', 'link', 'quote', 'status', 'video' ) );
+	
+	/* Wraps <blockquote> around quote posts. */
+	add_filter( 'the_content', 'happy_quote_content' );
+	
 	add_theme_support( 'automatic-feed-links' );
 	
 	/* Register sidebars. */
@@ -116,6 +123,20 @@ function happy_scripts() {
 	wp_enqueue_script( 'happy-sub-nav' );
 	wp_enqueue_script( 'small-menu' );
 	wp_enqueue_script( 'small-menu-secondary' );
+	
+	/*
+	 * Loads Google font CSS file.
+	 *
+ 	 * To disable in a child theme, use wp_dequeue_style()
+ 	 * function happychildtheme_dequeue_fonts() {
+ 	 *     wp_dequeue_style( 'happy-fonts' );
+ 	 * }
+	 * add_action( 'wp_enqueue_scripts', 'happychildtheme_dequeue_fonts', 11 );
+ 	 */
+	
+	$protocol = is_ssl() ? 'https' : 'http';
+	
+	wp_enqueue_style( 'happy-fonts', "$protocol://fonts.googleapis.com/css?family=Open+Sans", array(), null );
 
 }
 
@@ -288,4 +309,47 @@ function happy_home_feature() {
 
 	get_template_part('feature', 'home-feature');			
 		
+}
+
+/**
+ * Wraps the output of the quote post format content in a <blockquote> element if the user hasn't added a 
+ * <blockquote> in the post editor.
+ *
+ * @note This function is used from Justin Tadlock's Theme Hybrid community
+ * @since 0.1.0
+ * @param string $content The post content.
+ * @return string $content
+ */
+ 
+function happy_quote_content( $content ) {
+
+	if ( has_post_format( 'quote' ) ) {
+		preg_match( '/<blockquote.*?>/', $content, $matches );
+
+		if ( empty( $matches ) )
+			$content = "<blockquote>{$content}</blockquote>";
+	}
+
+	return $content;
+}
+
+/**
+ * Grabs the first URL from the post content of the current post.  This is meant to be used with the link post 
+ * format to easily find the link for the post. 
+ *
+ * @since 0.1.0
+ * @return string The link if found.  Otherwise, the permalink to the post.
+ *
+ * @note This is copied from Justin Tadlock's Theme Hybrid. He modified it from twenty eleven - see below.
+ * @note This is a modified version of the twentyeleven_url_grabber() function in the TwentyEleven theme.
+ * @author wordpressdotorg
+ * @copyright Copyright (c) 2011 - 2012, wordpressdotorg
+ * @link http://wordpress.org/extend/themes/twentyeleven
+ * @license http://wordpress.org/about/license
+ */
+function happy_url_grabber() {
+	if ( ! preg_match( '/<a\s[^>]*?href=[\'"](.+?)[\'"]/is', get_the_content(), $matches ) )
+		return get_permalink( get_the_ID() );
+
+	return esc_url_raw( $matches[1] );
 }
