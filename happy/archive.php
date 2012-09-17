@@ -16,7 +16,7 @@ get_header(); ?>
 
 		<?php do_atomic( 'open_content' ); // Open content hook ?>
 
-		<div class="hfeed">
+		<section class="hfeed">
 
 			<?php get_template_part( 'loop-meta' ); // Get the loop meta box ?>
 
@@ -30,7 +30,7 @@ get_header(); ?>
 
 			<?php endif; ?>
 
-		</div><!-- .hfeed -->
+		</section><!-- .hfeed -->
 
 		<?php do_atomic( 'close_content' ); // Close content hook ?>
 
