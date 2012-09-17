@@ -20,7 +20,7 @@
 		
 		<?php do_atomic( 'after_title' ); // after title hook ?>
 	
-		<?php echo apply_atomic_shortcode( 'byline', '<div class="byline">' . __( 'By [entry-author] on [entry-published] [entry-edit-link before=" | "]', 'happy' ) . '</div>' ); ?>
+		<?php get_template_part( 'loop', 'byline' ); ?>
 		
 		<?php do_atomic( 'after_byline' ); // after title hook ?>
 	
@@ -33,7 +33,7 @@
 	
 	<?php do_atomic( 'after_the_content' ); // after title hook ?>
 
-	<?php echo apply_atomic_shortcode( 'entry_meta', '<footer class="entry-meta entry-footer">' . __( '[entry-terms taxonomy="category" before="Posted in "] [entry-terms before="| Tagged "] [entry-comments-link before=" | "]', 'happy' ) . '</footer>' ); ?>
+	<?php get_template_part( 'loop', 'entry-meta' ); ?>
 
 	<?php do_atomic( 'close_entry' ); // Close entry hook ?>
 

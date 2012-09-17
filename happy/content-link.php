@@ -24,7 +24,7 @@
 		<?php the_content(); ?>
 	</div><!-- .entry-summary -->
 
-	<?php echo apply_atomic_shortcode( 'entry_meta', '<footer class="entry-meta entry-footer">' . __( '[post-format-link] Posted [entry-published][entry-terms taxonomy="category" before=" in "] [entry-permalink before=" | "] [entry-terms before="| Tagged "] [entry-comments-link before=" | "]', 'happy' ) . '</footer>' ); ?>
+	<?php get_template_part( 'loop', 'entry-meta' ); ?>
 
 	<?php do_atomic( 'close_entry' ); // Close loop hook ?>
 
