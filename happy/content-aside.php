@@ -1,8 +1,8 @@
 <?php
 /**
- * Content Template for the "Quote" post format
+ * Content Template for the "Aside" post format
  *
- * Displays the "Quote" post format content to be called by get_template_part() in the various templates
+ * Displays the "Aside" post format content to be called by get_template_part() in the various templates
  *
  * @package happy
  * @subpackage Template

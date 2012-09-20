@@ -1,8 +1,8 @@
 <?php
 /**
- * Content Template for the "Quote" post format
+ * Content Template for the "Video" post format
  *
- * Displays the "Quote" post format content to be called by get_template_part() in the various templates
+ * Displays the "Video" post format content to be called by get_template_part() in the various templates
  *
  * @package happy
  * @subpackage Template
@@ -14,7 +14,13 @@
 
 	<?php do_atomic( 'open_entry' ); // Open loop hook ?>
 	
-	<?php get_template_part( 'loop', 'byline' ); ?>
+	<header class="entry-header">
+		
+		<?php echo apply_atomic_shortcode( 'entry_title', '[entry-title]' ); ?>
+	
+		<?php get_template_part( 'loop', 'byline' ); ?>
+		
+	</header><!-- .entry-header -->
 
 	<div class="entry-content">
 		<?php the_content(); ?>

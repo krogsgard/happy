@@ -63,10 +63,16 @@ function happy_theme_setup() {
 	
 	/* Register support for some post formats */
 	
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'link', 'quote', 'status', 'video' ) );
+	add_theme_support( 'post-formats', array( 'aside', 'gallery', 'image', 'link', 'quote', 'video' ) );
 	
 	/* Wraps <blockquote> around quote posts. */
 	add_filter( 'the_content', 'happy_quote_content' );
+	
+	/* Includes attached image if user doesn't include content on image post format */
+	add_filter( 'the_content', 'happy_image_content' );
+	
+	/* Add infinity symbol for asides. Priority 9 to beat wpautop */
+	add_filter( 'the_content', 'happy_aside_infinity', 9 ); 
 	
 	add_theme_support( 'automatic-feed-links' );
 	
@@ -116,13 +122,15 @@ function happy_theme_setup() {
 
 function happy_scripts() {
 	
-	wp_register_script( 'happy-sub-nav', get_template_directory_uri() . '/js/happy-sub-nav.js', array( 'jquery' ), '20120206', true );
+	wp_register_script( 'happy-custom', get_template_directory_uri() . '/js/happy-custom.js', array( 'jquery', 'fitvids' ), '20120206', true );
 	wp_register_script( 'small-menu', get_template_directory_uri() . '/js/small-menu.js', array( 'jquery' ), '20120206', true );
 	wp_register_script( 'small-menu-secondary', get_template_directory_uri() . '/js/small-menu-secondary.js', array( 'jquery' ), '20120206', true );
+	wp_register_script( 'fitvids', get_template_directory_uri() . '/js/fitvids.js', array( 'jquery' ), '20120206', true );
 	
-	wp_enqueue_script( 'happy-sub-nav' );
+	wp_enqueue_script( 'happy-custom' );
 	wp_enqueue_script( 'small-menu' );
 	wp_enqueue_script( 'small-menu-secondary' );
+	wp_enqueue_script( 'fitvids' );
 	
 	/*
 	 * Loads Google font CSS file.
@@ -209,9 +217,11 @@ function happy_change_comment_status() {
 function happy_one_column() {
 
 	if ( ! is_active_sidebar( 'primary' ) && ! is_active_sidebar( 'secondary' ) )
+		
 		add_filter( 'get_theme_layout', 'happy_post_layout_one_column' );
 
 	elseif ( is_attachment() )
+		
 		add_filter( 'get_theme_layout', 'happy_post_layout_one_column' );
 
 }
@@ -242,9 +252,12 @@ function happy_disable_sidebars( $sidebars_widgets ) {
 	if ( current_theme_supports( 'theme-layouts' ) ) {
 
 		if ( 'layout-1c' == theme_layouts_get_layout() ) {
+			
 			$sidebars_widgets['primary'] = false;
 			$sidebars_widgets['secondary'] = false;
+		
 		}
+	
 	}
 
 	return $sidebars_widgets;
@@ -324,10 +337,13 @@ function happy_home_feature() {
 function happy_quote_content( $content ) {
 
 	if ( has_post_format( 'quote' ) ) {
+		
 		preg_match( '/<blockquote.*?>/', $content, $matches );
 
 		if ( empty( $matches ) )
+			
 			$content = "<blockquote>{$content}</blockquote>";
+	
 	}
 
 	return $content;
@@ -348,8 +364,71 @@ function happy_quote_content( $content ) {
  * @license http://wordpress.org/about/license
  */
 function happy_url_grabber() {
+	
 	if ( ! preg_match( '/<a\s[^>]*?href=[\'"](.+?)[\'"]/is', get_the_content(), $matches ) )
+		
 		return get_permalink( get_the_ID() );
 
 	return esc_url_raw( $matches[1] );
+
+}
+
+/**
+ * Returns the number of images attached to the current post in the loop.
+ *
+ * @since 0.1.0
+ * @return int
+ * @note This is copied from Justin Tadlock's Theme Hybrid theme, Picturesque.
+ * @author Justin Tadlock
+ * @copyright Copyright (c), Justin Tadlock
+ * @link http://themehybrid.com
+ */
+function happy_get_image_attachment_count() {
+	
+	$images = get_children( array( 'post_parent' => get_the_ID(), 'post_type' => 'attachment', 'post_mime_type' => 'image', 'numberposts' => -1 ) );
+	
+	return count( $images );
+
+}
+
+/**
+ * Returns the featured image for the image post format if the user didn't add any content to the post.
+ *
+ * @note This function is used from Justin Tadlock's Theme Hybrid community
+ * @since 0.1.0
+ * @param string $content The post content.
+ * @return string $content
+ */
+function happy_image_content( $content ) {
+
+	if ( has_post_format( 'image' ) && '' == $content ) {
+		if ( is_singular() )
+			$content = get_the_image( array( 'size' => 'full', 'meta_key' => false, 'link_to_post' => false ) );
+		else
+			$content = get_the_image( array( 'size' => 'full', 'meta_key' => false ) );
+	}
+
+	return $content;
+}
+
+
+/**
+ * Adds infinity symbol to asides
+ *
+ * This function filters the content and, if it's the "aside" post format, adds the infinity symbol
+ * It runs at priority nine so that it goes before wpautop()
+ *
+ * @note credit Justin Tadlock - http://justintadlock.com/archives/2012/09/06/post-formats-aside 
+ * @since 0.1.0
+ * @param string $content The post content.
+ * @return string $content
+ */
+ 
+function happy_aside_infinity( $content ) {
+
+	if ( has_post_format( 'aside' ) && !is_singular() )
+		
+		$content .= ' <a href="' . get_permalink() . '"> &#8734; </a>';
+
+	return $content;
 }

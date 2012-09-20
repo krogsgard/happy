@@ -1,8 +1,8 @@
 <?php
 /**
- * Content Template
+ * Content Template for the "Gallery" post format
  *
- * Displays content to be called by get_template_part() in various templates
+ * Displays the "Gallery" post format content to be called by get_template_part() in the various templates
  *
  * @package happy
  * @subpackage Template
@@ -25,7 +25,27 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-summary">
+		
 		<?php the_excerpt(); ?>
+		
+		<?php $count = happy_get_image_attachment_count(); ?>
+			
+			<p class="image-count">
+			
+			<?php $count = apply_filters( 'happy_gallery_count', sprintf( _n( 'This gallery contains %s image. ', 'This gallery contains %s images. ', $count, 'happy' ), $count ) ); 
+			
+				$date = apply_filters( 'happy_gallery_more', sprintf( '<a href="%1$s" title="%2$s" rel="bookmark">%3$s</a>',
+					    esc_url( get_permalink() ),
+					    esc_attr( get_the_title() ),
+					    __( 'View All Images &raquo; ', 'happy' )
+					)
+				);
+				
+				echo $count;
+				echo $date; ?>
+				
+			</p>
+
 	</div><!-- .entry-summary -->
 
 	<?php get_template_part( 'loop', 'entry-meta' ); ?>

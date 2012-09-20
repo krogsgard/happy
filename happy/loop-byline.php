@@ -17,13 +17,12 @@
 	   
 	    case 'aside':
 	    
-	        echo apply_atomic_shortcode( 'byline', '<div class="byline">' . __( '[post-format-link] Posted [entry-published][entry-terms taxonomy="category" before=" in "] [entry-permalink before=" | "] [entry-terms before="| Tagged "] [entry-comments-link before=" | "]', 'happy' ) . '</div>' );
-	    
 	        break;
 	    
-	    case 'image':
+	    case 'gallery':
 	    
-	        echo apply_atomic_shortcode( 'byline', '<div class="byline">' . __( '[post-format-link] Posted [entry-published][entry-terms taxonomy="category" before=" in "] [entry-permalink before=" | "] [entry-terms before="| Tagged "] [entry-comments-link before=" | "]', 'happy' ) . '</div>' );
+	        break;
+	    case 'image':
 	    
 	        break;
 
@@ -34,20 +33,14 @@
 	    case 'quote':
 	    
 	        break;
-
-	    case 'status':
-	    
-	        break;
 	    
 	    case 'video':
-	        
-	        echo apply_atomic_shortcode( 'byline', '<div class="byline">' . __( '[post-format-link] Posted [entry-published][entry-terms taxonomy="category" before=" in "] [entry-permalink before=" | "] [entry-terms before="| Tagged "] [entry-comments-link before=" | "]', 'happy' ) . '</div>' );
 	    
 	        break;
 	    
 	    default:
 	        
-	        echo apply_atomic_shortcode( 'byline', '<div class="byline">' . __( 'Default byline - By [entry-author] on [entry-published] [entry-edit-link before=" | "]', 'happy' ) . '</div>' ); 
+	        echo apply_atomic_shortcode( 'byline', '<div class="byline">' . __( 'By [entry-author] on [entry-published] [entry-edit-link before=" | "]', 'happy' ) . '</div>' ); 
 	    
 	        break;
 	

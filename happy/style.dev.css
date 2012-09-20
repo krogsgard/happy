@@ -114,6 +114,16 @@ nav,
 section {
 	display: block;
 }
+
+audio,
+canvas,
+video {
+	display: inline-block;
+}
+audio:not([controls]) {
+	display: none;
+}
+
 ol, 
 ul {
 	list-style: none;
@@ -148,11 +158,20 @@ a:hover {
 	color: #444;
 }
 
-.entry-content a, 
+/* highlight text! */
+
+::-moz-selection{ background: #7aad21; color:#fff; text-shadow: none; }
+::selection { background:#7aad21; color:#fff; text-shadow: none; } 
+
+.entry-content a,
+.byline a,
+.entry-meta a, 
 .sidebar a {
 	color: #004466;
 }
-.entry-content a:hover, 
+.entry-content a:hover,
+.byline a:hover,
+.entry-meta a:hover,  
 .sidebar a:hover {
 	color: #3388bb;
 	text-decoration: underline;
@@ -271,6 +290,20 @@ acronym {
 }
 acronym:hover {
 	background: #f9f9f9;
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	top: -0.5em;
+}
+sub {
+	bottom: -0.25em;
 }
 
 /* horizontal line */
@@ -455,6 +488,15 @@ img.wp-post-image {
 .wp-caption .wp-caption-text {
 	margin: 0 0.25em;
 	text-align: right;
+}
+
+/* Make sure videos and embeds fit their containers */
+
+embed,
+iframe,
+object,
+video {
+	max-width: 100%;
 }
 
 /* 
