@@ -239,21 +239,17 @@ h6 {
 }
 */
 .entry-content h3 {	
-	line-height: 24px;
-	line-height: 1.5rem;		
+	line-height: 1.5;		
 }
 
 .entry-content h4 {	
-	line-height: 24px;
-	line-height: 1.5rem;		
+	line-height: 1.5;		
 }
 .entry-content h5 {
-	line-height: 24px;
-	line-height: 1.5rem;		
+	line-height: 1.5;		
 }
 .entry-content h6 {	
-	line-height: 24px;
-	line-height: 1.5rem;	
+	line-height: 1.5;	
 }
 */
 /* Tables */

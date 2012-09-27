@@ -32,7 +32,7 @@
 		
 		<?php do_atomic( 'before_footer' ); // Before footer hook ?>
 		
-		<footer id="footer">
+		<footer id="footer" role="contentinfo">
 
 			<?php do_atomic( 'open_footer' ); // Open footer hook ?>
 

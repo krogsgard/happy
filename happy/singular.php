@@ -13,7 +13,7 @@ get_header(); ?>
 
 	<?php do_atomic( 'before_content' ); // Before content hook ?>
 
-	<div id="content">
+	<div id="content" role="main">
 
 		<?php do_atomic( 'open_content' ); // Open content hook ?>
 
