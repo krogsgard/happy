@@ -23,7 +23,21 @@
 
 <title><?php hybrid_document_title(); ?></title>
 
-<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css" media="all" />
+<!-- For iPad 5 -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo get_template_directory_uri(); ?>/images/apple-touch-icon-144x144-precomposed.png">
+<!-- For iPhone 4 -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/images/apple-touch-icon-114x114-precomposed.png">
+<!-- For iPad 1-->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/images/apple-touch-icon-72x72-precomposed.png">
+<!-- For iPhone 3G, iPod Touch and Android -->
+<link rel="apple-touch-icon-precomposed" href="<?php echo get_template_directory_uri(); ?>/images/apple-touch-icon-57x57-precomposed.png">
+<!-- For everything else -->
+<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico">
+
+<?php 
+wp_enqueue_style( 'styleDev', get_template_directory_uri().'/style.dev.css', '', '1.0' );
+//wp_enqueue_style( 'style', get_template_directory_uri().'/style.css', '', '1.0' ); 
+?>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
@@ -31,11 +45,17 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
 
-<?php wp_head(); // WP head hook ?>
+<?php
+
+if ( is_singular( 'post' ) ) wp_enqueue_script( 'comment-reply' );
+
+// WP head hook
+wp_head();
+?>
 
 </head>
 
-<body class="<?php hybrid_body_class(); ?>">
+<body class="<?php hybrid_body_class(); ?>" role="application">
 
 	<?php do_atomic( 'open_body' ); // Open body hook ?>
 
