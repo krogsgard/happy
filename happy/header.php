@@ -40,39 +40,6 @@
 	<?php do_atomic( 'open_body' ); // Open body hook ?>
 
 	<div id="container">
-
-		<?php do_atomic( 'before_header' ); // Before header hook ?>
-		
-		<?php get_template_part( 'menu', 'primary' ); ?>
-
-		<header id="header" role="banner">
-
-			<?php do_atomic( 'open_header' ); // Open header hook ?>
-
-			<div class="wrap">
-                            
-				<hgroup id="branding">
-					
-					<h1 id="site-title"><a href="<?php echo home_url(); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"><span><?php bloginfo( 'name' ); ?></span></a></h1>
-					
-					<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>									
-				
-				</hgroup><!-- #branding -->		
-
-				<?php do_atomic( 'header' ); // Header hook ?>
-				
-				<?php get_sidebar( 'header' ); ?>
-
-				
-			</div><!-- .wrap -->
-
-			<?php do_atomic( 'close_header' ); // Close header hook ?>
-
-		</header><!-- #header -->
-		
-		<?php do_atomic( 'after_header' ); // After header hook ?>
-		
-		<?php get_template_part( 'menu', 'secondary' ); ?>	
 		
 		<?php do_atomic( 'before_main' ); // Before main hook ?>
 

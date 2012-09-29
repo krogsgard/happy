@@ -94,6 +94,8 @@ function happy_theme_setup() {
 	
 	add_action( 'load-page-new.php', 'happy_change_comment_status' );
 	
+	/* load theme scripts and styles */
+	
 	add_action( 'wp_enqueue_scripts', 'happy_scripts' );
 	
 	/* change defaults for sidebar parameters */
@@ -103,14 +105,42 @@ function happy_theme_setup() {
 	/* enable this filter to remove the home page entry title "Home". Don't forget to remove the function as well */
 
 	add_filter ( "{$prefix}_entry_title", 'happy_remove_entry_title' );
+	
+	/* insert the header template part */
+	
+	add_action( "{$prefix}_before_main", 'happy_insert_header_template', 5 );
+	
+	/* insert the primaryy menu */
+	
+	add_action( "{$prefix}_before_header", 'happy_insert_primary_menu' );
+	
+	/* insert the secondary menu */
+	
+	add_action( "{$prefix}_after_header", 'happy_insert_secondary_menu' );
 
-	/* uncomment to add the feature-home-feature template below the logo - also note the function below infobase_home_feature
-	 * by default the home feature template grabs the feature sidebar on the page set as the front page in the reading settings.
-	 * to override this, copy the feature-home-feature.php template from the parent theme and put it in the child theme
-	 * here you can change whatever you like.
-	 */
+	/* insert the feature template part */
  
-	add_action( "{$prefix}_before_main", 'happy_home_feature');
+	add_action( "{$prefix}_before_main", 'happy_insert_feature_template', 10 );
+	
+	/* insert the primary sidebar */
+	
+	add_action( "{$prefix}_after_content", 'happy_insert_primary_sidebar', 5 );
+	
+	/* insert the secondary sidebar */
+	
+	add_action( "{$prefix}_after_content", 'happy_insert_secondary_sidebar', 10 );
+	
+	/* insert the subsidiary sidebar */
+	
+	add_action( "{$prefix}_after_main", 'happy_insert_subsidiary_sidebar', 5 );	
+	
+	/* insert the subsidiary menu */
+	
+	add_action( "{$prefix}_after_main", 'happy_insert_subsidiary_menu', 10 );
+		
+	/* insert the footer template part */
+	
+	add_action( "{$prefix}_close_body", 'happy_insert_footer_template' );
 
 }
 
@@ -144,7 +174,7 @@ function happy_scripts() {
 	
 	$protocol = is_ssl() ? 'https' : 'http';
 	
-	wp_enqueue_style( 'happy-fonts', "$protocol://fonts.googleapis.com/css?family=Open+Sans", array(), null );
+	wp_enqueue_style( 'happy-fonts', "$protocol://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic,700italic", array(), null );
 
 }
 
@@ -313,16 +343,114 @@ function happy_remove_entry_title( $title ) {
 } 
 
 /**
+ * Hook in the header template part
+ * default location is before_main, priority 5
+ *
+ * @since 0.1.0.
+ */
+function happy_insert_header_template() {
+
+	get_template_part( 'part' , 'header' );
+	 
+}
+
+/**
  * Enable the home feature widget area
+ * default location is before_main
  *
  * @since 0.1.0.
  */
 
-function happy_home_feature() {
+function happy_insert_feature_template() {
 
-	get_template_part('feature', 'home-feature');			
+	get_template_part( 'part', 'feature' );			
 		
 }
+
+/**
+ * Hook in the primary menu
+ * default location is before_header
+ *
+ * @since 0.1.0.
+ */
+function happy_insert_primary_menu() {
+
+	get_template_part( 'menu', 'primary' );
+	 
+}
+
+/**
+ * Hook in the secondary menu
+ * default location is after_header
+ *
+ * @since 0.1.0.
+ */
+function happy_insert_secondary_menu() {
+
+	get_template_part( 'menu', 'secondary' );
+	 
+}
+
+/**
+ * Hook in the subsidiary menu
+ * default location is after_main, priority 5
+ *
+ * @since 0.1.0.
+ */
+function happy_insert_subsidiary_menu() {
+
+	get_template_part( 'menu', 'subsidiary' ); // Load the menu-subsidiary.php template.
+	 
+}
+
+/**
+ * Hook in the primary sidebar
+ * default location is after_content, priority 5
+ *
+ * @since 0.1.0.
+ */
+function happy_insert_primary_sidebar() {
+
+	get_sidebar( 'primary' ); // Loads the sidebar-primary.php template.
+	 
+}
+
+/**
+ * Hook in the secondary sidebar
+ * default location is after_content, priority 10
+ *
+ * @since 0.1.0.
+ */
+function happy_insert_secondary_sidebar() {
+
+	get_sidebar( 'secondary' ); // Loads the sidebar-secondary.php template.
+	 
+}
+
+/**
+ * Hook in the subsidiary sidebar
+ * default location is after_main, priority 10
+ *
+ * @since 0.1.0.
+ */
+function happy_insert_subsidiary_sidebar() {
+
+	get_sidebar( 'subsidiary' );
+	 
+}
+
+/**
+ * Hook in the footer template part
+ * default location is close_body, priority 10
+ *
+ * @since 0.1.0.
+ */
+function happy_insert_footer_template() {
+
+	get_template_part( 'part' , 'footer' );
+	 
+}
+
 
 /**
  * Wraps the output of the quote post format content in a <blockquote> element if the user hasn't added a 
