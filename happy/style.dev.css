@@ -180,6 +180,21 @@ sub {
 	text-shadow: none; 
 }
 
+.massive {
+	font-size: 400%;
+}
+.italic, 
+em {
+	font-style: italic;
+}
+.bold, 
+strong {
+	font-weight: 700;
+}
+del {
+	text-decoration: line-through; 
+}
+
 /* horizontal line */
 
 hr {
