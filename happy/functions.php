@@ -112,15 +112,23 @@ function happy_theme_setup() {
 	
 	/* insert the primaryy menu */
 	
-	add_action( "{$prefix}_before_header", 'happy_insert_primary_menu' );
+	add_action( "{$prefix}_before_header", 'happy_insert_primary_menu', 10 );
 	
 	/* insert the secondary menu */
 	
-	add_action( "{$prefix}_after_header", 'happy_insert_secondary_menu' );
+	add_action( "{$prefix}_after_header", 'happy_insert_secondary_menu', 10 );
 
-	/* insert the feature template part */
+	/* insert the feature template part on the front page */
  
-	add_action( "{$prefix}_before_main", 'happy_insert_feature_template', 10 );
+	add_action( "{$prefix}_home_before_main", 'happy_insert_feature_template', 10 );
+	
+	/* insert the custom header */
+	
+	add_action( "{$prefix}_feature", 'happy_insert_custom_header', 5 );	
+	
+	/* insert the feature sidebar */
+	
+	add_action( "{$prefix}_feature", 'happy_insert_feature_sidebar', 10 );	
 	
 	/* insert the primary sidebar */
 	
@@ -129,6 +137,10 @@ function happy_theme_setup() {
 	/* insert the secondary sidebar */
 	
 	add_action( "{$prefix}_after_content", 'happy_insert_secondary_sidebar', 10 );
+	
+	/* insert the after-singular sidebar */
+	
+	add_action( "{$prefix}_after_singular", 'happy_insert_after_singular_sidebar', 10 );
 	
 	/* insert the subsidiary sidebar */
 	
@@ -140,9 +152,13 @@ function happy_theme_setup() {
 		
 	/* insert the footer template part */
 	
-	add_action( "{$prefix}_close_body", 'happy_insert_footer_template' );
+	add_action( "{$prefix}_close_body", 'happy_insert_footer_template', 10 );
 
 }
+
+	/* Adds support for a custom header image. */
+
+ 	require( get_template_directory() . '/includes/custom-header.php' );
 
 /**
  * Registers scripts for the theme and enqueue those used sitewide.
@@ -368,6 +384,37 @@ function happy_insert_feature_template() {
 }
 
 /**
+ * Insert the WordPress customer header
+ * default location is 'feature', priority 5
+ *
+ * @since 0.1.0.
+ */
+
+function happy_insert_custom_header() {
+
+	$header_image = get_header_image();
+	
+	if ( ! empty( $header_image ) ) : ?>
+		
+		<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo esc_url( $header_image ); ?>" class="header-image" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" /></a>
+	
+	<?php endif; 		
+		
+}
+
+/**
+ * Hook in the feature sidebar
+ * default location is feature, priority 10
+ *
+ * @since 0.1.0.
+ */
+function happy_insert_feature_sidebar() {
+
+	get_sidebar( 'feature' ); // Loads the sidebar-primary.php template.
+	 
+}
+
+/**
  * Hook in the primary menu
  * default location is before_header
  *
@@ -424,6 +471,18 @@ function happy_insert_primary_sidebar() {
 function happy_insert_secondary_sidebar() {
 
 	get_sidebar( 'secondary' ); // Loads the sidebar-secondary.php template.
+	 
+}
+
+/**
+ * Hook in the after-singular sidebar
+ * default location is after_singular, priority 10
+ *
+ * @since 0.1.0.
+ */
+function happy_insert_after_singular_sidebar() {
+
+	get_sidebar( 'after-singular' ); // Loads the sidebar-after-singular.php template.
 	 
 }
 
