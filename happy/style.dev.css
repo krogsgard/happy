@@ -86,8 +86,7 @@ textarea {
 
 body {
 	margin: 0;
-	padding: 16px 0 0 0;
-	padding: 1rem 0 0 0;
+	padding: 2% 0 0 0;
 	background: #f5f5f5;
 	font-family: 'Ubuntu', sans-serif;
 	color:#444;
@@ -879,7 +878,7 @@ http://qrayg.com/experiment/cssmenus/
 		
 		
 /* Search form */
-.search {
+div.search {
 	float: left;
 	width: 10em;
 	margin:0 1.5em 0 0;
@@ -1115,8 +1114,9 @@ http://qrayg.com/experiment/cssmenus/
 }
 
 .sticky {
-	margin: 0;
-	padding:0;
+	border-left: 5px solid #ddd;
+	padding-left: 16px;
+	padding-left: 1rem;
 }
 
 .hentry .thumbnail {
@@ -1379,14 +1379,12 @@ http://qrayg.com/experiment/cssmenus/
 
 #sidebar-primary {
 	padding: 2%;
-	background: #f5f5f5;
 }
 
 /* #sidebar-secondary widget area */
 
 #sidebar-secondary {
 	padding: 2%;
-	background: #f5f5f5;
 }
 
 /* #sidebar-after-singular widget area */	
