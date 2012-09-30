@@ -25,6 +25,8 @@
 		<?php do_atomic( 'after_byline' ); // after title hook ?>
 	
 	</header><!-- .entry-header -->
+	
+	<?php do_atomic( 'before_the_content' ); // before title hook ?>
 
 	<div class="entry-content">
 		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'happy' ) ); ?>
@@ -39,10 +41,8 @@
 
 </article><!-- .hentry -->
 
-<?php do_atomic( 'after_entry' ); // After entry hook ?>
+<?php do_atomic( 'after_entry' ); // After entry hook (also available on archives) ?>
 
-<?php get_sidebar( 'after-singular' ); ?>
-
-<?php do_atomic( 'after_singular' ); // After singular hook ?>
+<?php do_atomic( 'after_singular' ); // After singular hook (only on singular templates) ?>
 
 <?php comments_template( '/comments.php', true ); ?>
