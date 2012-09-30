@@ -9,6 +9,8 @@
  * @package happy
  * @subpackage Template
  */
+
+$blog_name = get_bloginfo( 'name' ); // Look up the blog name once, to avoid multiple look-ups int his template file.
 ?>
 <?php do_atomic( 'before_header' ); // Before header hook ?>
 
@@ -20,7 +22,7 @@
 	                
 			<hgroup id="branding">
 				
-				<h1 id="site-title"><a href="<?php echo home_url(); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"><span><?php bloginfo( 'name' ); ?></span></a></h1>
+				<h1 id="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( $blog_name ); ?>"><span><?php echo $blog_name; ?></span></a></h1>
 				
 				<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>									
 			

@@ -615,7 +615,7 @@ function happy_aside_infinity( $content ) {
 
 	if ( has_post_format( 'aside' ) && !is_singular() )
 		
-		$content .= ' <a href="' . get_permalink() . '"> &#8734; </a>';
+		$content .= ' <a href="' . esc_url( get_permalink() ) . '"> &#8734; </a>';
 
 	return $content;
 }
