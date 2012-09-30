@@ -101,10 +101,6 @@ function happy_theme_setup() {
 	/* change defaults for sidebar parameters */
 	
 	add_filter( "{$prefix}_sidebar_defaults", 'happy_change_sidebar_defaults' );	
-
-	/* enable this filter to remove the home page entry title "Home". Don't forget to remove the function as well */
-
-	add_filter ( "{$prefix}_entry_title", 'happy_remove_entry_title' );
 	
 	/* insert the header template part */
 	
@@ -340,23 +336,6 @@ function happy_embed_defaults( $args ) {
 	return $args;
 
 }
-		
-/**
- * Enable this function w/ the corresponding filter above to remove the home page entry title "Home"
- *
- * @since 0.1.0.
- */
-
-function happy_remove_entry_title( $title ) {
-
-	if ( is_front_page() ) {
-		
-		$title = '';
-	
-	}
-
-	return $title;
-} 
 
 /**
  * Hook in the header template part
