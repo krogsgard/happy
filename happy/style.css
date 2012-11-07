@@ -22,3 +22,31 @@
 	bottom: 0;
 	left: 45%;	
 }
+
+.pa-image {
+	float: left;
+	margin-bottom: 8px;
+	margin-bottom: .5rem;
+}
+.pa-copy {
+	float: left;
+	width: 92px;
+	width: 5.75rem;
+	font-size: 11px;
+	font-size: .6875rem;
+	margin-bottom: 8px;
+	margin-bottom: .5rem;
+	font-weight: normal;
+	color: #666;
+	text-decoration: none;
+	margin-left: 7px;
+	margin-left: .4375rem;
+}
+
+.pa-id {
+	font-size: 11px;
+	font-size: .6875rem;
+	color: #666;
+	text-decoration: none;
+	clear:	both;
+}

@@ -65,6 +65,10 @@ function happy_theme_setup() {
 	
 	add_theme_support( 'post-formats', array( 'aside', 'gallery', 'image', 'link', 'quote', 'video' ) );
 	
+	/* Register support for custom backgrounds */
+	
+	add_theme_support( 'custom-background' );
+	
 	/* Wraps <blockquote> around quote posts. */
 	add_filter( 'the_content', 'happy_quote_content' );
 	
@@ -186,10 +190,9 @@ function happy_scripts() {
 	
 	$protocol = is_ssl() ? 'https' : 'http';
 	
-	wp_enqueue_style( 'happy-fonts', "$protocol://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic,700italic", array(), null );
+	wp_enqueue_style( 'happy-fonts', "$protocol://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic", array(), null );
 
 }
-
 
 
 /**
