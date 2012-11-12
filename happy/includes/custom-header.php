@@ -38,7 +38,7 @@ function happy_custom_header_setup() {
 		'random-default'         => false,
 
 		// Callbacks for styling the header and the admin preview.
-		'wp-head-callback'       => 'happy_header_style',
+		'wp-head-callback'       => 'happy_admin_header_style',
 		'admin-head-callback'    => '',
 		'admin-preview-callback' => 'happy_admin_header_image',
 	);
