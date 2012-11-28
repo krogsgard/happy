@@ -6,8 +6,6 @@
  * @link http://www.cssdrive.com/index.php/main/csscompressor
  */
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
-
 Resetting and rebuilding styles have been helped along thanks to the fine work of
 Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
 along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
@@ -88,21 +86,25 @@ textarea {
 
 body {
 	margin: 0;
-	padding: 0;
-	background: #eee;
-	font-family: 'Open Sans', sans-serif;
-	color:#222;
+	padding: 2% 0 0 0;
+	background: #f5f5f5;
+	font-family: 'Source Sans Pro', sans-serif;
+	color:#444;
 }
 
-
+#container {
+	width: 71.25em;
+	margin: 0 auto;
+	background: #fff;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.27); 
+}
 .wrap {
 	overflow: hidden;
 	clear: both;
-	width: 71.25em;
-	margin: 0 auto;
 	padding: 0px;
-	background: #fff; 
 }
+
+/* various element styling */
 
 article,
 aside,
@@ -116,20 +118,23 @@ nav,
 section {
 	display: block;
 }
-ol, 
-ul {
-	list-style: none;
+
+audio,
+canvas,
+video {
+	display: inline-block;
 }
-table { /* tables still need 'cellspacing="0"' in the markup */
-	border-collapse: separate;
-	border-spacing: 0;
+audio:not([controls]) {
+	display: none;
 }
+
 caption, 
 th, 
 td {
 	font-weight: normal;
 	text-align: left;
 }
+
 blockquote:before, 
 blockquote:after,
 q:before, 
@@ -141,22 +146,92 @@ q {
 	quotes: "" "";
 }
 
-/* PROBABLY NEED TO NOT DECLARE a SITEWIDE. */
+acronym {
+	text-transform: uppercase;
+	color: #555;
+	background: #fcfcfc;
+}
+acronym:hover {
+	background: #f9f9f9;
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+/* highlight text! */
+
+::-moz-selection, 
+::selection { 
+	background: #046; 
+	color:#fff; 
+	text-shadow: none; 
+}
+
+.massive {
+	font-size: 400%;
+}
+.italic, 
+em {
+	font-style: italic;
+}
+.bold, 
+strong {
+	font-weight: 700;
+}
+del {
+	text-decoration: line-through; 
+}
+
+/* horizontal line */
+
+hr {
+	border: 0;
+	width: 100%;
+	color: #ddd;
+	background-color: #ddd;
+	height: 1px;
+}
+
+/* default link styles */
+
 a {
 	color: #666;
 	text-decoration: none;
 }
+
 a:hover {
 	color: #444;
 }
 
-.entry-content a, 
+/* set link styles for various places */
+
+.entry-content a,
+.entry-summary a,
+.byline a,
+.entry-meta a, 
 .sidebar a {
-	color: #004466;
-}
-.entry-content a:hover, 
-.sidebar a:hover {
 	color: #3388bb;
+}
+
+.entry-content a:hover,
+.entry-summary a:hover,
+.byline a:hover,
+.entry-meta a:hover,  
+.sidebar a:hover {
+	color: #004466;
 	text-decoration: underline;
 }
 	
@@ -180,74 +255,74 @@ h6 {
 } /* margin and padding and font-weight set to override browser defaults */
 	
 h1 {	
-	font-size:	27px;
-	font-size:	1.688rem;	
+	font-size:	32px;
+	font-size:	2rem;	
 }
 
 h2 {	
-	font-size:	24px;
-	font-size:	1.5rem;	
-} /* 24px */
+	font-size:	28px;
+	font-size:	1.75rem;	
+}
 
 h3 {	
-	font-size:	20px;
-	font-size:	1.25rem;	
-} /* 20px */
+	font-size:	24px;
+	font-size:	1.5rem;	
+} 
 
 h4 {	
-	font-size:	18px;
-	font-size:	1.125rem;	
-} /* 18px */
+	font-size:	20px;
+	font-size:	1.25rem;	
+} 
 
 h5 {	
-	font-size:	16px;
-	font-size:	1rem;	
-} /* 16px */
+	font-size:	18px;
+	font-size:	1.125rem;	
+} 
 
 h6 {	
-	font-size:	14px;
-	font-size:	0.875rem;
+	font-size:	16px;
+	font-size:	1rem;
 	font-weight: normal;	
-} /* 14px */
+} 
 
-/* entry-content line-heights. Define in child */
-/*
-.entry-content h1 {
-	line-height: 27px;	
-	line-height: 1.688rem;		
-}
-.entry-content h2 {	
-	line-height: 24px;
-	line-height: 1.5rem;		
-}
-*/
-.entry-content h3 {	
-	line-height: 24px;
-	line-height: 1.5rem;		
-}
+/* entry-content line-heights */
 
-.entry-content h4 {	
-	line-height: 24px;
-	line-height: 1.5rem;		
-}
-.entry-content h5 {
-	line-height: 24px;
-	line-height: 1.5rem;		
-}
+.entry-content h1,
+.entry-content h2, 
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
 .entry-content h6 {	
-	line-height: 24px;
-	line-height: 1.5rem;	
+	line-height: 1.5;	
 }
-*/
-/* Tables */
+
+/* increase the size of main title h1s */
+
+#site-title,
+.loop-title,
+.singular .hfeed .entry-title {
+	font-size: 40px;
+	font-size: 2.5rem; 
+}
+
+
+/* tables */
+
+table { /* tables still need 'cellspacing="0"' in the markup */
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
 table {
 	margin: 0 0 1.5em 0;
 	width: 100%;
 	border-left: 1px solid #e0e0e0;
 }
+
 table caption {
 	color: #999;
 }
+
 table th {
 	font-weight: bold;
 	padding: 0.25em 2%;
@@ -256,9 +331,11 @@ table th {
 	border-right: 1px solid #e0e0e0;
 	text-align: left;
 }
+
 table {
 	border-left: 1px solid #e0e0e0;
 }
+
 td {
 	padding: 0.25em 2%;
 	color: #444;
@@ -266,44 +343,37 @@ td {
 	border-right: 1px solid #e0e0e0;
 }
 
-acronym {
-	text-transform: uppercase;
-	color: #555;
-	background: #fcfcfc;
-}
-acronym:hover {
-	background: #f9f9f9;
+/* lists */
+
+ol, 
+ul {
+	list-style: none;
 }
 
-/* horizontal line */
-
-hr {
-	border: 0;
-	width: 98%;
-	color: #ccc;
-	background-color: #ccc;
-	height: 1px;
-}
-
-/* Lists. */
 ul {
 	list-style: square inside;
 }
+
 ul ul {
 	margin:0.25em 0 0.25em .5em;
 }
+
 ol {
 	list-style: decimal inside;
 }
+
 ol ol {
 	margin: 0.25em 0 0.25em .5em;
 }
+
 dl {
 	margin: 0 0 1.5em 1.5em;
 }
+
 dl dt {
 	margin: 0;
 }
+
 dl dd {
 	margin: 0 0 0.25em 0.625em;
 	padding: 0;
@@ -311,7 +381,8 @@ dl dd {
 	color: #888;
 }
 
-/* Blockquotes. */
+/* blockquotes */
+
 blockquote {
 	overflow: hidden;
 	margin: 0 0 1.5em 0;
@@ -321,63 +392,76 @@ blockquote {
 	font-style: italic;
 
 }
+
 blockquote blockquote {
 	background: #eee;
 	font-style: italic;
 
 }
 
-/* Code */
+/* code */
+
 code {
 	padding: 0 0.25em;
 	color: #555;
 	background: #e6e6e6;
 }
+
 pre {
 	padding: 1.5em;
 	color: #555;
 	background: #efefef;
 	border: 1px solid #dfdfdf;
 }
+
 pre code {
 	padding: 0;
 	background: transparent;
 }
 
-/* Forms */
+/* basic forms */
+
 input[type="text"] {
 	display: block;
 }
+
+fieldset {
+	border: none;
+}
+
 textarea {
 	display: block;
 }
 
 /* Alignment */
+
 .left, 
 .alignleft {
 	float: left;
 	margin: 0 1.5em 0 0;
 }
+
 .right, 
 .alignright {
 	float: right;
 	margin: 0 0 0 1.5em;
 }
+
 .center, 
 .aligncenter {
 	display: block;
 	margin: 0 auto 1.5em auto !important;
 }
+
 .block, 
 .alignnone {
 	display: block;
 	margin: 0 0 1.5em 0;
 }
+
 .clear {
 	clear: both;
 }
-
-/* Images */
 
 /* Responsive images */
 
@@ -386,11 +470,13 @@ textarea {
 .widget img {
 	max-width: 100%; /* Fluid images for posts, comments, and widgets */
 }
+
 img[class*="align"],
 img[class*="wp-image-"],
 img[class*="attachment-"] {
 	height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly */
 }
+
 img.size-full,
 img.size-large,
 img.header-image,
@@ -413,40 +499,49 @@ img.wp-post-image {
 .layout-3c-l .entry-content img, 
 .layout-3c-r .entry-content img, 
 .layout-3c-c .entry-content img {
-
 }
+
+/* galleries */
 
 .gallery {
 	overflow: hidden;
 	margin: 0 0 -1.5em 0;
 }
+
 .gallery a {
 	border: none;
 }
+
 .gallery-item {
 	overflow: hidden;
 	margin: 0 0 1.5em 0;
 }
+
 .gallery-icon {
 	margin: 0;
 }
+
 .gallery img {
 	margin: 0;
 	padding: 0.125em;
 	border: none;
 }
+
 .gallery-caption {
 
 }
+
 .gallery{display:block;clear:both;overflow:hidden;margin:0 auto}.gallery .gallery-row{display:block;clear:both;overflow:hidden;margin:0}.gallery .gallery-item{overflow:hidden;float:left;margin:0;text-align:center;list-style:none;padding:0}.gallery .gallery-item .gallery-icon img{max-width:89%;height:auto;padding:1%;margin:0 auto}.gallery-caption{margin-left:0}.col-0{width:100%}.col-1{width:100%}.col-2{width:50%}.col-3{width:33.33%}.col-4{width:25%}.col-5{width:20%}.col-6{width:16.66%}.col-7{width:14.28%}.col-8{width:12.5%}.col-9{width:11.11%}.col-10{width:10%}.col-11{width:9.09%}.col-12{width:8.33%}.col-13{width:7.69%}.col-14{width:7.14%}.col-15{width:6.66%}.col-16{width:6.25%}.col-17{width:5.88%}.col-18{width:5.55%}.col-19{width:5.26%}.col-20{width:5%}.col-21{width:4.76%}.col-22{width:4.54%}.col-23{width:4.34%}.col-24{width:4.16%}.col-25{width:4%}.col-26{width:3.84%}.col-27{width:3.7%}.col-28{width:3.57%}.col-29{width:3.44%}.col-30{width:3.33%}
 
 /* Captions [caption] */
+
 .wp-caption {
 	overflow: hidden;
 	padding: 0.75em 0.5em;
 	background: #f9f9f9;
 	border: 1px solid #ccc;
 }
+
 .wp-caption img {
 	display: block;
 	max-width: 98%;
@@ -454,9 +549,19 @@ img.wp-post-image {
 	padding: 1%;
 	border: none;
 }
+
 .wp-caption .wp-caption-text {
 	margin: 0 0.25em;
 	text-align: right;
+}
+
+/* Make sure videos and embeds fit their containers */
+
+embed,
+iframe,
+object,
+video {
+	max-width: 100%;
 }
 
 /* 
@@ -465,20 +570,19 @@ img.wp-post-image {
 */
 
 .entry-content .twitter-tweet-rendered {
-    max-width: 100% !important;
+	max-width: 100% !important;
 }
 
-/* buttons */
-
-/* Buttons */
+/* buttons - originally from the twentytwelve theme */
 .button,
 .menu-toggle,
-input[type="submit"] {
+input[type="submit"],
+.pagination .page-numbers {
 	padding: 6px 10px;
-	padding: 0.428571429rem 0.714285714rem;
-	font-size: 11px;
-	font-size: 0.785714286rem;
-	line-height: 1.428571429;
+	padding: 0.375rem 0.625rem;
+	font-size: 12px;
+	font-size: 0.75rem;
+	line-height: 1.5
 	font-weight: normal;
 	color: #7c7c7c;
 	background-color: #e6e6e6;
@@ -492,13 +596,16 @@ input[type="submit"] {
 	border-radius: 3px;
 	box-shadow: 0 1px 2px rgba(64, 64, 64, 0.1);
 }
+
 .button,
 .menu-toggle,
 input[type="submit"] {
 	cursor: pointer;
 }
+
 .button:hover
 .menu-toggle:hover,
+.pagination a:hover,
 input[type="submit"]:hover {
 	color: #5e5e5e;
 	background-color: #ebebeb;
@@ -509,10 +616,12 @@ input[type="submit"]:hover {
 	background-image: -o-linear-gradient(top, #f9f9f9, #ebebeb);
 	background-image: linear-gradient(top, #f9f9f9, #ebebeb);
 }
+
 .button:active
 .menu-toggle:active,
 .menu-toggle.toggled-on,
 input[type="submit"]:active,
+.pagination .current,
 input[type="submit"].toggled-on {
 	color: #777;
 	background-color: #e1e1e1;
@@ -524,34 +633,86 @@ input[type="submit"].toggled-on {
 	background-image: linear-gradient(top, #ebebeb, #e1e1e1);
 	box-shadow: inset 0 0 8px 2px #c6c6c6, 0 1px 0 0 #f4f4f4;
 	border: none;
+}		
+		
+/* Search form */
+.s {
+	float: left;
+	width: 13em;
+	margin:0 1.5em 0 0;
 }
 
-/* Style. */
+.searchform label,
+.search-form label {
+	float: left;
+}
+.searchform input[type="text"],
+.search-form input[type="text"] { /* default WP (or Hybrid Core) search class */
+	clear: both;
+	float: left;
+	width: 65%;
+	height: 32px;
+	height: 2rem;
+	margin:0;
+	padding: 6px 10px;
+	padding: 0.375rem 0.625rem;
+	font-size: 12px;
+	font-size: 0.75rem;
+	color: #aaa;
+	border: 1px solid #dfdfdf;
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
 
+.searchform input[type="text"]:focus,
+.search-form input[type="text"]:focus { /* default WP (or Hybrid Core) search class */
+	color: #999;
+	background: #fefefe;
+	border-color: #cfcfcf;
+	height: 32px;
+	height: 2rem;
+	padding: 6px 10px;
+	padding: 0.375rem 0.625rem;
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border: 1px solid #dfdfdf;
+}
 
+.searchform input[type="submit"],
+.search-form input[type="submit"] {
+	float:left;
+	border-left: none;
+	height: 32px;
+	height: 2rem;
+	padding: 6px 10px;
+	padding: 0.375rem 0.625rem;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+	margin: 0;
+}
+
+/* #main */
 
 #main {
 	overflow: hidden;
 	width: 100%; 
 }
 
-
-/* THE MAIN WRAP IS WHERE YOU ADJUST THE CSS FOR A "BOXED" DESIGN */
 #main .wrap{
 	overflow: hidden;
 	clear: both;
 	margin: 0 auto;
-	/* open styles 
-	padding: 1.5em 0px;
-	background: none; */
-	/* BOXED */
 	padding: 1.5em;
 }	
-
 	
 /* header */	
 
-	
 #header {
 	width: 100%; 
 } 
@@ -559,7 +720,6 @@ input[type="submit"].toggled-on {
 #header .wrap:after {  content:"."; clear:both; display:block; height:0; visibility:hidden; } /* forces layout */
 
 #header .wrap{
-/*	height: 10em; 160px for overflow reasons */
 	clear: both;
 	margin: 0 auto;
 	padding: 1.5em;
@@ -588,18 +748,20 @@ input[type="submit"].toggled-on {
 */
 }
 
+#site-title a:hover {
+}
+
 #site-title a span {
-	/*	display: none; */
+	/* display: none; */
 }
 
 #site-description {
-	/*	text-indent: -9999px; */
+	/* text-indent: -9999px; */
 	clear: left;
 	font-size: 16px;
 	font-size: 1rem;
 	padding: 0;
-} 
-	
+}
 
 #sidebar-header {
 	overflow: hidden; 
@@ -609,11 +771,13 @@ input[type="submit"].toggled-on {
 	margin: 0;
 	padding: 0;
 }
+
 #sidebar-header .widget {
 	float: left;
 	width: 47.5%;
 	margin: 0 0 0 2.5%;
 }
+
 #sidebar-header .widget-title {
 	margin: 0;
 }
@@ -625,22 +789,18 @@ input[type="submit"].toggled-on {
 		
 /* Primary menu */
 
-
-/* =Menu
------------------------------------------------ */
-
-
 /*
 Original Author: Craig Erskine
 Description: Dynamic Menu System - Horizontal/Vertical
 Adapted to Happy theme in various ways
 http://qrayg.com/experiment/cssmenus/
 */
+
 .primary-navigation {
 	clear: both;
 	display: block;
 	width: 100%;    
-	text-align: center;
+	text-align: left;
 	clear:both;
 }
 .primary-navigation .wrap {
@@ -649,7 +809,8 @@ http://qrayg.com/experiment/cssmenus/
 	height: auto;
 	position: relative;
 	overflow: visible;
-	background: #ddd;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
 }
 
 .primary-navigation:after, .primary-navigation .wrap:after {  content:"."; clear:both; display:block; height:0; visibility:hidden; } /* forces layout */
@@ -662,7 +823,7 @@ http://qrayg.com/experiment/cssmenus/
 }
 
 .primary-navigation ul ul {
-	width: 160px; /* Sub Menu Width */
+	width: 180px; /* Sub Menu Width */
 	width: 12.5rem;
 	margin: 0;
 	list-style: none;
@@ -684,77 +845,88 @@ http://qrayg.com/experiment/cssmenus/
 	display: inline; 
 	position: relative; 
 }
+
 .primary-navigation ul ul li { 
 	width: 100%; 
 	display: block; 
 }
 
 /* Root Menu */
+
 .primary-navigation ul a {
 	float: left;
 	display: block;
-	background: #ddd;
 	text-decoration: none;
-	padding: 16px;	
-	padding: 1rem;
+	padding: 16px 24px;	
+	padding: 1rem 1.5rem;
 	height: 1%;
 }
 
 /* Root Menu Hover Persistence */
+
 .primary-navigation ul a:hover,
 .primary-navigation ul li:hover a,
 .primary-navigation ul li.iehover a {
-	background: #ddd;
+	background: #eee;
 }
 
 /* 2nd Menu */
+
 .primary-navigation ul li:hover li a, 
 .primary-navigation ul li.iehover li a {
 	float: none;
-	background: #ddd;
+	background: #eee;
+	border-top: 1px solid #ddd;
 }
 
 /* 2nd Menu Hover Persistence */
+
 .primary-navigation ul li:hover li a:hover,
 .primary-navigation ul li:hover li:hover a,
 .primary-navigation ul li.iehover li a:hover,
 .primary-navigation ul li.iehover li.iehover a {
- background: #ccc;
+	background: #e7e7e7;
 }
 
 /* 3rd Menu */
+
 .primary-navigation ul li:hover li:hover li a,
 .primary-navigation ul li.iehover li.iehover li a {
- background: #ccc;
+	background: #e7e7e7;
 }
 
 /* 3rd Menu Hover Persistence */
+
 .primary-navigation ul li:hover li:hover li a:hover,
 .primary-navigation ul li:hover li:hover li:hover a,
 .primary-navigation ul li.iehover li.iehover li a:hover,
 .primary-navigation ul li.iehover li.iehover li.iehover a {
- background: #bbb;
+	background: #e3e3e3;
 }
 
 /* 4th Menu */
+
 .primary-navigation ul li:hover li:hover li:hover li a,
 .primary-navigation ul li.iehover li.iehover li.iehover li a {
- background: #bbb;
+	background: #e3e3e3;
 }
 
 /* 4th Menu Hover */
+
 .primary-navigation ul li:hover li:hover li:hover li a:hover,
 .primary-navigation ul li.iehover li.iehover li.iehover li a:hover {
- background: #aaa;
+	background: #e3e3e3;
 }
 
 /* Hover Function - Do Not Move */
+
 .primary-navigation ul li:hover ul ul,
 .primary-navigation ul li:hover ul ul ul,
 .primary-navigation ul li.iehover ul ul,
 .primary-navigation ul li.iehover ul ul ul { 
 	display: none; 
 }
+
 .primary-navigation ul li:hover ul,
 .primary-navigation ul ul li:hover ul,
 .primary-navigation ul ul ul li:hover ul,
@@ -765,71 +937,46 @@ http://qrayg.com/experiment/cssmenus/
 }
 
 /* Small menu */
+
 .menu-toggle {
 	cursor: pointer;
 	display: inline-block;
 	margin: 0 1.5em;
 }
+
 .main-small-navigation,
 .main-small-secondary-navigation {
 	text-align: center;
 }
+
 .main-small-navigation .menu,
 .main-small-secondary-navigation .menu {
 	display: none;
 	text-align: left;
 }
+
 .main-small-navigation .menu > ul,
 .main-small-secondary-navigation .menu > ul {
 	margin: 0 auto;
 	padding: 0;
-}
-
-		
-		
-/* Search form in the feature area */
- div.search {
-	float: left;
-	width: 10em;
-	margin:0 1.5em 0 0;
-}
-.search-form input[type="text"] {
-	width: 99%;
-	margin:0.25em 0 0;
-	padding: 0.25em 0 0.25em 1em;
-	font-size: 0.75em;
-	color: #aaa;
-	border: 1px solid #dfdfdf;
-}
-.search-form input[type="text"]:focus {
-	color: #999;
-	background: #fefefe;
-	border-color: #cfcfcf;
-	padding: 0.25em 0 0.25 1em;
-}
-.search-form input[type="submit"] {
-}
-	
-	
-		
+}		
 		
 /* end-header */
 		
 
 
-/* splash page */
+/* #feature area */
 
-#home-feature {
+#feature {
 	width: 100%;
 	background: none;
 	clear: both;
 }
 
-#home-feature .wrap{
+#feature .wrap{
 	overflow: hidden;
 	clear: both;
 	margin: 0 auto;
-	background: #ccc;
 }
 
 
@@ -843,7 +990,7 @@ http://qrayg.com/experiment/cssmenus/
 	text-align: center;
 }
 #sidebar-feature .widget-title {
-	margin:0 0 0.5em;
+	
 }
 
 
@@ -867,14 +1014,15 @@ http://qrayg.com/experiment/cssmenus/
 	clear: both;
 	display: block;
 	width: 100%;    
-	text-align: center;
+	text-align: left;
 	clear:both;
 }
 .secondary-navigation .wrap {
 	margin: 0 auto;
 	position: relative;
 	overflow: visible;
-	background: #ddd;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
 }
 
 .secondary-navigation .wrap:after {  content:"."; clear:both; display:block; height:0; visibility:hidden; } /* forces layout */
@@ -887,7 +1035,7 @@ http://qrayg.com/experiment/cssmenus/
 }
 
 .secondary-navigation ul ul {
-	width: 160px; /* Sub Menu Width */
+	width: 180px; /* Sub Menu Width */
 	margin: 0;
 	list-style: none;
 	display: none;
@@ -901,6 +1049,7 @@ http://qrayg.com/experiment/cssmenus/
 .secondary-navigation ul ul ul ul { 
 	top: 0; 
 	left: 100%; 
+	width: 100%; /* Sub Menu Width */
 }
 
 .secondary-navigation ul li { 
@@ -917,25 +1066,26 @@ http://qrayg.com/experiment/cssmenus/
 .secondary-navigation ul a {
 	float: left;
 	display: block;
-	background: #ddd;
 	text-decoration: none;
-	padding: 16px;	
-	padding: 1rem;
+	padding: 16px 24px;	
+	padding: 1rem 1.5rem;
 	height: 1%;
+
 }
 
 /* Root Menu Hover Persistence */
 .secondary-navigation ul a:hover,
 .secondary-navigation ul li:hover a,
 .secondary-navigation ul li.iehover a {
-	background: #ddd;
+	background: #eee;
 }
 
 /* 2nd Menu */
 .secondary-navigation ul li:hover li a, 
 .secondary-navigation ul li.iehover li a {
 	float: none;
-	background: #ddd;
+	background: #eee;
+	border-top: 1px solid #ddd;
 }
 
 /* 2nd Menu Hover Persistence */
@@ -943,13 +1093,13 @@ http://qrayg.com/experiment/cssmenus/
 .secondary-navigation ul li:hover li:hover a,
 .secondary-navigation ul li.iehover li a:hover,
 .secondary-navigation ul li.iehover li.iehover a {
- background: #ccc;
+ background: #e7e7e7;
 }
 
 /* 3rd Menu */
 .secondary-navigation ul li:hover li:hover li a,
 .secondary-navigation ul li.iehover li.iehover li a {
- background: #ccc;
+ background: #e7e7e7;
 }
 
 /* 3rd Menu Hover Persistence */
@@ -957,19 +1107,19 @@ http://qrayg.com/experiment/cssmenus/
 .secondary-navigation ul li:hover li:hover li:hover a,
 .secondary-navigation ul li.iehover li.iehover li a:hover,
 .secondary-navigation ul li.iehover li.iehover li.iehover a {
- background: #bbb;
+ background: #e3e3e3;
 }
 
 /* 4th Menu */
 .secondary-navigation ul li:hover li:hover li:hover li a,
 .secondary-navigation ul li.iehover li.iehover li.iehover li a {
- background: #bbb;
+ background: #e3e3e3;
 }
 
 /* 4th Menu Hover */
 .secondary-navigation ul li:hover li:hover li:hover li a:hover,
 .secondary-navigation ul li.iehover li.iehover li.iehover li a:hover {
- background: #aaa;
+ background: ##e3e3e3;
 }
 
 /* Hover Function - Do Not Move */
@@ -992,9 +1142,18 @@ http://qrayg.com/experiment/cssmenus/
 
 #content {
 	width: 70%; /* standard 720px width */ 
-	margin: 0;
-	padding: 0; 
-	background: none;
+	margin: 0; 
+}
+
+.layout-default .hfeed, 
+.layout-2c-l .hfeed { /* increase the margin on the actual page content */
+	margin: 16px 0 16px 24px;
+	margin: 1rem 0 1rem 1.5rem;
+}
+
+.layout-2c-r .hfeed { /* increase the margin on the actual page content */
+	margin: 16px 24px 16px 0;
+	margin: 1rem 1.5rem 1rem 0;
 }
 
 .page-template-front-page #content {
@@ -1009,18 +1168,18 @@ http://qrayg.com/experiment/cssmenus/
 }
 .singular .hentry {
 	margin: 0;
-	padding: 0;
 }
 
 .blog .hfeed .hentry, 
 .archive .hfeed .hentry,
 .search .hfeed .hentry {
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #ddd;
 }
 
 .sticky {
-	margin: 0;
-	padding:0;
+	border-left: 5px solid #ddd;
+	padding-left: 16px;
+	padding-left: 1rem;
 }
 
 .hentry .thumbnail {
@@ -1031,25 +1190,35 @@ http://qrayg.com/experiment/cssmenus/
 	*/
 	margin: 0 0 0.5em 1em;
 }
+
+.format-gallery.hentry .thumbnail {
+	border: 4px solid #fff;
+	box-shadow:
+		0 0 0 1px #ccc,
+		5px 5px 0 0 #fff,
+		5px 5px 0 1px #ccc,
+		10px 10px 0 0 #fff,
+		10px 10px 0 1px #ccc;
+	margin: 0 0 1em 1em;
+}
 .sticky .thumbnail {
 }
 
 .entry-title {
-	margin: 0 0 0.5em 0;
+	margin: 0 0 0.25em 0;
 }
 .singular .entry-title {
-	margin: 0 0 0.5em 0;
+	margin: 0 0 0.25em 0;
 }
 .singular-page .entry-title, 
 .singular-attachment .entry-title {
-	margin:0 0 1em;
+	margin:0 0 .25em;
 }
 	
 .entry-title a {
 	border-bottom: none;
 }
 .entry-title a:hover {
-
 }
 
 .byline {
@@ -1129,7 +1298,7 @@ http://qrayg.com/experiment/cssmenus/
 
 .pagination .page-numbers {
 	display: inline-block;
-	padding: 0.5em 0.75em;
+	padding: 0.25em 0.75em;
 	margin: 0 0.75em 0 0;	
 }
 .pagination a.page-numbers {
@@ -1167,7 +1336,7 @@ http://qrayg.com/experiment/cssmenus/
 
 
 	
-/* Layouts. These are default setups that allow for choose column setup on a per page basis. they need to be adjusted for width if we change outside of the ~960 layout. be sure to change all areas of 2C, 3C, 1C if you're changing one, for site wide consistency */
+/* Layouts. These are default setups that allow the user to choose a column setup on a per page basis. */
 
 .layout-1c #content {
 	width: 100%;
@@ -1254,37 +1423,16 @@ http://qrayg.com/experiment/cssmenus/
 	float: right;
 	border: none;
 }
-
-	
-	
-/* -to display on singular pages- */	
-	
-#sidebar-after-singular {
-	overflow: hidden;
-	margin: 1.5em 0;
-}
-#sidebar-after-singular .widget-title {
-}
-#sidebar-after-singular .widget ul {
-	list-style: square inside;
-}
-#sidebar-after-singular .widget ul li a {
-
-}
-#sidebar-after-singular .widget ul li a:hover {
-
-}
-	
 	
 	
 /* end-content-area */	
 	
 
 
-/* sidebar */
+/* general sidebars */
 	
 .sidebar .widget-title {
-
+	margin:0 0 0.5em;
 }
 
 .sidebar .widget ul {
@@ -1301,18 +1449,37 @@ http://qrayg.com/experiment/cssmenus/
 
 }
 
+/* #sidebar-primary widget area */
+
 #sidebar-primary {
-padding: 2%;
-background: #ddd;
+	padding: 2%;
 }
+
+/* #sidebar-secondary widget area */
+
 #sidebar-secondary {
-padding: 2%;
-background: #ddd;
+	padding: 2%;
 }
 
+/* #sidebar-after-singular widget area */	
+	
+#sidebar-after-singular {
+	overflow: hidden;
+	margin: 1.5em 0;
+}
+#sidebar-after-singular .widget-title {
+}
+#sidebar-after-singular .widget ul {
+	list-style: square inside;
+}
+#sidebar-after-singular .widget ul li a {
 
+}
+#sidebar-after-singular .widget ul li a:hover {
 
-/* end-sidebar */
+}
+
+/* end sidebar styles */
 	
 	
 /* footer */
@@ -1320,19 +1487,20 @@ background: #ddd;
 
 #footer {
 }
-#footer .wrap {
-	background: #ccc;
-}
-#footer a {
-}
-#footer a:hover {
-}
+
 #footer .wrap {
 	margin: 0 auto; 
+	width: 71.25em;
 }
 
-/* subsidiary nav */
+#footer a {
+}
 
+#footer a:hover {
+}
+
+
+/* subsidiary nav */
 
 .subsidiary-navigation {
 	clear: both;
@@ -1341,11 +1509,12 @@ background: #ddd;
 	text-align: center;
 	clear:both;
 }
+
 .subsidiary-navigation .wrap {
 	margin: 0 auto;
 	position: relative;
 	overflow: visible;
-	background: #ddd;
+	border-top: 1px solid #ddd;
 }
 
 .subsidiary-navigation .wrap:after {  content:"."; clear:both; display:block; height:0; visibility:hidden; } /* forces layout */
@@ -1385,21 +1554,63 @@ background: #ddd;
 }
 
 /* Root Menu */
+
 .subsidiary-navigation ul a {
 	float: left;
 	display: block;
-	background: #ddd;
 	text-decoration: none;
-	padding: 16px;	
-	padding: 1rem;
+	padding: 16px 24px;	
+	padding: 1rem 1.5rem;
 	height: 1%;
 }
+
 /* Root Menu Hover Persistence */
+
 .subsidiary-navigation ul a:hover,
 .subsidiary-navigation ul li:hover a,
 .subsidiary-navigation ul li.iehover a {
-	background: #ddd;
+	background: #e7e7e7;
 }
+
+
+/* #sidebar-subsidiary widget area */
+
+#sidebar-subsidiary {
+	overflow: hidden;
+	width: 100%;
+}
+
+#sidebar-subsidiary .wrap {
+	padding: 1.5em;
+	border-top: 1px solid #ddd;
+}
+
+#sidebar-subsidiary .widget {
+	width: 23%;
+	float: left;
+	margin: 0 1%;
+	padding: 0 1%;
+}
+
+#sidebar-subsidiary .widget a {
+}
+
+#sidebar-subsidiary .widget-title {
+	margin: 0 0 0.5em 0;
+	padding: 0;
+}
+
+#sidebar-subsidiary .widget ul {
+	list-style: square inside;
+}
+
+#sidebar-subsidiary .widget ul li a {
+}
+
+#sidebar-subsidiary .widget ul li a:hover {
+} 
+    
+/* #footer area */
 
 #footer .copyright {
 	float: left;
@@ -1409,6 +1620,7 @@ background: #ddd;
 	padding: 1rem;
 	margin: 0;
 }
+
 #footer .credit {
 	float: right;
 	text-align: right;
@@ -1421,48 +1633,7 @@ background: #ddd;
 }
 #footer .copyright a, 
 #footer .credit a {
-}
-    
-    
-
-#sidebar-subsidiary {
-	overflow: hidden;
-	width: 100%;
-}
-#sidebar-subsidiary .wrap {
-	background: #ccc;
-	padding: 16px;
-	padding: 1rem;
-}
-#sidebar-subsidiary .widget {
-	width: 23%;
-	float: left;
-	margin: 0 1%;
-	padding: 0 1%;
-}
-#sidebar-subsidiary .widget a {
-}
-#sidebar-subsidiary .widget-title {
-	margin: 0 0 0.5em 0;
-	padding: 0;
-}
-
-#sidebar-subsidiary .widget ul {
-	list-style: square inside;
-}
-#sidebar-subsidiary .widget ul li a {
-
-}
-#sidebar-subsidiary .widget ul li a:hover {
-
-} 
-    
-    
-   
-    
-/* end-footer */
-    
-
+}  
 
 /* Comments */
 .comment-list, 
@@ -1472,6 +1643,7 @@ background: #ddd;
 	border-top: 1px solid #dfdfdf;
 	padding: 0;
 }
+
 .comment-list li {
 	padding: 24px 24px 0 24px;
 	padding: 1.5rem 1.5rem 0 1.5rem;
@@ -1492,15 +1664,14 @@ background: #ddd;
 	margin: 0 0 1.5em 0;
 	font-size: 0.75em;
 }
+
 .comment-meta .comment-author cite, 
 .comment-meta .comment-author cite a {
-
 }
 .comment-meta a {
-
 }
-.comment-meta a:hover {
 
+.comment-meta a:hover {
 }
 
 .comment-content {
@@ -1517,6 +1688,7 @@ background: #ddd;
 	margin: 0 0 1.5em 1.5em;
 	padding: 0;
 }
+
 .comment-content ul {
 	list-style: square inside;
 	margin: 0 0 1.5em 0;
@@ -1524,51 +1696,48 @@ background: #ddd;
 	margin: 0 0 1.5em 1.5em;
 	padding: 0;
 }
+
 .comment-content li {
 	border: none;
 	padding: 0;
 }
 
-
 .comment-text {
-
 }
 
 #respond {
 	overflow: hidden;
 }
+
 .comment-list #respond {
 	margin: 1.5em 0 0;
 }
+
 #respond .log-in-out {
 
 }
+
 #respond .log-in-out a {
 	font-style: italic;
 }
+
 #reply-title small a {
 	font-style: italic;
 }
 
 #respond label {
-
 }
+
 #respond p.req label {
-
 }
+
 #respond span.required {
-
 }
+
 #respond #submit {
 	float: left;
 	margin:0 0 1.5em;
 }
-	
-	
-	
-/* end-Comments */	
-
-
 
 /* gravity forms */
 
@@ -1576,40 +1745,49 @@ background: #ddd;
 	width:100%;
 	margin:0.5em 0 0 0;
 }
+
 .gform_body ul {
 	list-style:none !important;
 	padding: 0 !important; /* set to important to override widget ul styles, etc when forms are in sidebars */
 }
+
 .gform_body input {
 	width:100%;
 }
+
 .gfield {
 	margin:0 0 0.25em;
 }
+
 .gfield input {
 	font-size:0.875em;
 	padding:0.25em;
 	border:1px solid #999;
 }
+
 .ginput_left {
 	width:48%;
 	float:left;
 	margin:0 0 0.25em;
 }
+
 .ginput_right { 
 	width:48%;
 	float:right;
 	margin:0 0 0.25em;
 
 }
+
 .ginput_left label, 
 .ginput_right label {
 	font-size:0.875em;
 }
+
 .ginput_left input, 
 .ginput_right input {
 	margin:0 0 0.125em;
 }
+
 .gform_body textarea {
 	width:100%;
 	padding:0.125em 0 0 0.125em;
@@ -1617,16 +1795,19 @@ background: #ddd;
 	border:1px solid #999;
 }    
 
+/* media queries for smaller viewports */
 
 @media (min-width: 45.5em) and (max-width: 71.24999999em) {
 
-	.wrap { width: 98%; }
+	#container,
+	#footer .wrap { width: 98%; }
 
 }
 
 @media (min-width: 30em) and (max-width: 45.49999em) {
 
-	.wrap { width: 98%; }
+	#container,
+	#footer .wrap { width: 98%; }
 	
 	#content, 
 	.layout-1c #content, 
@@ -1655,7 +1836,6 @@ background: #ddd;
 	
 	.main-small-navigation, 
 	.main-small-secondary-navigation {
-		background: #fff;
 		padding: 1rem;
 	}
 	
@@ -1684,7 +1864,8 @@ background: #ddd;
 
 @media (min-width: 1em) and (max-width: 29.9999em) { 
 
-	.wrap { width: 98%; }
+	#container,
+	#footer .wrap { width: 98%; }
 	
 	#main .wrap {
 		padding: 1em .5em;
@@ -1717,7 +1898,6 @@ background: #ddd;
 	
 	.main-small-navigation, 
 	.main-small-secondary-navigation {
-		background: #fff;
 		padding: 1rem;
 	}
 	

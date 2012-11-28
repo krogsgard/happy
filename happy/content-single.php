@@ -20,11 +20,13 @@
 		
 		<?php do_atomic( 'after_title' ); // after title hook ?>
 	
-		<?php echo apply_atomic_shortcode( 'byline', '<div class="byline">' . __( 'By [entry-author] on [entry-published] [entry-edit-link before=" | "]', 'happy' ) . '</div>' ); ?>
+		<?php get_template_part( 'loop', 'byline' ); ?>
 		
 		<?php do_atomic( 'after_byline' ); // after title hook ?>
 	
 	</header><!-- .entry-header -->
+	
+	<?php do_atomic( 'before_the_content' ); // before title hook ?>
 
 	<div class="entry-content">
 		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'happy' ) ); ?>
@@ -33,16 +35,14 @@
 	
 	<?php do_atomic( 'after_the_content' ); // after title hook ?>
 
-	<?php echo apply_atomic_shortcode( 'entry_meta', '<footer class="entry-meta entry-footer">' . __( '[entry-terms taxonomy="category" before="Posted in "] [entry-terms before="| Tagged "] [entry-comments-link before=" | "]', 'happy' ) . '</footer>' ); ?>
+	<?php get_template_part( 'loop', 'entry-meta' ); ?>
 
 	<?php do_atomic( 'close_entry' ); // Close entry hook ?>
 
 </article><!-- .hentry -->
 
-<?php do_atomic( 'after_entry' ); // After entry hook ?>
+<?php do_atomic( 'after_entry' ); // After entry hook (also available on archives) ?>
 
-<?php get_sidebar( 'after-singular' ); ?>
-
-<?php do_atomic( 'after_singular' ); // After singular hook ?>
+<?php do_atomic( 'after_singular' ); // After singular hook (only on singular templates) ?>
 
 <?php comments_template( '/comments.php', true ); ?>

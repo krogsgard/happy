@@ -13,11 +13,11 @@ get_header(); ?>
 
 	<?php do_atomic( 'before_content' ); // Before content hook ?>
 
-	<div id="content">
+	<div id="content" role="main">
 
 		<?php do_atomic( 'open_content' ); // Open content hook ?>
 
-		<div class="hfeed">
+		<section class="hfeed">
 
 			<?php if ( have_posts() ) : ?>
 
@@ -43,7 +43,7 @@ get_header(); ?>
 								<?php hybrid_attachment(); ?>
 
 								<p class="download">
-									<a href="<?php echo wp_get_attachment_url(); ?>" title="<?php the_title_attribute(); ?>" rel="enclosure" type="<?php echo get_post_mime_type(); ?>"><?php printf( __( 'Download &quot;%1$s&quot;', 'happy' ), the_title( '<span class="fn">', '</span>', false) ); ?></a>
+									<a href="<?php echo esc_url( wp_get_attachment_url() ); ?>" title="<?php the_title_attribute(); ?>" rel="enclosure" type="<?php echo esc_attr( get_post_mime_type() ); ?>"><?php printf( __( 'Download &quot;%1$s&quot;', 'happy' ), the_title( '<span class="fn">', '</span>', false) ); ?></a>
 								</p><!-- .download -->
 
 							<?php endif; ?>
@@ -68,7 +68,7 @@ get_header(); ?>
 
 			<?php endif; ?>
 
-		</div><!-- .hfeed -->
+		</section><!-- .hfeed -->
 
 		<?php do_atomic( 'close_content' ); // Close content hook ?>
 
