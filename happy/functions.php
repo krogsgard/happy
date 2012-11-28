@@ -132,14 +132,14 @@ function happy_register_sidebars() {
 	register_sidebar( 
 	
 		array( 
-			'name'		=>	__( 'Feature', 'happy' ), 
-			'id'			=>	'feature', 
-			'description'	=>	__( 'Displayed in the feature area.', 'happy' ), 
-			'before_widget' 	=> 	'<aside id="%1$s" class="widget %2$s widget-%2$s">',
-			'after_widget' 	=> 	'</aside>',
-			'before_title'	=>	'<h3 class="widget-title">', 
-			'after_title'	=>	'</h3>' 
-		) 
+			'name'          =>	__( 'Feature', 'happy' ), 
+			'id'            =>	'feature', 
+			'description'   =>	__( 'Displayed in the feature area.', 'happy' ), 
+			'before_widget' => 	'<aside id="%1$s" class="widget %2$s widget-%2$s">',
+			'after_widget'  => 	'</aside>',
+			'before_title'  =>	'<h3 class="widget-title">', 
+			'after_title'   =>	'</h3>' 
+			) 
 	
 	);
 
@@ -154,10 +154,10 @@ function happy_register_sidebars() {
 function happy_change_sidebar_defaults() {
 	
 	$defaults = array(
-		'before_widget' 	=> 	'<aside id="%1$s" class="widget %2$s widget-%2$s">',
-		'after_widget' 	=> 	'</aside>',
-		'before_title' 	=> 	'<h3 class="widget-title">',
-		'after_title' 	=> 	'</h3>'
+		'before_widget' => 	'<aside id="%1$s" class="widget %2$s widget-%2$s">',
+		'after_widget'  => 	'</aside>',
+		'before_title'  => 	'<h3 class="widget-title">',
+		'after_title'   => 	'</h3>'
 	);
 	
 	return $defaults;
