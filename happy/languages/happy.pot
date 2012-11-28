@@ -1,0 +1,181 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Happy WordPress Theme\n"
+"POT-Creation-Date: 2012-11-28 15:07+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: FxB <fx@fxbenard.com>\n"
+"Language-Team:  <brian@krogsgard.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;_c;esc_html__;esc_html_e;esc_attr__;"
+"esc_attr_e;_ex:1,2c;_n:1,2;_nx:4c,1,2;_n_noop;_nx_noop:4c,1,2;_x:1,2c\n"
+"X-Poedit-Basepath: ../\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:31
+msgid "Not Found"
+msgstr ""
+
+#: 404.php:36
+#, php-format
+msgid ""
+"You tried going to %1$s, and it doesn't exist. All is not lost! You can "
+"search for what you're looking for."
+msgstr ""
+
+#: attachment.php:46
+#, php-format
+msgid "Download &quot;%1$s&quot;"
+msgstr ""
+
+#: attachment.php:51 content-page.php:22 content-single.php:32
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: attachment.php:52 content-aside.php:21 content-image.php:27
+#: content-page.php:23 content-quote.php:21 content-single.php:33
+#: content-video.php:27
+msgid "Pages:"
+msgstr ""
+
+#: comment.php:30
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: comments.php:13
+msgid "Please do not load this page directly. Thanks!"
+msgstr ""
+
+#: comments.php:27
+msgid "No Responses"
+msgstr ""
+
+#: comments.php:27
+msgid "One Response"
+msgstr ""
+
+#: comments.php:27
+msgid "% Responses"
+msgstr ""
+
+#: comments.php:48
+#, php-format
+msgid ""
+"Comments are closed, but <a href=\"%1$s\" title=\"Trackback URL for this post"
+"\">trackbacks</a> and pingbacks are open."
+msgstr ""
+
+#: comments.php:54
+msgid "Comments are closed."
+msgstr ""
+
+#: content-gallery.php:35
+#, php-format
+msgid "This gallery contains %s image. "
+msgid_plural "This gallery contains %s images. "
+msgstr[0] ""
+msgstr[1] ""
+
+#: content-gallery.php:40
+msgid "View All Images &raquo; "
+msgstr ""
+
+#: functions.php:209
+msgid "Feature"
+msgstr ""
+
+#: functions.php:211
+msgid "Displayed in the feature area."
+msgstr ""
+
+#: loop-byline.php:23
+msgid "By [entry-author] on [entry-published] [entry-edit-link before=\" | \"]"
+msgstr ""
+
+#: loop-entry-meta.php:16
+msgid ""
+"[post-format-link] Posted by [entry-author] on [entry-published] [entry-"
+"permalink before=\" | \"] [entry-comments-link before=\" | \"]"
+msgstr ""
+
+#: loop-entry-meta.php:18
+msgid "[post-format-link] Posted [entry-published]"
+msgstr ""
+
+#: loop-entry-meta.php:28
+msgid ""
+"[post-format-link] Posted by [entry-author] on [entry-published] [entry-"
+"terms taxonomy=\"category\" before=\" in \"] [entry-permalink before=\" | "
+"\"] [entry-terms before=\"| Tagged \"] [entry-comments-link before=\" | \"]"
+msgstr ""
+
+#: loop-entry-meta.php:32
+msgid ""
+"[entry-terms taxonomy=\"category\" before=\"Posted in \"] [entry-terms "
+"before=\"| Tagged \"] [entry-comments-link before=\" | \"]"
+msgstr ""
+
+#: loop-meta.php:88
+#, php-format
+msgid "You are browsing the search results for &quot;%1$s&quot;"
+msgstr ""
+
+#: loop-meta.php:97
+msgid "Archives by date"
+msgstr ""
+
+#: loop-meta.php:101
+msgid "You are browsing the site archives by date."
+msgstr ""
+
+#: loop-meta.php:121
+msgid "Archives"
+msgstr ""
+
+#: loop-meta.php:125
+msgid "You are browsing the site archives."
+msgstr ""
+
+#: loop-nav.php:15
+msgid "&larr; Return to entry"
+msgstr ""
+
+#: loop-nav.php:21
+msgid "Previous Entry: %link"
+msgstr ""
+
+#: loop-nav.php:22
+msgid "Next Entry: %link"
+msgstr ""
+
+#: loop-nav.php:26
+msgid "&larr; Previous"
+msgstr ""
+
+#: loop-nav.php:26
+msgid "Next &rarr;"
+msgstr ""
+
+#: menu-primary.php:16 menu-secondary.php:16
+msgid "Menu"
+msgstr ""
+
+#: menu-primary.php:17 menu-secondary.php:17 menu-subsidiary.php:17
+msgid "Skip to content"
+msgstr ""
+
+#: menu-subsidiary.php:16
+msgid "Navigation"
+msgstr ""
+
+#: searchform.php:14
+msgid "Search this site..."
+msgstr ""
+
+#: searchform.php:15
+msgid "Search"
+msgstr ""

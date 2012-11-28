@@ -1,0 +1,219 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Happy WordPress Theme\n"
+"POT-Creation-Date: 2012-11-28 15:09+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: FxB <fx@fxbenard.com>\n"
+"Language-Team: FxB <fx@fxbenard.com>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;_c;esc_html__;esc_html_e;esc_attr__;"
+"esc_attr_e;_ex:1,2c;_n:1,2;_nx:4c,1,2;_n_noop;_nx_noop:4c,1,2;_x:1,2c\n"
+"X-Poedit-Basepath: ../\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:31
+#, fuzzy
+msgid "Not Found"
+msgstr "Rien de trouvé"
+
+#: 404.php:36
+#, fuzzy, php-format
+msgid ""
+"You tried going to %1$s, and it doesn't exist. All is not lost! You can "
+"search for what you're looking for."
+msgstr ""
+"Vous essayez d'aller à %1$s, et ça n'existe pas. Tout n'est pas perdu ! Vous "
+"pouvez lancer une recherche pour ce que vous recherchez."
+
+#: attachment.php:46
+#, fuzzy, php-format
+msgid "Download &quot;%1$s&quot;"
+msgstr "Téléchargement  &quot;%1$s&quot;"
+
+#: attachment.php:51 content-page.php:22 content-single.php:32
+#, fuzzy
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Continuer la lecture <span class=\"meta-nav\">&rarr;</span>"
+
+#: attachment.php:52 content-aside.php:21 content-image.php:27
+#: content-page.php:23 content-quote.php:21 content-single.php:33
+#: content-video.php:27
+#, fuzzy
+msgid "Pages:"
+msgstr "Pages&nbsp;:"
+
+#: comment.php:30
+#, fuzzy
+msgid "Your comment is awaiting moderation."
+msgstr "Votre commentaire est en attente de modération."
+
+#: comments.php:13
+#, fuzzy
+msgid "Please do not load this page directly. Thanks!"
+msgstr "S'il vous plaît ne pas charger cette page directement. Merci !"
+
+#: comments.php:27
+#, fuzzy
+msgid "No Responses"
+msgstr "Aucune réponse"
+
+#: comments.php:27
+#, fuzzy
+msgid "One Response"
+msgstr "Une réponse"
+
+#: comments.php:27
+#, fuzzy
+msgid "% Responses"
+msgstr "% réponses"
+
+#: comments.php:48
+#, fuzzy, php-format
+msgid ""
+"Comments are closed, but <a href=\"%1$s\" title=\"Trackback URL for this post"
+"\">trackbacks</a> and pingbacks are open."
+msgstr ""
+"Les commentaires sont fermés, mais <a href=\"%1$s\" title=\"les retroliens "
+"pour cet article\">les retroliens</ a> et les pings sont ouverts."
+
+#: comments.php:54
+#, fuzzy
+msgid "Comments are closed."
+msgstr "Les commentaires sont fermés."
+
+#: content-gallery.php:35
+#, fuzzy, php-format
+msgid "This gallery contains %s image. "
+msgid_plural "This gallery contains %s images. "
+msgstr[0] "Cette galerie contient <a %1$s>%2$s photo</a>."
+msgstr[1] ""
+
+#: content-gallery.php:40
+#, fuzzy
+msgid "View All Images &raquo; "
+msgstr "Afficher tous les articles par %s"
+
+#: functions.php:209
+#, fuzzy
+msgid "Feature"
+msgstr "Demandes de nouvelles fonctionnalités"
+
+#: functions.php:211
+#, fuzzy
+msgid "Displayed in the feature area."
+msgstr "Affiché dans la zone d'en-tête du site."
+
+#: loop-byline.php:23
+#, fuzzy
+msgid "By [entry-author] on [entry-published] [entry-edit-link before=\" | \"]"
+msgstr ""
+"Par [entry-author] le [entry-published] [entry-edit-link before=\" | \"]"
+
+#: loop-entry-meta.php:16
+msgid ""
+"[post-format-link] Posted by [entry-author] on [entry-published] [entry-"
+"permalink before=\" | \"] [entry-comments-link before=\" | \"]"
+msgstr ""
+
+#: loop-entry-meta.php:18
+#, fuzzy
+msgid "[post-format-link] Posted [entry-published]"
+msgstr ""
+"[post-format-link] pubié le [entry-published] [entry-edit-link before=\"| \"]"
+
+#: loop-entry-meta.php:28
+msgid ""
+"[post-format-link] Posted by [entry-author] on [entry-published] [entry-"
+"terms taxonomy=\"category\" before=\" in \"] [entry-permalink before=\" | "
+"\"] [entry-terms before=\"| Tagged \"] [entry-comments-link before=\" | \"]"
+msgstr ""
+
+#: loop-entry-meta.php:32
+#, fuzzy
+msgid ""
+"[entry-terms taxonomy=\"category\" before=\"Posted in \"] [entry-terms "
+"before=\"| Tagged \"] [entry-comments-link before=\" | \"]"
+msgstr ""
+"[entry-terms taxonomy=\"download_category\" before=\"Publié dans \"] [entry-"
+"terms taxonomy=\"download_tag\" before=\" | Tagué \"]"
+
+#: loop-meta.php:88
+#, php-format
+msgid "You are browsing the search results for &quot;%1$s&quot;"
+msgstr ""
+
+#: loop-meta.php:97
+#, fuzzy
+msgid "Archives by date"
+msgstr "Archives par date"
+
+#: loop-meta.php:101
+#, fuzzy
+msgid "You are browsing the site archives by date."
+msgstr "Vous parcourez les archives du site par date."
+
+#: loop-meta.php:121
+#, fuzzy
+msgid "Archives"
+msgstr "Archives"
+
+#: loop-meta.php:125
+#, fuzzy
+msgid "You are browsing the site archives."
+msgstr "Vous parcourez les archives du site."
+
+#: loop-nav.php:15
+#, fuzzy
+msgid "&larr; Return to entry"
+msgstr "&larr; Retour à l'entrée"
+
+#: loop-nav.php:21
+#, fuzzy
+msgid "Previous Entry: %link"
+msgstr "Ajoute la table lien."
+
+#: loop-nav.php:22
+#, fuzzy
+msgid "Next Entry: %link"
+msgstr "Ajoute la table lien."
+
+#: loop-nav.php:26
+#, fuzzy
+msgid "&larr; Previous"
+msgstr "&larr; Précédent"
+
+#: loop-nav.php:26
+#, fuzzy
+msgid "Next &rarr;"
+msgstr "Suivant &rarr;"
+
+#: menu-primary.php:16 menu-secondary.php:16
+#, fuzzy
+msgid "Menu"
+msgstr "Menu"
+
+#: menu-primary.php:17 menu-secondary.php:17 menu-subsidiary.php:17
+#, fuzzy
+msgid "Skip to content"
+msgstr "Aller au contenu"
+
+#: menu-subsidiary.php:16
+#, fuzzy
+msgid "Navigation"
+msgstr "Navigation"
+
+#: searchform.php:14
+#, fuzzy
+msgid "Search this site..."
+msgstr "Rechercher sur ce site..."
+
+#: searchform.php:15
+#, fuzzy
+msgid "Search"
+msgstr "Rechercher"
