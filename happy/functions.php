@@ -156,10 +156,6 @@ function happy_theme_setup() {
 
 }
 
-	/* Adds support for a custom header image. */
-
- 	require( get_template_directory() . '/includes/custom-header.php' );
-
 /**
  * Registers scripts for the theme and enqueue those used sitewide.
  *

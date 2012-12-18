@@ -39,12 +39,6 @@ html {
 	overflow-y: scroll; /* Keeps page centred in all browsers regardless of content height */
 	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
 	-ms-text-size-adjust: 100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
-	-moz-hyphens:auto;
-	-ms-hyphens:auto;
-	-webkit-hyphens:auto;
-	hyphens:auto;
-	word-wrap:break-word;
-	word-break: break-word;
 }
 
 /* box sizing FTW */
@@ -86,21 +80,21 @@ textarea {
 
 body {
 	margin: 0;
-	padding: 2% 0 0 0;
-	background: #f5f5f5;
+	padding: 1% 0 0 0;
+	background: #f4f4f4;
 	font-family: 'Source Sans Pro', sans-serif;
 	color:#444;
 }
 
 #container {
-	width: 71.25em;
-	margin: 0 auto;
-	background: #fff;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.27); 
+	width: 100%;
 }
 .wrap {
+	width: 71.25em;
+	margin: 0 auto; 
 	overflow: hidden;
 	clear: both;
+	background: #fff;
 	padding: 0px;
 }
 
@@ -809,8 +803,6 @@ http://qrayg.com/experiment/cssmenus/
 	height: auto;
 	position: relative;
 	overflow: visible;
-	border-top: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
 }
 
 .primary-navigation:after, .primary-navigation .wrap:after {  content:"."; clear:both; display:block; height:0; visibility:hidden; } /* forces layout */
@@ -892,7 +884,6 @@ http://qrayg.com/experiment/cssmenus/
 
 .primary-navigation ul li:hover li:hover li a,
 .primary-navigation ul li.iehover li.iehover li a {
-	background: #e7e7e7;
 }
 
 /* 3rd Menu Hover Persistence */
@@ -901,21 +892,18 @@ http://qrayg.com/experiment/cssmenus/
 .primary-navigation ul li:hover li:hover li:hover a,
 .primary-navigation ul li.iehover li.iehover li a:hover,
 .primary-navigation ul li.iehover li.iehover li.iehover a {
-	background: #e3e3e3;
 }
 
 /* 4th Menu */
 
 .primary-navigation ul li:hover li:hover li:hover li a,
 .primary-navigation ul li.iehover li.iehover li.iehover li a {
-	background: #e3e3e3;
 }
 
 /* 4th Menu Hover */
 
 .primary-navigation ul li:hover li:hover li:hover li a:hover,
 .primary-navigation ul li.iehover li.iehover li.iehover li a:hover {
-	background: #e3e3e3;
 }
 
 /* Hover Function - Do Not Move */
@@ -982,12 +970,7 @@ http://qrayg.com/experiment/cssmenus/
 
 
 #sidebar-feature {
-	overflow: hidden;
-	margin: 0 auto;
-	background: none;
-	padding: 0.5em 0;
-	width: inherit;
-	text-align: center;
+
 }
 #sidebar-feature .widget-title {
 	
@@ -1021,8 +1004,6 @@ http://qrayg.com/experiment/cssmenus/
 	margin: 0 auto;
 	position: relative;
 	overflow: visible;
-	border-top: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
 }
 
 .secondary-navigation .wrap:after {  content:"."; clear:both; display:block; height:0; visibility:hidden; } /* forces layout */
@@ -1099,7 +1080,6 @@ http://qrayg.com/experiment/cssmenus/
 /* 3rd Menu */
 .secondary-navigation ul li:hover li:hover li a,
 .secondary-navigation ul li.iehover li.iehover li a {
- background: #e7e7e7;
 }
 
 /* 3rd Menu Hover Persistence */
@@ -1107,19 +1087,16 @@ http://qrayg.com/experiment/cssmenus/
 .secondary-navigation ul li:hover li:hover li:hover a,
 .secondary-navigation ul li.iehover li.iehover li a:hover,
 .secondary-navigation ul li.iehover li.iehover li.iehover a {
- background: #e3e3e3;
 }
 
 /* 4th Menu */
 .secondary-navigation ul li:hover li:hover li:hover li a,
 .secondary-navigation ul li.iehover li.iehover li.iehover li a {
- background: #e3e3e3;
 }
 
 /* 4th Menu Hover */
 .secondary-navigation ul li:hover li:hover li:hover li a:hover,
 .secondary-navigation ul li.iehover li.iehover li.iehover li a:hover {
- background: ##e3e3e3;
 }
 
 /* Hover Function - Do Not Move */
@@ -1514,7 +1491,6 @@ http://qrayg.com/experiment/cssmenus/
 	margin: 0 auto;
 	position: relative;
 	overflow: visible;
-	border-top: 1px solid #ddd;
 }
 
 .subsidiary-navigation .wrap:after {  content:"."; clear:both; display:block; height:0; visibility:hidden; } /* forces layout */
@@ -1569,7 +1545,7 @@ http://qrayg.com/experiment/cssmenus/
 .subsidiary-navigation ul a:hover,
 .subsidiary-navigation ul li:hover a,
 .subsidiary-navigation ul li.iehover a {
-	background: #e7e7e7;
+	background: #eee;
 }
 
 
@@ -1582,7 +1558,6 @@ http://qrayg.com/experiment/cssmenus/
 
 #sidebar-subsidiary .wrap {
 	padding: 1.5em;
-	border-top: 1px solid #ddd;
 }
 
 #sidebar-subsidiary .widget {
@@ -1799,15 +1774,13 @@ http://qrayg.com/experiment/cssmenus/
 
 @media (min-width: 45.5em) and (max-width: 71.24999999em) {
 
-	#container,
-	#footer .wrap { width: 98%; }
+	.wrap { width: 98%; }
 
 }
 
 @media (min-width: 30em) and (max-width: 45.49999em) {
 
-	#container,
-	#footer .wrap { width: 98%; }
+	.wrap { width: 98%; }
 	
 	#content, 
 	.layout-1c #content, 
@@ -1864,10 +1837,8 @@ http://qrayg.com/experiment/cssmenus/
 
 @media (min-width: 1em) and (max-width: 29.9999em) { 
 
-	#container,
-	#footer .wrap { width: 98%; }
-	
-	#main .wrap {
+	.wrap { 
+		width: 98%; 
 		padding: 1em .5em;
 	}
 	

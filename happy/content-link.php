@@ -19,6 +19,8 @@
 				<h2 class="post-title entry-title"><a href="<?php echo esc_url( happy_url_grabber() ); ?>" title="<?php the_title_attribute(); ?>"><?php printf( '%s <span class="meta-nav">&rarr;</span>', the_title( '', '', false ) ); ?></a></h2>
 	
 	<?php } ?>
+	
+	<?php do_atomic( 'before_the_content' ); // before content hook ?>
 
 	<div class="entry-summary">
 		<?php the_content(); ?>

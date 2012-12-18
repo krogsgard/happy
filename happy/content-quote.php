@@ -15,6 +15,8 @@
 	<?php do_atomic( 'open_entry' ); // Open loop hook ?>
 	
 	<?php get_template_part( 'loop', 'byline' ); ?>
+	
+	<?php do_atomic( 'before_the_content' ); // before content hook ?>
 
 	<div class="entry-content">
 		<?php the_content(); ?>

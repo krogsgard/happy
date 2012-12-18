@@ -26,7 +26,7 @@
 	
 	</header><!-- .entry-header -->
 	
-	<?php do_atomic( 'before_the_content' ); // before title hook ?>
+	<?php do_atomic( 'before_the_content' ); // before content hook ?>
 
 	<div class="entry-content">
 		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'happy' ) ); ?>

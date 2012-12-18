@@ -23,6 +23,8 @@
 		<?php get_template_part( 'loop', 'byline' ); ?>
 		
 	</header><!-- .entry-header -->
+	
+	<?php do_atomic( 'before_the_content' ); // before content hook ?>
 
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>

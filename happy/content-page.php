@@ -17,6 +17,8 @@
 	<header class="entry-header">
 		<?php echo apply_atomic( 'entry_title', the_title( '<h1 class="entry-title">', '</h1>', false ) ); ?>
 	</header><!-- .entry-header -->
+	
+	<?php do_atomic( 'before_the_content' ); // before content hook ?>
 
 	<div class="entry-content">
 		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'happy' ) ); ?>
