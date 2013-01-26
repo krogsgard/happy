@@ -13,12 +13,13 @@
 <article id="post-<?php the_ID(); ?>" class="<?php hybrid_entry_class(); ?>">
 
 	<?php do_atomic( 'open_entry' ); // Open loop hook ?>
-
+	
 	<?php if ( get_the_title() ) { ?>
-	
-				<h2 class="post-title entry-title"><a href="<?php echo esc_url( happy_url_grabber() ); ?>" title="<?php the_title_attribute(); ?>"><?php printf( '%s <span class="meta-nav">&rarr;</span>', the_title( '', '', false ) ); ?></a></h2>
-	
+		<header class="entry-header">
+				<h2 class="post-title entry-title"><a href="<?php echo esc_url( happy_url_grabber() ); ?>" title="<?php the_title_attribute(); ?>"><?php printf( '%s<span class="meta-nav">&rarr;</span>', the_title( '', '', false ) ); ?></a></h2>
+		</header>
 	<?php } ?>
+	
 	
 	<?php do_atomic( 'before_the_content' ); // before content hook ?>
 

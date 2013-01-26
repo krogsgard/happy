@@ -23,7 +23,7 @@
 
 <title><?php hybrid_document_title(); ?></title>
 
-<link rel="stylesheet" href="<?php echo esc_url( get_stylesheet_uri() ); ?>" type="text/css" media="all" />
+<link rel="stylesheet" href="<?php echo esc_url( get_stylesheet_uri() ); ?>?127" type="text/css" media="all" />
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>" />
 
