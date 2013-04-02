@@ -1,0 +1,3 @@
+[submodule "happy/library"]
+	path = happy/library
+	url = https://krogsgard@github.com/justintadlock/hybrid-core.git
