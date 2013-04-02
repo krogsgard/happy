@@ -17,8 +17,8 @@ get_header(); ?>
 		<?php do_atomic( 'open_content' ); // Open content hook ?>
 
 		<section class="hfeed">
-
-			<?php get_template_part( 'loop-meta' ); // Get the loop meta box ?>
+		
+			<?php do_atomic( 'open_hfeed' ); // Open hfeed hook ?>
 
 			<?php if ( have_posts() ) : ?>
 
@@ -29,12 +29,12 @@ get_header(); ?>
 				<?php endwhile; ?>
 
 			<?php endif; ?>
+			
+			<?php do_atomic( 'close_hfeed' ); // Close hfeed hook ?>
 
 		</section><!-- .hfeed -->
 
 		<?php do_atomic( 'close_content' ); // Close content hook ?>
-
-		<?php get_template_part( 'loop-nav' ); ?>
 
 	</div><!-- #content -->
 

@@ -41,33 +41,70 @@ function happy_theme_setup() {
 	$prefix = hybrid_get_prefix();
 
 	/* Add theme support for core framework features. */
+		
+	/* Register menus. */
+	add_theme_support( 
+		'hybrid-core-menus', 
+		array( 'primary', 'secondary', 'subsidiary' ) 
+	);
+
+	/* Register sidebars. */
+	add_theme_support( 
+		'hybrid-core-sidebars', 
+		array( 'primary', 'secondary', 'subsidiary' ) 
+	);
+
+	/* Load scripts. */
+	add_theme_support( 
+		'hybrid-core-scripts', 
+		array( 'comment-reply' ) 
+	);
+
+	/* Add theme support for WordPress features. */
 	
-	add_theme_support( 'hybrid-core-menus', array( 'primary', 'secondary', 'subsidiary' ) );
-	add_theme_support( 'hybrid-core-sidebars', array( 'primary', 'secondary', 'header', 'subsidiary', 'after-singular' ) );
+	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 150, 150, true );
+	
+	/* Register support for custom backgrounds */
+	
+	add_theme_support( 'custom-background' );
+	
+	add_theme_support( 'automatic-feed-links' );
+	
+	/* Register support for some post formats */
+	
+	add_theme_support( 
+		'post-formats', 
+		array( 'aside', 'gallery', 'image', 'link', 'quote', 'video' ) 
+	);
+	
+	/* Add theme support for Hybrid Core features */
+			
 	add_theme_support( 'hybrid-core-widgets' );
 	add_theme_support( 'hybrid-core-shortcodes' );
-	add_theme_support( 'hybrid-core-theme-settings', array( 'about', 'footer' ) );
+	add_theme_support( 
+		'hybrid-core-theme-settings', 
+		array( 'about', 'footer' ) 
+	);
+	
 	add_theme_support( 'hybrid-core-meta-box-footer' );
 	add_theme_support( 'hybrid-core-template-hierarchy' );
 
-	/* Add theme support for extensions. */
+	/* Add theme support for Hybrid Core extensions. */
 
-	add_theme_support( 'theme-layouts', array( '1c', '2c-l', '2c-r' ) );
-	add_theme_support( 'dev-stylesheet' );
+	/* Enable theme layouts (need to add stylesheet support). */
+	add_theme_support( 
+		'theme-layouts', 
+		array( '1c', '2c-l', '2c-r' ), 
+		array( 'default' => '2c-l', 'customizer' => true ) 
+	);
+	
 	add_theme_support( 'loop-pagination' );
 	add_theme_support( 'get-the-image' );
 	add_theme_support( 'entry-views' );
 	add_theme_support( 'cleaner-gallery' );
 
-	/* Add theme support for WordPress features. */
-	
-	/* Register support for some post formats */
-	
-	add_theme_support( 'post-formats', array( 'aside', 'gallery', 'image', 'link', 'quote', 'video' ) );
-	
-	/* Register support for custom backgrounds */
-	
-	add_theme_support( 'custom-background' );
+	/* Make content changes for post formats */
 	
 	/* Wraps <blockquote> around quote posts. */
 	add_filter( 'the_content', 'happy_quote_content' );
@@ -78,16 +115,9 @@ function happy_theme_setup() {
 	/* Add infinity symbol for asides. Priority 9 to beat wpautop */
 	add_filter( 'the_content', 'happy_aside_infinity', 9 ); 
 	
-	add_theme_support( 'automatic-feed-links' );
-	
-	/* Register sidebars. */
+	/* Register additional sidebars. */
 	
 	add_action( 'widgets_init', 'happy_register_sidebars', 9 );
-	
-
-	/* Embed width/height defaults. */
-	
-	add_filter( 'embed_defaults', 'happy_embed_defaults' );
 
 	/* Filter the sidebar widgets. */
 	
@@ -98,13 +128,19 @@ function happy_theme_setup() {
 	
 	add_action( 'load-page-new.php', 'happy_change_comment_status' );
 	
+	/* Embed width/height defaults. */
+	
+	add_filter( 'embed_defaults', 'happy_embed_defaults' );
+	
+	/* change defaults for sidebar parameters */
+	
+	add_filter( "{$prefix}_sidebar_defaults", 'happy_change_sidebar_defaults' );
+	
 	/* load theme scripts and styles */
 	
 	add_action( 'wp_enqueue_scripts', 'happy_scripts' );
 	
-	/* change defaults for sidebar parameters */
-	
-	add_filter( "{$prefix}_sidebar_defaults", 'happy_change_sidebar_defaults' );	
+	/* Insert theme templates */	
 	
 	/* insert the header template part */
 	
@@ -120,12 +156,16 @@ function happy_theme_setup() {
 
 	/* insert the feature template part on the front page */
  
-	add_action( "{$prefix}_home_before_main", 'happy_insert_feature_template', 10 );
+	add_action( "{$prefix}_home_before_main", 'happy_insert_feature_template', 10 );	
 	
-	/* insert the custom header */
+	/* insert the loop meta */
 	
-	add_action( "{$prefix}_feature", 'happy_insert_custom_header', 5 );	
+	add_action( "{$prefix}_open_hfeed", 'happy_insert_loop_meta', 10 );
+
+	/* insert the loop nav */
 	
+	add_action( "{$prefix}_close_content", 'happy_insert_loop_nav', 10 );
+		
 	/* insert the feature sidebar */
 	
 	add_action( "{$prefix}_feature", 'happy_insert_feature_sidebar', 10 );	
@@ -152,9 +192,10 @@ function happy_theme_setup() {
 		
 	/* insert the footer template part */
 	
-	add_action( "{$prefix}_close_body", 'happy_insert_footer_template', 10 );
+	add_action( "{$prefix}_after_main", 'happy_insert_footer_template', 15 );
 
 }
+
 
 /**
  * Registers scripts for the theme and enqueue those used sitewide.
@@ -163,6 +204,10 @@ function happy_theme_setup() {
  */
 
 function happy_scripts() {
+
+	wp_enqueue_style( 'happy-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'happy-base', get_template_directory_uri() . '/css/base.css', array( 'happy-style' ) );
+	wp_enqueue_style( 'happy-responsive', get_template_directory_uri() . '/css/responsive.css', array( 'happy-base' ) );
 	
 	wp_register_script( 'happy-custom', get_template_directory_uri() . '/js/happy-custom.js', array( 'jquery', 'fitvids' ), '20120206', true );
 	wp_register_script( 'small-menu', get_template_directory_uri() . '/js/small-menu.js', array( 'jquery' ), '20120206', true );
@@ -173,20 +218,6 @@ function happy_scripts() {
 	wp_enqueue_script( 'small-menu' );
 	wp_enqueue_script( 'small-menu-secondary' );
 	wp_enqueue_script( 'fitvids' );
-	
-	/*
-	 * Loads Google font CSS file.
-	 *
- 	 * To disable in a child theme, use wp_dequeue_style()
- 	 * function happychildtheme_dequeue_fonts() {
- 	 *     wp_dequeue_style( 'happy-fonts' );
- 	 * }
-	 * add_action( 'wp_enqueue_scripts', 'happychildtheme_dequeue_fonts', 11 );
- 	 */
-	
-	$protocol = is_ssl() ? 'https' : 'http';
-	
-	wp_enqueue_style( 'happy-fonts', "$protocol://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic", array(), null );
 
 }
 
@@ -257,14 +288,16 @@ function happy_change_comment_status() {
  */
 function happy_one_column() {
 
-	if ( ! is_active_sidebar( 'primary' ) && ! is_active_sidebar( 'secondary' ) )
+	if ( ! is_active_sidebar( 'primary' ) && ! is_active_sidebar( 'secondary' ) ) {
 		
 		add_filter( 'get_theme_layout', 'happy_post_layout_one_column' );
 
-	elseif ( is_attachment() )
+	} elseif ( is_attachment() ) {
 		
 		add_filter( 'get_theme_layout', 'happy_post_layout_one_column' );
-
+		
+	}
+	
 }
 
 
@@ -319,12 +352,19 @@ function happy_embed_defaults( $args ) {
 
 		$layout = theme_layouts_get_layout();
 
-		if ( 'layout-3c-l' == $layout || 'layout-3c-r' == $layout || 'layout-3c-c' == $layout )
+		if ( 'layout-3c-l' == $layout || 'layout-3c-r' == $layout || 'layout-3c-c' == $layout ) {
+			
 			$args['width'] = 500;
-		elseif ( 'layout-1c' == $layout )
+		
+		} elseif ( 'layout-1c' == $layout ) {
+			
 			$args['width'] = 928;
-		else
+		
+		} else {
+			
 			$args['width'] = 650;
+			
+		}
 	
 	} else {
 		
@@ -362,22 +402,27 @@ function happy_insert_feature_template() {
 }
 
 /**
- * Insert the WordPress customer header
- * default location is 'feature', priority 5
+ * insert loop meta
+ * default location is open_hfeed, priority 10
  *
  * @since 0.1.0.
  */
-
-function happy_insert_custom_header() {
-
-	$header_image = get_header_image();
+function happy_insert_loop_meta() {
 	
-	if ( ! empty( $header_image ) ) : ?>
-		
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo esc_url( $header_image ); ?>" class="header-image" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" /></a>
+	get_template_part( 'loop', 'meta' ); // Get the loop meta box	
+
+}
+
+/**
+ * insert loop nav
+ * default location is close_content, priority 10
+ *
+ * @since 0.1.0.
+ */
+function happy_insert_loop_nav() {
 	
-	<?php endif; 		
-		
+	get_template_part( 'loop', 'nav' ); // Get the loop meta box	
+
 }
 
 /**
@@ -505,10 +550,12 @@ function happy_quote_content( $content ) {
 		
 		preg_match( '/<blockquote.*?>/', $content, $matches );
 
-		if ( empty( $matches ) )
+		if ( empty( $matches ) ) {
 			
 			$content = "<blockquote>{$content}</blockquote>";
-	
+		
+		}
+		
 	}
 
 	return $content;
@@ -530,9 +577,11 @@ function happy_quote_content( $content ) {
  */
 function happy_url_grabber() {
 	
-	if ( ! preg_match( '/<a\s[^>]*?href=[\'"](.+?)[\'"]/is', get_the_content(), $matches ) )
+	if ( ! preg_match( '/<a\s[^>]*?href=[\'"](.+?)[\'"]/is', get_the_content(), $matches ) ) {
 		
 		return get_permalink( get_the_ID() );
+		
+	}
 
 	return esc_url_raw( $matches[1] );
 
@@ -567,10 +616,17 @@ function happy_get_image_attachment_count() {
 function happy_image_content( $content ) {
 
 	if ( has_post_format( 'image' ) && '' == $content ) {
-		if ( is_singular() )
+		
+		if ( is_singular() ) {
+			
 			$content = get_the_image( array( 'size' => 'full', 'meta_key' => false, 'link_to_post' => false ) );
-		else
+		
+		} else {
+			
 			$content = get_the_image( array( 'size' => 'full', 'meta_key' => false ) );
+			
+		}
+	
 	}
 
 	return $content;
@@ -591,9 +647,11 @@ function happy_image_content( $content ) {
  
 function happy_aside_infinity( $content ) {
 
-	if ( has_post_format( 'aside' ) && !is_singular() )
+	if ( has_post_format( 'aside' ) && !is_singular() ) {
 		
 		$content .= ' <a href="' . esc_url( get_permalink() ) . '"> &#8734; </a>';
+		
+	}
 
 	return $content;
 }

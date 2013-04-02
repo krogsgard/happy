@@ -71,6 +71,7 @@ textarea {
 	font-size: 1rem;
 	font-family: sans-serif;
 	line-height: 1.5;
+	max-width: 100%;
 }
 
 input, 
@@ -82,7 +83,7 @@ body {
 	margin: 0;
 	padding: 1% 0 0 0;
 	background: #f4f4f4;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: sans-serif;
 	color:#444;
 }
 
@@ -218,6 +219,7 @@ a:hover {
 .entry-meta a, 
 .sidebar a {
 	color: #3388bb;
+	text-decoration: underline;
 }
 
 .entry-content a:hover,
@@ -226,7 +228,6 @@ a:hover {
 .entry-meta a:hover,  
 .sidebar a:hover {
 	color: #004466;
-	text-decoration: underline;
 }
 	
 p {
@@ -346,6 +347,7 @@ ul {
 
 ul {
 	list-style: square inside;
+	padding: 0 0 0 1em;
 }
 
 ul ul {
@@ -381,16 +383,12 @@ blockquote {
 	overflow: hidden;
 	margin: 0 0 1.5em 0;
 	padding: 1.5em 1.5em 0 1.5em;
-	font-size: 0.938em;
-	background: #eee;
+	font-size: 1.25em;
+	background: #f4f4f4;
 	font-style: italic;
-
 }
 
 blockquote blockquote {
-	background: #eee;
-	font-style: italic;
-
 }
 
 /* code */
@@ -398,14 +396,14 @@ blockquote blockquote {
 code {
 	padding: 0 0.25em;
 	color: #555;
-	background: #e6e6e6;
+	background: #f4f4f4;
 }
 
 pre {
 	padding: 1.5em;
 	color: #555;
-	background: #efefef;
-	border: 1px solid #dfdfdf;
+	background: #f4f4f4;
+	border: 1px solid #eee;
 }
 
 pre code {
@@ -461,8 +459,10 @@ textarea {
 
 .entry-content img,
 .comment-content img,
-.widget img {
+.widget img,
+img {
 	max-width: 100%; /* Fluid images for posts, comments, and widgets */
+	height: auto;
 }
 
 img[class*="align"],
@@ -483,6 +483,10 @@ img.wp-post-image {
 .entry-content img {
 	max-width: 100%;
 	padding: 0;
+	border: none;
+}
+
+a.img {
 	border: none;
 }
 
@@ -531,9 +535,10 @@ img.wp-post-image {
 
 .wp-caption {
 	overflow: hidden;
+	max-width: 100%;
 	padding: 0.75em 0.5em;
 	background: #f9f9f9;
-	border: 1px solid #ccc;
+	border: 1px solid #f4f4f4;
 }
 
 .wp-caption img {
@@ -579,14 +584,8 @@ input[type="submit"],
 	line-height: 1.5
 	font-weight: normal;
 	color: #7c7c7c;
-	background-color: #e6e6e6;
-	background-repeat: repeat-x;
-	background-image: -moz-linear-gradient(top, #f4f4f4, #e6e6e6);
-	background-image: -ms-linear-gradient(top, #f4f4f4, #e6e6e6);
-	background-image: -webkit-linear-gradient(top, #f4f4f4, #e6e6e6);
-	background-image: -o-linear-gradient(top, #f4f4f4, #e6e6e6);
-	background-image: linear-gradient(top, #f4f4f4, #e6e6e6);
-	border: 1px solid #d2d2d2;
+	background-color: #eee;
+	border: none;
 	border-radius: 3px;
 	box-shadow: 0 1px 2px rgba(64, 64, 64, 0.1);
 }
@@ -601,14 +600,7 @@ input[type="submit"] {
 .menu-toggle:hover,
 .pagination a:hover,
 input[type="submit"]:hover {
-	color: #5e5e5e;
-	background-color: #ebebeb;
-	background-repeat: repeat-x;
-	background-image: -moz-linear-gradient(top, #f9f9f9, #ebebeb);
-	background-image: -ms-linear-gradient(top, #f9f9f9, #ebebeb);
-	background-image: -webkit-linear-gradient(top, #f9f9f9, #ebebeb);
-	background-image: -o-linear-gradient(top, #f9f9f9, #ebebeb);
-	background-image: linear-gradient(top, #f9f9f9, #ebebeb);
+
 }
 
 .button:active
@@ -617,15 +609,6 @@ input[type="submit"]:hover {
 input[type="submit"]:active,
 .pagination .current,
 input[type="submit"].toggled-on {
-	color: #777;
-	background-color: #e1e1e1;
-	background-repeat: repeat-x;
-	background-image: -moz-linear-gradient(top, #ebebeb, #e1e1e1);
-	background-image: -ms-linear-gradient(top, #ebebeb, #e1e1e1);
-	background-image: -webkit-linear-gradient(top, #ebebeb, #e1e1e1);
-	background-image: -o-linear-gradient(top, #ebebeb, #e1e1e1);
-	background-image: linear-gradient(top, #ebebeb, #e1e1e1);
-	box-shadow: inset 0 0 8px 2px #c6c6c6, 0 1px 0 0 #f4f4f4;
 	border: none;
 }		
 		
@@ -737,8 +720,8 @@ input[type="submit"].toggled-on {
 #site-title a {
 	display: block;
 /*	width: 20em;
-	height: auto;
-	background: url(images/logo.gif) 0 0 no-repeat;
+	height: 3.25em;
+	background: url(../images/logo.gif) 0 0 no-repeat;
 */
 }
 
@@ -746,7 +729,7 @@ input[type="submit"].toggled-on {
 }
 
 #site-title a span {
-	/* display: none; */
+	/* text-indent: -9999px; */
 }
 
 #site-description {
@@ -965,6 +948,8 @@ http://qrayg.com/experiment/cssmenus/
 	overflow: hidden;
 	clear: both;
 	margin: 0 auto;
+	padding: 1em;
+	text-align: center;
 }
 
 
@@ -1124,13 +1109,13 @@ http://qrayg.com/experiment/cssmenus/
 
 .layout-default .hfeed, 
 .layout-2c-l .hfeed { /* increase the margin on the actual page content */
-	margin: 16px 0 16px 24px;
-	margin: 1rem 0 1rem 1.5rem;
+	margin: 16px 0 16px 16px;
+	margin: 1rem 0 1rem 1rem;
 }
 
 .layout-2c-r .hfeed { /* increase the margin on the actual page content */
-	margin: 16px 24px 16px 0;
-	margin: 1rem 1.5rem 1rem 0;
+	margin: 16px 16px 16px 0;
+	margin: 1rem 1rem 1rem 0;
 }
 
 .page-template-front-page #content {
@@ -1465,6 +1450,10 @@ http://qrayg.com/experiment/cssmenus/
 #footer {
 }
 
+#footer .wrap {
+
+}
+
 #footer a {
 }
 
@@ -1586,8 +1575,8 @@ http://qrayg.com/experiment/cssmenus/
 	float: left;
 	text-align: left;
 	width: 49%;
-	padding: 16px;
-	padding: 1rem;
+	padding: 16px 24px;
+	padding: 1rem 1.5rem;
 	margin: 0;
 }
 
@@ -1595,8 +1584,8 @@ http://qrayg.com/experiment/cssmenus/
 	float: right;
 	text-align: right;
 	width: 49%;
-	padding: 16px;
-	padding: 1rem;
+	padding: 16px 24px;
+	padding: 1rem 1.5rem;
 	margin: 0;
 	
 	
@@ -1610,14 +1599,14 @@ http://qrayg.com/experiment/cssmenus/
 .comment-list ol {
 	list-style: none;
 	margin: 0 0 1.5em 0;
-	border-top: 1px solid #dfdfdf;
+	border-top: 1px solid #eee;
 	padding: 0;
 }
 
 .comment-list li {
 	padding: 24px 24px 0 24px;
 	padding: 1.5rem 1.5rem 0 1.5rem;
-	border: 1px solid #dfdfdf;
+	border: 1px solid #eee;
 	border-top: none;
 }
 
@@ -1764,156 +1753,3 @@ http://qrayg.com/experiment/cssmenus/
 	font-size:0.875em;
 	border:1px solid #999;
 }    
-
-/* media queries for smaller viewports */
-
-@media (min-width: 45.5em) and (max-width: 71.24999999em) {
-
-	.wrap { width: 98%; }
-
-}
-
-@media (min-width: 30em) and (max-width: 45.49999em) {
-
-	.wrap { width: 98%; }
-	
-	#content, 
-	.layout-1c #content, 
-	.layout-2c-l #content, 
-	.layout-2c-r #content,
-	.layout-default #content, 
-	.layout-3c-l #content, 
-	.layout-3c-r #content, 
-	.layout-3c-c #content {
-		width: 98%;
-		float: left;
-	}
-
-	#sidebar-header {
-		clear:both;
-		width: 100%;
-		margin-top: 1rem;
-		float: left;
-	}
-	
-	#sidebar-header .widget {
-		clear: both;
-		width: 100%;
-		margin: 0;
-	}
-	
-	.main-small-navigation, 
-	.main-small-secondary-navigation {
-		padding: 1rem;
-	}
-	
-	.layout-2c-r #sidebar-primary, 
-	.layout-2c-l #sidebar-primary, 
-	.layout-default #sidebar-primary {
-		width: 49%;
-		float: left;
-	}
-	.layout-2c-r #sidebar-secondary, 
-	.layout-2c-l #sidebar-secondary, 
-	.layout-default #sidebar-secondary {
-		width: 49%;
-		float: left;
-		margin: 0 0 0 2%;
-	}
-	#sidebar-subsidiary .widget {
-		width: 48%;
-	}
-	.comment-list li {
-		padding: 8px 8px 0 8px;
-		padding: .5rem .5rem 0 .5rem;
-	}
-
-}
-
-@media (min-width: 1em) and (max-width: 29.9999em) { 
-
-	.wrap { 
-		width: 98%; 
-		padding: 1em .5em;
-	}
-	
-	#content, 	
-	.layout-1c #content, 
-	.layout-2c-l #content, 
-	.layout-2c-r #content, 
-	.layout-default #content, 
-	.layout-3c-l #content, 
-	.layout-3c-r #content, 
-	.layout-3c-c #content {
-		width: 98%;
-		float: left;
-	}
-	
-	#sidebar-header {
-		clear:both;
-		width: 100%;
-		margin-top: 1rem;
-		float: left;
-	}
-	
-	#sidebar-header .widget {
-		clear: both;
-		width: 100%;
-		margin: 0;
-	}
-	
-	.main-small-navigation, 
-	.main-small-secondary-navigation {
-		padding: 1rem;
-	}
-	
-	
-	.layout-2c-r #sidebar-primary, 
-	.layout-2c-l #sidebar-primary, 
-	.layout-default #sidebar-primary, 
-	.layout-2c-r #sidebar-secondary, 
-	.layout-2c-l #sidebar-secondary, 
-	.layout-default #sidebar-secondary, 
-	#sidebar-subsidiary .widget {
-		width: 98%;
-		float: left;
-		clear: both;
-	}
-	
-	copyright, .credit, #branding {
-		width:98%;
-		margin: 0 auto;
-		clear: both;
-		float: left;
-	}
-	
-	.entry-title {
-		clear:both;
-	}
-
-	.hentry .thumbnail {
-		float: left;
-		margin: 0;
-	}
-	
-	.comment-list li {
-		padding: 4px 2px 0 4px;
-		padding: 0.25rem 0.125rem 0 0.25rem;
-	}
-
-	.comment-list .avatar {
-		float: left;
-		width: 2.5em;
-		height: 2.5em;
-		margin: 0 4px 4px 0; 
-		margin: 0 0.25rem 0.25rem 0;
-	}
-	
-	#footer .copyright, 
-	#footer .credit {
-		float: left;
-		text-align: left;
-		width: 100%;
-	}
-
-}

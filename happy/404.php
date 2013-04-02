@@ -25,6 +25,8 @@ get_header(); ?>
 		<?php do_atomic( 'open_content' ); // Open content hook ?>
 
 		<section class="hfeed">
+		
+			<?php do_atomic( 'open_hfeed' ); // Open hfeed hook ?>
 
 			<article id="post-0" class="<?php hybrid_entry_class(); ?>">
 
@@ -41,6 +43,8 @@ get_header(); ?>
 				</div><!-- .entry-content -->
 
 			</article><!-- .hentry -->
+			
+			<?php do_atomic( 'close_hfeed' ); // Close hfeed hook ?>
 
 		</section><!-- .hfeed -->
 

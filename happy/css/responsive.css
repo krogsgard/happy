@@ -1,0 +1,153 @@
+
+/* media queries for smaller viewports */
+
+@media (min-width: 45.5em) and (max-width: 71.24999999em) {
+
+	.wrap { width: 98%; }
+
+}
+
+@media (min-width: 30em) and (max-width: 45.49999em) {
+
+	.wrap { width: 98%; }
+	
+	#content, 
+	.layout-1c #content, 
+	.layout-2c-l #content, 
+	.layout-2c-r #content,
+	.layout-default #content, 
+	.layout-3c-l #content, 
+	.layout-3c-r #content, 
+	.layout-3c-c #content {
+		width: 98%;
+		float: left;
+	}
+
+	#sidebar-header {
+		clear:both;
+		width: 100%;
+		margin-top: 1rem;
+		float: left;
+	}
+	
+	#sidebar-header .widget {
+		clear: both;
+		width: 100%;
+		margin: 0;
+	}
+	
+	.main-small-navigation, 
+	.main-small-secondary-navigation {
+		padding: 1rem;
+	}
+	
+	.layout-2c-r #sidebar-primary, 
+	.layout-2c-l #sidebar-primary, 
+	.layout-default #sidebar-primary {
+		width: 49%;
+		float: left;
+	}
+	.layout-2c-r #sidebar-secondary, 
+	.layout-2c-l #sidebar-secondary, 
+	.layout-default #sidebar-secondary {
+		width: 49%;
+		float: left;
+		margin: 0 0 0 2%;
+	}
+	#sidebar-subsidiary .widget {
+		width: 48%;
+	}
+	.comment-list li {
+		padding: 8px 8px 0 8px;
+		padding: .5rem .5rem 0 .5rem;
+	}
+
+}
+
+@media (min-width: 1em) and (max-width: 29.9999em) { 
+
+	.wrap { 
+		width: 98%; 
+		padding: 1em .5em;
+	}
+	
+	#content, 	
+	.layout-1c #content, 
+	.layout-2c-l #content, 
+	.layout-2c-r #content, 
+	.layout-default #content, 
+	.layout-3c-l #content, 
+	.layout-3c-r #content, 
+	.layout-3c-c #content {
+		width: 98%;
+		float: left;
+	}
+	
+	#sidebar-header {
+		clear:both;
+		width: 100%;
+		margin-top: 1rem;
+		float: left;
+	}
+	
+	#sidebar-header .widget {
+		clear: both;
+		width: 100%;
+		margin: 0;
+	}
+	
+	.main-small-navigation, 
+	.main-small-secondary-navigation {
+		padding: 1rem;
+	}
+	
+	
+	.layout-2c-r #sidebar-primary, 
+	.layout-2c-l #sidebar-primary, 
+	.layout-default #sidebar-primary, 
+	.layout-2c-r #sidebar-secondary, 
+	.layout-2c-l #sidebar-secondary, 
+	.layout-default #sidebar-secondary, 
+	#sidebar-subsidiary .widget {
+		width: 98%;
+		float: left;
+		clear: both;
+	}
+	
+	copyright, .credit, #branding {
+		width:98%;
+		margin: 0 auto;
+		clear: both;
+		float: left;
+	}
+	
+	.entry-title {
+		clear:both;
+	}
+
+	.hentry .thumbnail {
+		float: left;
+		margin: 0;
+	}
+	
+	.comment-list li {
+		padding: 4px 2px 0 4px;
+		padding: 0.25rem 0.125rem 0 0.25rem;
+	}
+
+	.comment-list .avatar {
+		float: left;
+		width: 2.5em;
+		height: 2.5em;
+		margin: 0 4px 4px 0; 
+		margin: 0 0.25rem 0.25rem 0;
+	}
+	
+	#footer .copyright, 
+	#footer .credit {
+		float: left;
+		text-align: left;
+		width: 100%;
+	}
+
+}

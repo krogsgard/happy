@@ -2,7 +2,7 @@
  * Theme Name: Happy
  * Theme URI: http://infomedia.com
  * Description: A responsive base theme by Infomedia.  This is a parent theme.
- * Version: 1.0 
+ * Version: 1.1 
  * Author: Brian Krogsgard
  * Author URI: http://infomedia.com
  * Tags: theme-options, threaded-comments, microformats, translation-ready, rtl-language-support, one-column, two-columns, three-columns, fixed-width
@@ -12,41 +12,3 @@
  * Copyright (c) 2011 Brian Krogsgard.  All rights reserved.
  * http://krogsgard.com
  */
-
-/* Importing the dev stylesheet for now. */
-@import url( 'style.dev.css' );
-
-.wpengine-promo {
-	font-size: 10px;
-	position: relative;
-	bottom: 0;
-	left: 45%;	
-}
-
-.pa-image {
-	float: left;
-	margin-bottom: 8px;
-	margin-bottom: .5rem;
-}
-.pa-copy {
-	float: left;
-	width: 92px;
-	width: 5.75rem;
-	font-size: 11px;
-	font-size: .6875rem;
-	margin-bottom: 8px;
-	margin-bottom: .5rem;
-	font-weight: normal;
-	color: #666;
-	text-decoration: none;
-	margin-left: 7px;
-	margin-left: .4375rem;
-}
-
-.pa-id {
-	font-size: 11px;
-	font-size: .6875rem;
-	color: #666;
-	text-decoration: none;
-	clear:	both;
-}

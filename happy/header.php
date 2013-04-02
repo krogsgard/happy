@@ -19,11 +19,11 @@
 <!--[if (gt IE 9)|!(IE)]><!--> <html <?php language_attributes(); ?>> <!--<![endif]-->
 <head>
 <meta http-equiv="Content-Type" content="<?php echo esc_attr( get_bloginfo( 'html_type' ) ); ?>; charset=<?php echo esc_attr( get_bloginfo( 'charset' ) ); ?>" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<?php echo apply_filters( 'meta_viewport', '<meta name="viewport" content="width=device-width, initial-scale=1">' ); ?>
 
 <title><?php hybrid_document_title(); ?></title>
 
-<link rel="stylesheet" href="<?php echo esc_url( get_stylesheet_uri() ); ?>?127" type="text/css" media="all" />
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>" />
 

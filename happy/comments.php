@@ -40,23 +40,7 @@ if ( post_password_required() || ( !have_comments() && !comments_open() && !ping
 					</div><!-- .comment-navigation -->
 				<?php endif; ?>
 
-		<?php else : ?>
-
-			<?php if ( pings_open() && !comments_open() ) : ?>
-
-				<p class="comments-closed pings-open">
-					<?php printf( __( 'Comments are closed, but <a href="%1$s" title="Trackback URL for this post">trackbacks</a> and pingbacks are open.', 'happy' ), get_trackback_url() ); ?>
-				</p><!-- .comments-closed .pings-open -->
-
-			<?php elseif ( !comments_open() ) : ?>
-
-				<p class="comments-closed">
-					<?php _e( 'Comments are closed.', 'happy' ); ?>
-				</p><!-- .comments-closed -->
-
 			<?php endif; ?>
-
-		<?php endif; ?>
 
 		</div><!-- #comments -->
 

@@ -1,11 +1,11 @@
 <?php
 /**
- * Search Template
+ * Front Page Template
  *
- * The search template is loaded when a visitor uses the search form to search for something
- * on the site.
+ * This is the default front page template.  Override this template here in the child theme to customize
  *
- * @package Happy
+ * Template Name: Front Page
+ * @package infobase
  * @subpackage Template
  */
 
@@ -17,26 +17,25 @@ get_header(); ?>
 
 		<?php do_atomic( 'open_content' ); // Open content hook ?>
 
-		<section class="hfeed">
-
-			<?php do_atomic( 'open_hfeed' ); // Open hfeed hook ?>
+		<div class="hfeed">
 
 			<?php if ( have_posts() ) : ?>
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php get_template_part( 'content', get_post_format() ); ?>
+					<?php get_template_part( 'content', 'page' ); ?>
 
 				<?php endwhile; ?>
 
 			<?php endif; ?>
-			
-			<?php do_atomic( 'close_hfeed' ); // Close hfeed hook ?>
 
-		</section><!-- .hfeed -->
+		</div><!-- .hfeed -->
 
 		<?php do_atomic( 'close_content' ); // Close content hook ?>
 
+		<?php get_template_part( 'loop-nav' ); ?>
+
 	</div><!-- #content -->
+
 
 <?php get_footer(); ?>
